@@ -1,0 +1,34 @@
+.epb-section {
+    &__header {
+        position: relative;
+        &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background-color: $gray-300;
+            left: 0;
+            bottom: 0;
+        }
+    }
+
+    &__content {
+        &--big {
+            height: 250px;
+            > .position-absolute {
+                bottom: 0;
+                left: 0;
+                background-color: rgba($gray-900, 0.7);
+            }
+            h1 {
+                color: $white;
+                transition: color 0.3s linear;
+            }
+            &:hover {
+                h1 {color: lighten($primary, 30);}
+            }
+            @include media-breakpoint-up(md) {height: 420px;}
+        }
+    }
+}

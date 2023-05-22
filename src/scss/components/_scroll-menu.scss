@@ -1,0 +1,11 @@
+.epb-scroll-menu {
+    background-color: rgba($white, 0.9);
+    z-index: 9999;
+    transition: transform 0.3s linear;
+    transform: translateY(-100%);
+    &.active {transform: translateY(0);}
+
+    ul {
+        @extend %menu-item-hover;
+    }
+}

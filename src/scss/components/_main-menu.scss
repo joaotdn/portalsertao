@@ -1,0 +1,5 @@
+.epb-main-menu {
+    &__categories {
+        @extend %menu-item-hover;
+    }
+}

@@ -1,0 +1,7 @@
+%menu-item-hover {
+    a:hover,
+    li.current_page_item > a {
+        color: $info;
+        text-decoration: none;
+    }
+}

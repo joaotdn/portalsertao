@@ -1,0 +1,12 @@
+.ads {
+    &--720 {
+        max-width: 100%;
+        width: 720px;
+        height: 90px;
+    }
+    &--300{
+        max-width: 100%;
+        width: 300px;
+        height: 250px;
+    }
+}

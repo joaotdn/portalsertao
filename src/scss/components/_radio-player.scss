@@ -1,0 +1,7 @@
+.epb-radio-player {
+    bottom: 0;
+    right: 0;
+    transition: transform 0.3s linear;
+    transform: translateY(100%);
+    &.active {transform: translateY(0);}
+}

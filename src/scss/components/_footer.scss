@@ -1,0 +1,8 @@
+#epb-footer {
+    ul {
+        a {
+            color: $white;
+        }
+        @extend %menu-item-hover;
+    }
+}

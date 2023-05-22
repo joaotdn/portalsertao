@@ -1,0 +1,26 @@
+.epb-header {
+    &__top-bar {
+        li:not(:first-child) {
+            position: relative;
+            &::before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 25%;
+                width: 1px;
+                height: 50%;
+                background-color: lighten($primary, 10%);
+            }
+        }
+        a {font-size: $line-height-sm;}
+    }
+    &__logo {
+        width: 150px;
+        transition: opacity 0.3s ease-in-out;
+        &:hover {opacity: 0.8;}
+        @include media-breakpoint-up(md) {
+            width: 300px;
+        }
+    }
+    .text-purple {color: $purple;}
+}

@@ -1,0 +1,34 @@
+.slide-features {
+    img {min-width: 100%;}
+    .card-body h1 {
+        display: inline-block;
+        overflow: hidden;
+        width: 100%;
+        height: 100px;
+    }
+}
+.nav-features {
+    width: 100%;
+    left: 0;
+    top: 70px;
+    z-index: 991;
+
+    a {
+        opacity: 0.5;
+        &:hover {opacity: 1;}
+    }
+}
+.features-pager {
+    span {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: $gray-300;
+        transition: all 0.3s ease-in-out;
+        margin: 0 5px;
+        cursor: pointer;
+
+        &.cycle-pager-active {background-color: $danger;}
+    }
+}

@@ -1,0 +1,9 @@
+.economic-indicators {
+    .list-group {
+        span {
+            font-size: 14px;
+            &.cur-min {color: lighten($danger, 20);}
+            &.cur-max {color: lighten($primary, 20);}
+        }
+    }
+}
