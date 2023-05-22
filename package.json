@@ -1,26 +1,28 @@
 {
-  "name": "portaldoespiao",
+  "name": "portalsertao",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "development": "cross-env NODE_ENV=development webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "production": "cross-env NODE_ENV=production webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    "development": "mix",
+    "production": "mix --production",
+    "watch": "mix watch"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/joaotdn/portaldoespiao.git"
+    "url": "https://github.com/joaotdn/portalsertao.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/joaotdn/portaldoespiao/issues"
+    "url": "https://github.com/joaotdn/portalsertao/issues"
   },
-  "homepage": "https://github.com/joaotdn/portaldoespiao#readme",
+  "homepage": "https://github.com/joaotdn/portalsertao#readme",
   "devDependencies": {
     "browser-sync": "^2.27.10",
     "browser-sync-webpack-plugin": "^2.3.0",
+    "cross-env": "^7.0.3",
     "laravel-mix": "^6.0.49",
     "resolve-url-loader": "^5.0.0",
     "sass": "^1.54.3",

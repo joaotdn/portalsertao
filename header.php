@@ -12,11 +12,4 @@
 </head>
 
 <body <?php body_class(); ?>>
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v15.0&appId=3296324287290689&autoLogAppEvents=1" nonce="igUPTQ69"></script>
-    <?php
-    get_template_part('parts/scroll-menu');
-    get_template_part('parts/offcanvas');
-    get_template_part('parts/header');
-    get_template_part('parts/main-menu');
-    ?>
+    
