@@ -1,26 +1,17 @@
-.epb-header {
-    &__top-bar {
-        li:not(:first-child) {
-            position: relative;
-            &::before {
-                content: '';
-                display: block;
-                position: absolute;
-                top: 25%;
-                width: 1px;
-                height: 50%;
-                background-color: lighten($primary, 10%);
-            }
-        }
-        a {font-size: $line-height-sm;}
+.ps-top-bar {
+    font-size: 12px;
+    a {transition: all 0.3s linear;}
+}
+.ps-top-tags {
+    a {
+        &:hover {opacity: 0.5}
     }
-    &__logo {
-        width: 150px;
-        transition: opacity 0.3s ease-in-out;
-        &:hover {opacity: 0.8;}
-        @include media-breakpoint-up(md) {
-            width: 300px;
-        }
+}
+.ps-top-social {
+    li:last-child {
+        a {padding-right: 0;}
     }
-    .text-purple {color: $purple;}
+    a {
+        color: $white;
+    }
 }

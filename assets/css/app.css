@@ -18222,35 +18222,15 @@ img {
   animation: rotating 2s linear infinite;
 }
 
-.epb-header__top-bar li:not(:first-child) {
-  position: relative;
+.ps-top-bar {
+  font-size: 12px;
 }
-.epb-header__top-bar li:not(:first-child)::before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 25%;
-  width: 1px;
-  height: 50%;
-  background-color: #214a8d;
+
+.ps-top-tags a {
+  transition: opacity 0.3s linear;
 }
-.epb-header__top-bar a {
-  font-size: 1.25;
-}
-.epb-header__logo {
-  width: 150px;
-  transition: opacity 0.3s ease-in-out;
-}
-.epb-header__logo:hover {
-  opacity: 0.8;
-}
-@media (min-width: 768px) {
-  .epb-header__logo {
-    width: 300px;
-  }
-}
-.epb-header .text-purple {
-  color: #6f42c1;
+.ps-top-tags a:hover {
+  opacity: 0.5;
 }
 
 #epb-footer ul a {
