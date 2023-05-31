@@ -68,7 +68,7 @@
     <div class="container">
         <div class="row ps-header-content py-3 d-flex justify-content-between align-items-center">
             <div class="col-lg-auto col-md-4 col-9 mb-3 mb-md-0">
-                <a href="#" class="ps-toggle-menu text-light me-2">
+                <a href="#" class="ps-toggle-offcanvas text-light me-3">
                     <i class="fa-solid fa-bars"></i>
                 </a>
                 <a href="<?php echo home_url(); ?>" title="<?php bloginfo('name'); ?>">

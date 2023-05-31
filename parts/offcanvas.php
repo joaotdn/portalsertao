@@ -1,53 +1,56 @@
-<?php
-$fone  = get_field('epb-phone', 'option');
-$email = get_field('epb-email', 'option');
-?>
-<div class="epb-offcanvas position-fixed bg-primary p-2 d-md-none">
-    <div class="row">
-        <div class="col-12 text-end text-white">
-            <i class="fa-solid fa-xmark toggle-offcanvas"></i>
+<div class="ps-offcanvas-menu bg-black">
+    <div class="ps-offcanvas-content position-relative pt-4 px-3">
+        <div class="row">
+            <div class="col-12">
+                <a href="#" title="Fechar menu" class="ps-toggle-offcanvas text-light">
+                    <i class="fa-solid fa-xmark"></i>
+                </a>
+            </div>
+            <div class="col-12 mt-3">
+                <nav class="nav flex-column ps-offcanvas-nav">
+                    <a class="nav-link text-light" href="#">Entretenimento</a>
+                    <a class="nav-link text-light" href="#">Política</a>
+                    <a class="nav-link text-light" href="#">Paraíba</a>
+                    <a class="nav-link text-light" href="#">Manchetes</a>
+                    <a class="nav-link text-light" href="#">Polícia</a>
+                    <a class="nav-link text-light" href="#">Economia</a>
+                    <a class="nav-link text-light" href="#">Esportes</a>
+                    <a class="nav-link text-light" href="#">Saúde</a>
+                    <a class="nav-link text-light" href="#">Tecnologia</a>
+                    <a class="nav-link text-light" href="#">Educação</a>
+                    <a class="nav-link text-light" href="#">Brasil</a>
+                </nav>
+            </div>
+            <div class="col-12 ps-top-social">
+                <ul class="nav justify-content-center pt-3">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-white px-2 py-0 text-white-50">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-white px-2 py-0 text-white-50">
+                            </i><i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-white px-2 py-0 text-white-50">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-white px-2 py-0 text-white-50">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-white px-2 py-0 text-white-50">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="col-12 input-group mt-3">
-            <input type="text" class="form-control border-info" placeholder="Buscar..." aria-label="Buscar..." aria-describedby="button-addon2">
-            <button class="btn btn-outline-info px-2 px-md-4" type="button">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-        </div>
-        <div class="col-12 mt-3">
-            <ul class="nav flex-column">
-                <?php
-                wp_nav_menu(array(
-                    'menu'       => 'Menu principal',
-                    'items_wrap' => '%3$s',
-                    'container'  => '',
-                    'depth'         => 1,
-                    'fallback_cb'   => false,
-                    'add_li_class'  => 'nav-link fw-semibold'
-                ));
-                ?>
-                <?php if(isset($fone)): ?>
-                <li class="nav-item">
-                    <a href="tel:<?php echo $fone; ?>" class="text-white nav-link" title="Ligue para nossa redação">
-                        <small>
-                            <i class="fa-solid fa-phone text-warning"></i> <?php echo $fone; ?>
-                        </small>
-                    </a>
-                </li>
-                <?php 
-                    endif;
-                    if(isset($email)):
-                ?>
-                <li class="nav-item">
-                    <a href="mailto:<?php echo $email; ?>" class="text-white nav-link" title="Mande-nos um email">
-                        <small>
-                            <i class="fa-solid fa-envelope text-warning"></i> Fale conosco
-                        </small>
-                    </a>
-                </li>
-                <?php endif; ?>
-            </ul>
-        </div>
-
     </div>
 </div>
-<div class="epb-offcanvas-overlay toggle-offcanvas position-fixed d-md-none"></div>
+<div class="ps-toggle-offcanvas ps-offcanvas-over"></div>

@@ -10411,8 +10411,7 @@ readers do not read off random characters that represent icons */
   content: "\f63f";
 }
 
-.epb-offcanvas ul a:hover, .epb-scroll-menu ul a:hover, #epb-footer ul a:hover,
-.epb-offcanvas ul li.current_page_item > a,
+.epb-scroll-menu ul a:hover, #epb-footer ul a:hover,
 .epb-scroll-menu ul li.current_page_item > a,
 #epb-footer ul li.current_page_item > a {
   color: #0dcaf0;
@@ -18316,35 +18315,45 @@ img {
 .epb-scroll-menu.active, .epb-category__pagination ul.page-numbers span.epb-scroll-menu.current {
   transform: translateY(0);
 }
-.epb-offcanvas-overlay, .epb-offcanvas {
-  height: 100vh;
+.ps-offcanvas-menu {
+  position: fixed;
   left: 0;
   top: 0;
+  height: 100vh;
+  width: 250px;
+  z-index: 999;
+  transition: all 0.3s linear;
   opacity: 0;
+  transform: translateX(-100%);
   visibility: hidden;
-  transition: all 0.3s ease-in-out;
+  overflow-y: auto;
 }
-.active.epb-offcanvas-overlay, .epb-category__pagination ul.page-numbers span.epb-offcanvas-overlay.current, .active.epb-offcanvas, .epb-category__pagination ul.page-numbers span.epb-offcanvas.current {
+.ps-offcanvas-menu.active, .epb-category__pagination ul.page-numbers span.ps-offcanvas-menu.current {
   opacity: 1;
+  transform: translateX(0);
   visibility: visible;
 }
 
-.epb-offcanvas {
-  width: 240px;
-  z-index: 999999999;
-  transform: translateX(-100%);
-}
-.epb-offcanvas.active, .epb-category__pagination ul.page-numbers span.epb-offcanvas.current {
-  transform: translate(0);
-}
-.epb-offcanvas ul a {
-  color: #fff;
+.ps-offcanvas-nav a {
+  border-bottom: 1px solid #454545;
 }
 
-.epb-offcanvas-overlay {
-  width: 100%;
-  z-index: 991;
+.ps-offcanvas-over {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 998;
+  height: 100vh;
+  width: 100vw;
   background-color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: opacity 0.3s linear;
+  opacity: 0;
+  visibility: hidden;
+}
+.ps-offcanvas-over.active, .epb-category__pagination ul.page-numbers span.ps-offcanvas-over.current {
+  opacity: 1;
+  visibility: visible;
 }
 
 .slide-features img {

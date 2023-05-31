@@ -1,37 +1,40 @@
-%offcanvas {
-    height: 100vh;
+.ps-offcanvas-menu {
+    position: fixed;
     left: 0;
     top: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 999;
+    transition: all .3s linear;
+    opacity: 0;
+    transform: translateX(-100%);
+    visibility: hidden;
+    overflow-y: auto;
+    &.active {
+        opacity: 1;
+        transform: translateX(0);
+        visibility: visible;
+    }
+}
+.ps-offcanvas-nav {
+    a {
+        border-bottom: 1px solid #454545;
+    }
+}
+.ps-offcanvas-over {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 998;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: opacity .3s linear;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease-in-out;
-
     &.active {
         opacity: 1;
         visibility: visible;
     }
-}
-.epb-offcanvas {
-    @extend %offcanvas;
-    width: 240px;
-    z-index: 999999999;
-    transform: translateX(-100%);
-
-    &.active {
-        transform: translate(0);
-    }
-
-    ul {
-        a {
-            color: $white;
-        }
-        @extend %menu-item-hover;
-    }
-}
-
-.epb-offcanvas-overlay {
-    @extend %offcanvas;
-    width: 100%;
-    z-index: 991;
-    background-color: rgba(255,255,255,0.6);
 }

@@ -1,6 +1,6 @@
 (function($) {
-    $('.toggle-offcanvas').on('click', function(e) {
+    $('.ps-toggle-offcanvas').on('click', function(e) {
         e.preventDefault();
-        $('.epb-offcanvas,.epb-offcanvas-overlay').toggleClass('active');
+        $('.ps-offcanvas-menu, .ps-offcanvas-over').toggleClass('active');
     });
 })(jQuery);

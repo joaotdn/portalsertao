@@ -15,4 +15,5 @@
     <?php
     get_template_part('parts/header');
     get_template_part('parts/main-menu');
+    get_template_part('parts/offcanvas');
     ?>
