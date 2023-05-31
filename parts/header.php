@@ -83,7 +83,7 @@
             </div>
 
             <div class="col-lg-auto col-md-8 col-sm-12">
-                <div class="ads--720 bg-light"></div>
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/adsp.png" alt="">
             </div>
 
             <div class="col-auto ps-top-controls">
