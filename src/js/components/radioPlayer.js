@@ -1,44 +1,26 @@
 (function ($) {
-    const radioPlayer = $('.epb-radio-player');
-    const RADIO_DELAY = 1200;
+    $('a', '.ps-top-radio, .ps-top-mobile-radio').on('click', function (e) {
+        e.preventDefault();
+        let player = document.getElementById('ps-top-player');
+        if ($(this).hasClass('active')) {
+            $(this).removeClass('active');
+            $('> i', this).removeClass('fa-circle-pause').addClass('fa-circle-play');
+            player.pause();
+        } else {
+            $(this).addClass('active');
+            $('> i', this).removeClass('fa-circle-play').addClass('fa-circle-pause');
+            player.play();
+        }
+    });
 
-    const playRadio = function (url) {
-        let player = document.getElementById('radio-audio');
-        player.setAttribute('src', url);
-        player.play();
-    };
-
-    const setRadio = function () {
-        return new Promise(resolve => {
-            $('.epb-radio-player__name').text('Aguarde...');
-            let obj = JSON.parse(localStorage.getItem('activeRadio'));
-            if (obj) {
-                setTimeout(function () {
-                    $('.epb-radio-player__name').text(obj.name);
-                    playRadio(obj.url);
-                }, RADIO_DELAY);
-            }
-        });
-    };
-
-    if (radioPlayer.length) {
-        !!localStorage.getItem('activeRadio') && radioPlayer.addClass('active') && setRadio();
-
-        $('.epb-radios__select').on('change', function () {
-            let obj = {
-                url: $(this).val(),
-                name: $('option:selected', this).text()
-            };
-            localStorage.setItem('activeRadio', JSON.stringify(obj));
-            !radioPlayer.hasClass('active') && radioPlayer.addClass('active');
-            setRadio();
-        });
-
-        $('.epb-radio-player__close').on('click', function (e) {
-            e.preventDefault();
-            localStorage.removeItem('activeRadio');
-            radioPlayer.removeClass('active');
-            document.getElementById('radio-audio').pause();
-        });
-    }
+    $.ajax({
+        url: 'https://player.jnbhost.com.br/proxy/7126/currentsong',
+        type: 'GET',
+        success: function(data) {
+            $('span', '.ps-top-playlist').html('Tocando agora: ' + data);
+        },
+        error: function() {
+            $('span', '.ps-top-playlist').html('Estamos fora do ar');
+        }
+    });
 })(jQuery);

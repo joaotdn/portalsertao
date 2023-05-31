@@ -1,17 +1,39 @@
 .ps-top-bar {
     font-size: 12px;
-    a {transition: all 0.3s linear;}
+
+    a {
+        transition: all 0.3s linear;
+    }
 }
+
 .ps-top-tags {
     a {
-        &:hover {opacity: 0.5}
+        &:hover {
+            opacity: 0.5
+        }
     }
 }
+
 .ps-top-social {
     li:last-child {
-        a {padding-right: 0;}
+        a {
+            padding-right: 0;
+        }
     }
-    a {
-        color: $white;
+
+    a:hover {
+        color: #ffffff !important;
+    }
+}
+
+.ps-header-logo {
+    @media screen and (max-width: 1399px) {
+        width: 150px;
+    }
+}
+.ps-toggle-menu {
+    display: none;
+    @media screen and (max-width: 1399px) {
+        display: inline-block;
     }
 }

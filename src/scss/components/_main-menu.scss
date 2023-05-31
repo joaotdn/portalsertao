@@ -1,5 +1,51 @@
-.epb-main-menu {
-    &__categories {
-        @extend %menu-item-hover;
+.ps-main-menu {
+    border-bottom: 2px solid darken($danger, 20);
+
+    nav {
+        display: none;
+
+        @media screen and (min-width: 992px) {
+            display: flex;
+        }
+    }
+
+    a {
+        color: #ffffff;
+        text-transform: uppercase;
+        font-size: 12px;
+
+        &:hover {
+            color: $gray-500;
+        }
+    }
+
+    .nav {
+        a:not(:first-child) {
+            padding-left: 0px;
+        }
+    }
+}
+
+.ps-toggle-search {
+    cursor: pointer;
+    display: none;
+
+    @media screen and (min-width: 992px) {
+        display: flex;
+    }
+}
+
+.ps-search-content {
+    display: none;
+
+    &.active {
+        display: block;
+    }
+}
+
+.ps-form-search-mo {
+    display: none;
+    @media screen and (max-width: 991px) {
+        display: flex;
     }
 }

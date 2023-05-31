@@ -10,3 +10,4 @@ import "./components/indicators";
 import "./components/videosGalery";
 import "./components/radioPlayer";
 import "./components/fontSize";
+import "./components/searchForm";

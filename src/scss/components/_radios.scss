@@ -1,3 +1,37 @@
-.epb-radios {
-    background-color: $warning;
+.ps-top-radio {
+    width: 150px;
+
+    a {
+        color: $danger;
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+    }
+    i {font-size: 3rem;}
+    > div {
+        width: 100%;
+        white-space: nowrap;
+        font-size: 10px;
+        border: 1px solid #454545;
+        > span {
+            animation: scrollText 15s infinite linear;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+    }
+}
+
+.ps-top-controls {
+    @media screen and (max-width: 1199px) {
+        display: none;
+    }
+}
+
+.ps-top-mobile-radio {
+    a {font-size: 2rem; transform: translateY(-6px);}
+}
+
+@keyframes scrollText {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
 }

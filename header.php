@@ -14,4 +14,5 @@
 <body <?php body_class(); ?>>
     <?php
     get_template_part('parts/header');
+    get_template_part('parts/main-menu');
     ?>

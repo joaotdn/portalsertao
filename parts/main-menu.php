@@ -1,40 +1,42 @@
-<section class="epb-main-menu container d-none d-md-block">
-    <div class="row border-top border-bottom border-info ">
-        <nav class="col-auto epb-main-menu__categories">
-            <ul class="nav m-0">
-                <?php
-                wp_nav_menu(array(
-                    'menu'       => 'Menu principal',
-                    'items_wrap' => '%3$s',
-                    'container'  => '',
-                    'depth'         => 1,
-                    'fallback_cb'   => false,
-                    'add_li_class'  => 'nav-link fw-semibold'
-                ));
-                ?>
-            </ul>
-        </nav>
-        <div class="col epb-main-menu__news d-flex align-items-center text-truncate">
-            <span class="fw-semibold text-info">
-                <i class="fa-solid fa-clock"></i>
-                Últimas Notícias:
-            </span>
-            <?php
-            $news = get_posts(array( 'posts_per_page' => 6 ));
-            ?>
-            <div class="epb-main-menu__news--list d-flex align-items-center" data-cycle-fx="fade" data-cycle-timeout="2000" data-cycle-slides="> a" data-cycle-prev=".nav-news-prev" data-cycle-next=".nav-news-next">
-                <?php foreach($news as $new): ?>
-                <a href="<?php echo get_the_permalink($new->ID); ?>" class="d-inline-block text-muted text-decoration-none ps-2 fs-6" title="<?php echo $new->post_title; ?>"><?php echo $new->post_title; ?></a>
-                <?php endforeach; ?>
+<section class="ps-main-menu container-fluid bg-danger">
+    <div class="container">
+        <div class="d-flex align-items-center">
+            <nav class="w-100 nav">
+                <a class="nav-link" href="#">Entretenimento</a>
+                <a class="nav-link" href="#">Política</a>
+                <a class="nav-link" href="#">Paraíba</a>
+                <a class="nav-link" href="#">Manchetes</a>
+                <a class="nav-link" href="#">Polícia</a>
+                <a class="nav-link" href="#">Economia</a>
+                <a class="nav-link" href="#">Esportes</a>
+                <a class="nav-link" href="#">Saúde</a>
+                <a class="nav-link" href="#">Tecnologia</a>
+                <a class="nav-link" href="#">Educação</a>
+                <a class="nav-link" href="#">Brasil</a>
+            </nav>
+            <div class="flex-shrink-1 text-white position-relative ps-toggle-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
             </div>
-        </div>
-        <div class="col-auto ms-2 text-decoration-none d-flex align-items-center">
-            <a href="#" title="Anterior" class="d-inline-block nav-news-prev">
-                <i class="fa-solid fa-angle-left text-info"></i>
-            </a>
-            <a href="#" title="Próxima" class="d-inline-block ms-2 nav-news-next">
-                <i class="fa-solid fa-angle-right text-info"></i>
-            </a>
+            <form action="/" class="ps-form-search-mo w-100 p-2">
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control" placeholder="Buscar">
+                    <button class="btn btn-outline-light" type="button">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 </section>
+
+<div class="container-fluid bg-dark ps-search-content">
+    <div class="container">
+        <div class="row">
+            <div class="col py-3">
+                <form action="/" class="ps-form-search w-100">
+                    <input type="text" class="w-100 form-control form-control-sm">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

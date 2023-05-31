@@ -1,5 +1,5 @@
-<header class="ps-header container-fluid px-0 py-2 bg-dark border-bottom border-danger border-2">
-    <div class="container ps-top-bar">
+<div class="ps-top-bar container-fluid px-0 py-2 bg-black border-bottom border-dark border-2 d-none d-lg-block">
+    <div class="container">
         <div class="row d-flex justify-content-between">
             <div class="col-auto text-white-50">
                 <span class="temp-max"></span>
@@ -59,6 +59,43 @@
                         </a>
                     </li>
                 </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<header class="container-fluid ps-header bg-black">
+    <div class="container">
+        <div class="row ps-header-content py-3 d-flex justify-content-between align-items-center">
+            <div class="col-lg-auto col-md-4 col-9 mb-3 mb-md-0">
+                <a href="#" class="ps-toggle-menu text-light me-2">
+                    <i class="fa-solid fa-bars"></i>
+                </a>
+                <a href="<?php echo home_url(); ?>" title="<?php bloginfo('name'); ?>">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ps-logo.png" alt="Marca do Portal Sertão" class="ps-header-logo" width="240">
+                </a>
+            </div>
+
+            <div class="col-3 d-flex d-md-none ps-top-mobile-radio justify-content-end">
+                <a href="#" title="Tocar rádio" class="text-danger">
+                    <i class="fa-solid fa-circle-play"></i>
+                </a>
+            </div>
+
+            <div class="col-lg-auto col-md-8 col-sm-12">
+                <div class="ads--720 bg-light"></div>
+            </div>
+
+            <div class="col-auto ps-top-controls">
+                <div class="ps-top-radio position-relative">
+                    <a href="#" title="Tocar rádio">
+                        <i class="fa-solid fa-circle-play"></i>
+                    </a>
+                    <div class="py-1 px-1 mt-2 text-light rounded-1 overflow-hidden ps-top-playlist">
+                        <span></span>
+                    </div>
+                </div>
+                <audio src="https://player.jnbhost.com.br/proxy/7126/stream" id="ps-top-player"></audio>
             </div>
         </div>
     </div>
