@@ -1,3 +1,3 @@
 (function ($) {
-    $('.slide-features').cycle();
+    $('.ps-slide-features').cycle();
 })(jQuery);

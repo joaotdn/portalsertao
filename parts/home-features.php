@@ -1,113 +1,120 @@
-<?php
-$posts = get_posts(array(
-    'posts_per_page' => 3,
-    'orderby' => 'meta_value',
-    'order'   => 'ASC',
-    'meta_query'     => array(
-        'relation'        => 'AND',
-        array(
-            'relation'        => 'OR',
-            array(
-                'key'        => 'epb_destaques',
-                'value'      => 'destaque1',
-                'compare'    => '='
-            ),
-            array(
-                'key'        => 'epb_destaques',
-                'value'      => 'destaque2',
-                'compare'    => '='
-            ),
-            array(
-                'key'        => 'epb_destaques',
-                'value'      => 'destaque3',
-                'compare'    => '='
-            )
-        )
-    )
-));
-?>
-<section class="epb-home-features container mt-4">
-    <div class="row">
-        <div class="col-sm-12 col-md-8 col-lg-9">
+<section class="ps-home-features container mt-3 mt-md-5">
+    <div class="row p-0">
+        <div class="col-12 col-md-8">
             <div class="row">
-                <div class="col-12 align-items-center d-flex justify-content-center">
-                    <figure class="ads--720 p-2 border bg-light">
-                        <span class="text-muted"><small>Publicidade</small></span>
-                    </figure>
-                </div>
-                <div class="col-12 mt-3">
-                    <p class="m-0 font-tag">
-                        <?php echo wp_get_post_tags($posts[0]->ID)[0]->name; ?>
-                    </p>
-                    <h1 class="font-title fs-4 fs-lg-2">
-                        <a href="<?php echo get_the_permalink($posts[0]->ID); ?>" title="<?php echo $posts[0]->post_title; ?>">
-                            <?php echo $posts[0]->post_title; ?>
+                <div class="col-12">
+                    <p class="font-tag">Sousa</p>
+                    <h2 class="font-title">
+                        <a href="#" title="">
+                            VÍDEO: Ortopedista técnico destaca serviços, confecções de próteses e órteses e benefícios oferecidos pela Moriah Ortopedia, na cidade de Sousa
                         </a>
-                    </h1>
-                    <p class="text-excerpt">
-                        <small><?php echo substr(get_the_excerpt($posts[0]->ID), 0, 200); ?> [...]</small>
-                    </p>
+                    </h2>
+                    <p class="text-excerpt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, praesentium voluptas nobis consequatur.</p>
                 </div>
 
-                <div class="col-12 col-md-6 col-lg-8 mt-4">
+                <div class="col-12">
                     <div class="row">
-                        <figure class="col-12 col-lg-6 text-center">
-                            <a href="<?php echo get_the_permalink($posts[1]->ID); ?>" title="<?php echo $posts[1]->post_title; ?>" class="d-inline-block">
-                                <?php echo get_the_post_thumbnail($posts[1]->ID, 'ebp-thumb-medium'); ?>
-                            </a>
-                        </figure>
-                        <div class="col-12 col-lg-6">
-                            <p class="m-0 font-tag">
-                                <?php echo wp_get_post_tags($posts[1]->ID)[0]->name; ?>
-                            </p>
-                            <h1 class="font-title fs-6 fs-lg-5">
-                                <a href="<?php echo get_the_permalink($posts[1]->ID); ?>" title="<?php echo $posts[1]->post_title; ?>"><?php echo $posts[1]->post_title; ?></a>
-                            </h1>
-                            <p class="text-excerpt">
-                                <small><?php echo substr(get_the_excerpt($posts[1]->ID), 0, 100); ?> [...]</small>
-                            </p>
+                        <div class="col-12 col-md-6 mb-md-3">
+                            <p class="font-tag">Preliminares</p>
+                            <h5 class="font-title">
+                                <a href="#" title="">
+                                    Resultado preliminar do concurso da Câmara de Cajazeiras é divulgado; confira!
+                                </a>
+                            </h5>
+                        </div>
+                        <div class="col-12 col-md-6 mb-md-3">
+                            <p class="font-tag">Paraíba</p>
+                            <h5 class="font-title">
+                                <a href="#" title="">
+                                    Todo mundo diz que UTI Aérea é coisa de rico. Pois na PB é diferente', avalia Nonato Bandeira sobre mais uma UTI e 40 ambulâncias
+                                </a>
+                            </h5>
                         </div>
 
-                        <div class="col-12 d-none d-lg-block">
-                            <p class="m-0 font-tag">
-                                <?php echo wp_get_post_tags($posts[2]->ID)[0]->name; ?>
-                            </p>
-                            <h1 class="font-title fs-4">
-                                <a href="<?php echo get_the_permalink($posts[2]->ID); ?>" title="<?php echo $posts[2]->post_title; ?>">
-                                    <?php echo $posts[2]->post_title; ?>
-                                </a>
-                            </h1>
-                            <?php
-                            $category = get_the_category($posts[2]->ID);
-                            $posts = get_posts(array(
-                                'posts_per_page' => 1,
-                                'cat' => $category[0]->cat_ID,
-                                'post__not_in' => array($posts[0]->ID, $posts[1]->ID, $posts[2]->ID),
-                            ));
-                            ?>
-                            <p class="related-link d-flex align-items-stretchs fs-6 fs-lg-4">
-                                <span class="related-link__icon d-inline-block">
-                                    <i class="fa-solid fa-arrow-right-to-bracket text-primary"></i>
-                                </span>
-                                <a href="<?php echo get_the_permalink($posts[0]->ID); ?>" title="<?php echo $posts[0]->post_title; ?>" class="d-inline-block ps-2">
-                                    <small>
-                                    <?php echo $posts[0]->post_title; ?>
-                                    </small>
-                                </a>
-                            </p>
+                        <div class="col-12 col-md-6 mb-3">
+                            <a href="#" title="" class="w-100 ps-media-news bg-cover d-inline-block" data-thumb-post="<?php echo get_template_directory_uri(); ?>/assets/img/p1.jpg">
+                                <span class="ps-media-news--tag d-inline-block p-2 bg-danger text-light text-uppercase">Câmara dos Vereadores</span>
+                                <h5 class="font-title ps-media-news--title d-inline-block text-light p-2 w-100">Assembleia aprova pedido de Doutora Paula ao TJPB para elevação do Município de Cajazeiras a terceira entrância</h5>
+                                <span class="ps-media-news--mask d-block"></span>
+                            </a>
+                        </div>
+
+                        <div class="col-12 col-md-6 mb-3">
+                            <a href="#" title="" class="w-100 ps-media-news bg-cover d-inline-block" data-thumb-post="<?php echo get_template_directory_uri(); ?>/assets/img/p2.jpg">
+                                <span class="ps-media-news--tag d-inline-block p-2 bg-danger text-light text-uppercase">Cajazeiras</span>
+                                <h5 class="font-title ps-media-news--title d-inline-block text-light p-2 w-100">Em Brasília: prefeito Zé Aldemir tenta liberar recursos de obras conveniadas com o governo federal</h5>
+                                <span class="ps-media-news--mask d-block"></span>
+                            </a>
                         </div>
                     </div>
                 </div>
-
-                <?php
-                get_template_part('parts/home-features-slider');
-                ?>
             </div>
         </div>
-        <div class="col-sm-12 col-md-4 col-lg-3 ps-lg-4">
-            <?php
-            get_template_part('parts/home-features-sidebar');
-            ?>
+        <div class="col-12 col-md-4">
+            <div class="row">
+                <div class="col-12 position-relative">
+                    <div class="ps-slide-features" data-cycle-fx="fade" data-cycle-timeout="5000" data-cycle-slides="> .card" data-cycle-prev=".nav-features--prev" data-cycle-next=".nav-features--next" data-cycle-pager=".features-pager" data-cycle-pager-template="<span></span>" data-cycle-swipe=true>
+                        <div class="card mb-3">
+                            <a href="#" title="" class="card-img-top">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/v1.jpg" class="" alt="...">
+                            </a>
+                            <div class="card-body">
+                                <p class="font-tag">Sucesso</p>
+                                <a href="#" title="">
+                                    <h5 class="card-title font-title">VÍDEO: JP Ponto 13 é sucesso em São João do Rio do Peixe com variedade de roupas, acessórios e preço mais acessível do mercado </h5>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card mb-3">
+                            <a href="#" title="" class="card-img-top">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/v2.jpg" class="" alt="...">
+                            </a>
+                            <div class="card-body">
+                                <p class="font-tag">Acabamento</p>
+                                <a href="#" title="">
+                                    <h5 class="card-title font-title">Do alicerce ao acabamento: Madeireira Piranhense se destaca em São José de Piranhas com 27 anos de credibilidade e entrega gratuita de materiais</h5>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card mb-3">
+                            <a href="#" title="" class="card-img-top">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/v3.jpg" class="" alt="...">
+                            </a>
+                            <div class="card-body">
+                                <p class="font-tag">Cajazeiras</p>
+                                <a href="#" title="">
+                                    <h5 class="card-title font-title">Secretária de Desenvolvimento Humano de Cajazeiras tira dúvidas sobre programa Prato Cheio e explica funcionalidades"</h5>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card mb-3">
+                            <a href="#" title="" class="card-img-top">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/v4.jpg" class="" alt="...">
+                            </a>
+                            <div class="card-body">
+                                <p class="font-tag">Democracia</p>
+                                <a href="#" title="">
+                                    <h5 class="card-title font-title">"Denise vem pra equilibrar a democracia", diz Polyana Dutra sobre parceria com prefeita de Bom Jesus; secretária destaca importância das mulheres na política </h5>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="nav-features--prev nav-features-control" title="Notícia anterio">
+                        <i class="fa-solid fa-circle-chevron-left"></i>
+                    </a>
+                    <a href="#" class="nav-features--next nav-features-control" title="Próxima notícia">
+                        <i class="fa-solid fa-circle-chevron-right"></i>
+                    </a>
+                    <div class="features-pager col-12 justify-content-center d-flex"></div>
+                </div>
+
+                <div class="col-12">
+                    <div class="w-100 ps-coins-indicators"></div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
