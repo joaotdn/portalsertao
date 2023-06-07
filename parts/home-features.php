@@ -111,9 +111,35 @@
                     <div class="features-pager col-12 justify-content-center d-flex"></div>
                 </div>
 
-                <div class="col-12">
-                    <div class="w-100 ps-coins-indicators"></div>
+                <div class="col-12 my-3 my-md-4">
+                    <div class="w-100 ps-coins-indicators p-3">
+                        <div class="w-100 mb-3 border-bottom border-1 border-light">
+                            <h5 class="text-uppercase">Indicadores Econômicos</h5>
+                        </div>
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Dólar Americano
+                                <span class="badge bg-primary rounded-pill cur-usd">
+                                    R$ <span class="cur-min"></span>
+                                </span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Euro
+                                <span class="badge bg-primary rounded-pill cur-euro">
+                                    R$ <span class="cur-min"></span>
+                                </span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Bitcoin
+                                <span class="badge bg-primary rounded-pill cur-btc">
+                                    R$ <span class="cur-min"></span>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+
+                
             </div>
         </div>
     </div>
