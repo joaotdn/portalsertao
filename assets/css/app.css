@@ -18484,6 +18484,14 @@ img {
   }
 }
 
+.ps-coins-indicators {
+  background-color: #e9ecef;
+}
+.ps-coins-indicators h5, .ps-coins-indicators .h5 {
+  font-size: 12px;
+  color: #6c757d;
+}
+
 .epb-videos__header:before {
   content: "";
   display: block;

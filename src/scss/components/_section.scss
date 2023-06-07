@@ -1,6 +1,7 @@
 .epb-section {
     &__header {
         position: relative;
+
         &::before {
             content: "";
             display: block;
@@ -16,19 +17,27 @@
     &__content {
         &--big {
             height: 250px;
-            > .position-absolute {
+
+            >.position-absolute {
                 bottom: 0;
                 left: 0;
                 background-color: rgba($gray-900, 0.7);
             }
+
             h1 {
                 color: $white;
                 transition: color 0.3s linear;
             }
+
             &:hover {
-                h1 {color: lighten($primary, 30);}
+                h1 {
+                    color: lighten($primary, 30);
+                }
             }
-            @include media-breakpoint-up(md) {height: 420px;}
+
+            @include media-breakpoint-up(md) {
+                height: 420px;
+            }
         }
     }
 }
@@ -59,14 +68,27 @@
         width: 100%;
         height: 100%;
         z-index: 7;
-        background: rgb(0,0,0);
-        background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%);
+        background: rgb(0, 0, 0);
+        background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 70%);
         transition: all 0.3s linear;
     }
+
     &:hover {
-        .ps-media-news--mask {background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);}
+        .ps-media-news--mask {
+            background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+        }
     }
+
     @include media-breakpoint-up(md) {
         height: 400px;
+    }
+}
+
+.ps-coins-indicators {
+    background-color: $gray-200;
+
+    h5 {
+        font-size: 12px;
+        color: $gray-600;
     }
 }
