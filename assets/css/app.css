@@ -19010,6 +19010,10 @@ img {
   height: 80px;
   border-radius: 50%;
 }
+.ps-home-news--gallery .thumb-gallery {
+  width: 100px;
+  height: 100px;
+}
 
 .ps-videos-home {
   position: relative;
