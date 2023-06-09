@@ -19005,6 +19005,11 @@ img {
 .ps-home-news--list a:first-child {
   padding-top: 0;
 }
+.ps-home-news--authors .author-th {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
 
 .ps-videos-home {
   position: relative;
