@@ -13,4 +13,24 @@
         const code = $(this).attr('data-youtube-code');
         $('iframe', '#videoHomeModal').attr('src', 'https://www.youtube.com/embed/' + code);
     });
+    $('a', '.ps-videos-home--header').on('click', function(e) {
+        e.preventDefault();
+        $(this).removeClass('disabled');
+        $(this).siblings().addClass('disabled');
+        if (!$(this).hasClass('ps-videos-home-show')) {
+            $('.ps-videos-home--content').each(function() {
+                $(this).removeClass('active')
+            })
+            $('.ps-videos-home--tv').each(function() {
+                $(this).addClass('active')
+            })
+        } else {
+            $('.ps-videos-home--content').each(function() {
+                $(this).addClass('active')
+            })
+            $('.ps-videos-home--tv').each(function() {
+                $(this).removeClass('active')
+            })
+        }
+    });
 })(jQuery);

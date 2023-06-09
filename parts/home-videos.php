@@ -4,7 +4,7 @@
             <div class="col-12">
                 <div class="row ps-videos-home--header mb-3 pb-2">
                     <div class="col-auto">
-                        <a href="#" title="Ver todos os vídeos" class="d-inline-block">
+                        <a href="#" title="Ver todos os vídeos" class="d-inline-block ps-videos-home-show">
                             <h5><i class="fa-solid fa-clapperboard"></i> Vídeos</h5>
                         </a>
 
@@ -20,15 +20,18 @@
                 </div>
             </div>
 
-            <div class="col-12 col-lg-4">
+            <div class="col-12 col-lg-4 position-relative ps-videos-home--content active">
                 <a href="#" title="" class="w-100 ps-videos-home--thumb bg-cover align-items-center justify-content-center" data-thumb-post="https://img.youtube.com/vi/wagid3poUAg/hqdefault.jpg" data-youtube-code="wagid3poUAg" data-bs-toggle="modal" data-bs-target="#videoHomeModal">
                     <span class="play-video-icon">
                         <i class="fa-regular fa-circle-play"></i>
                     </span>
                 </a>
+                <a href="#" title="" class="btn btn-danger ps-videos-home--read">
+                    <i class="fa-regular fa-newspaper"></i> Continuar lendo
+                </a>
             </div>
 
-            <div class="col-12 col-lg-4">
+            <div class="col-12 col-lg-4 ps-videos-home--content active">
                 <nav class="nav flex-column ps-videos-home--nav">
                     <a class="nav-link py-4 active" href="#" data-youtube-code="wagid3poUAg">
                         <span class="me-2"><i class="fa-solid fa-video"></i></span>
@@ -43,6 +46,38 @@
                         <span>Daiane Valêncio conta as novidades e fala sobre os projetos para o meio empreendedor de Cajazeiras</span>
                     </a>
                 </nav>
+            </div>
+
+            <div class="col-12 col-lg-4 ps-videos-home--tv">
+                <iframe style="width:100%; height:300px;" src="https://playerv.jnbhost.com.br/video/tvsertao/2/true/true/c3Rtdi5qbmJob3N0LmNvbS5icisx/16:9/aHR0cHM6Ly9wb3J0YWxzZXJ0YW8uY29tL2Vudmlvcy8yMDIzLzAzLzI5LzQ5ZjViNGUyMzIyN2M0N2FlNTU0NzU4NjBjNzhlYjZhZTgzOWQwNGQuanBnKzE=" scrolling="no" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <div class="col-12 col-lg-4 ps-videos-home--tv">
+                <p class="text-white pb-2">Programação</p>
+                <nav class="w-100">
+                    <span class="d-inline-block w-100 my-2">
+                        <strong>13:00</strong> - Programa de notícia e debate
+                    </span>
+                    <span class="d-inline-block w-100 my-2">
+                        <strong>13:00</strong> - Programa de notícia e debate
+                    </span>
+                    <span class="d-inline-block w-100 my-2">
+                        <strong>13:00</strong> - Programa de notícia e debate
+                    </span>
+                    <span class="d-inline-block w-100 my-2">
+                        <strong>13:00</strong> - Programa de notícia e debate
+                    </span>
+                    <span class="d-inline-block w-100 my-2">
+                        <strong>13:00</strong> - Programa de notícia e debate
+                    </span>
+                    <span class="d-inline-block w-100 my-2">
+                        <strong>13:00</strong> - Programa de notícia e debate
+                    </span>
+                </nav>
+            </div>
+
+            <div class="col-12 col-lg-4 text-center">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ads2.jpg" alt="">
             </div>
         </div>
     </div>
