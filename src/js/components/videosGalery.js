@@ -1,28 +1,16 @@
-(function($) {
-    $('a' ,'.epb-videos__galery--list').on('click', function(e) {
+(function ($) {
+    $('a', '.ps-videos-home--nav').on('click', function (e) {
         e.preventDefault();
-        let media = $(this).data('youtubeid');
-        let link  = $(this).data('video-link');
-        let txt   = $(this).attr('title');
-        $('iframe', '.epb-videos__galery--media')
-            .attr('src', 'https://www.youtube.com/embed/' + media);
-        $('.video-title-player')
-            .attr('src', link)
-            .html(txt);
-    });
+        const code = $(this).data('youtube-code');
+        $(this).addClass('active');
+        $(this).siblings().removeClass('active');
 
-    $('.video-th', '.epb-videos__galery--list').on('click',function() {
-        $(this).addClass('active')
-            .siblings('div')
-            .removeClass('active');
+        $('.ps-videos-home--thumb').css('backgroundImage', 'url(https://img.youtube.com/vi/' + code + '/hqdefault.jpg)');
+        $('.ps-videos-home--thumb').attr('data-youtube-code', code);
     });
-
-    // $('> div > a', '.epb-videos__galery--pager').on('click', function(e) {
-    //     e.preventDefault();
-    //     $(this)
-    //         .addClass('active')
-    //         .parent()
-    //         .siblings()
-    //         .removeClass('active');
-    // });
+    $('.ps-videos-home--thumb').on('click', function (e) {
+        e.preventDefault();
+        const code = $(this).attr('data-youtube-code');
+        $('iframe', '#videoHomeModal').attr('src', 'https://www.youtube.com/embed/' + code);
+    });
 })(jQuery);

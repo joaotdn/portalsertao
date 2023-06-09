@@ -79,7 +79,7 @@
         }
     }
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(lg) {
         height: 400px;
     }
 }
@@ -98,7 +98,8 @@
 }
 
 .ps-loterica-results {
-    background-color: $blue-600;
+    background-color: $blue-500;
+    border-radius: 6px;
 }
 
 .ps-loterica-item {
@@ -137,7 +138,7 @@
 
 .ps-loterica-quina {
     .accordion-button {
-        background-color: $purple-800;
+        background-color: $purple-600;
     }
 }
 
@@ -158,5 +159,12 @@
 .ps-loterica-dupla-sena {
     .accordion-button {
         background-color: $red-500;
+    }
+}
+
+.ads-features {
+    display: none;
+    @media screen and (min-width: 1400px) {
+        display: flex;
     }
 }

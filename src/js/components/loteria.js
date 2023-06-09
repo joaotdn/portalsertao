@@ -5,8 +5,8 @@
             "mega-sena",
             "lotofacil",
             "quina",
-            "lotomania",
-            "dupla-sena"
+            "lotomania"
+            // "dupla-sena"
         ];
 
         $.ajax("https://loteriascaixa-api.herokuapp.com/api")

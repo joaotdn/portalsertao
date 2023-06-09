@@ -48,6 +48,12 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="col-12">
+                    <div class="w-100 bg-light p-2 border text-center mb-3 ads-features justify-content-center">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/adsp.png" alt="">
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-12 col-md-4">
@@ -135,6 +141,18 @@
                                     R$ <span class="cur-min"></span>
                                 </span>
                             </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span class="ps-coin-name">Peso Argentino</span>
+                                <span class="badge bg-primary rounded-pill cur-ars">
+                                    R$ <span class="cur-min"></span>
+                                </span>
+                            </li>
+                            <!-- <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span class="ps-coin-name">Libra Esterlina</span>
+                                <span class="badge bg-primary rounded-pill cur-gbp">
+                                    R$ <span class="cur-min"></span>
+                                </span>
+                            </li> -->
                         </ul>
                     </div>
                 </div>
@@ -142,7 +160,7 @@
                 <div class="col-12">
                     <div class="w-100 p-3 ps-loterica-results">
                         <div class="w-100 text-center mb-3">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-caixa.png" alt="Loterias Caixa" width="120">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-caixa.png" alt="Loterias Caixa" width="100">
                         </div>
 
                         <div class="accordion accordion-flush" id="accordionFlushExample">
@@ -190,7 +208,7 @@
                                 </div>
                             </div>
 
-                            <div class="accordion-item ps-loterica-item ps-loterica-dupla-sena" data-loterica="dupla-sena">
+                            <!-- <div class="accordion-item ps-loterica-item ps-loterica-dupla-sena" data-loterica="dupla-sena">
                                 <h2 class="accordion-header" id="flush-headingFive">
                                     <button class="accordion-button p-2 text-white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
                                         Dupla-sena
@@ -199,7 +217,7 @@
                                 <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body p-2 pt-0"></div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
