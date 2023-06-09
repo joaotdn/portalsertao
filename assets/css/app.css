@@ -18986,6 +18986,26 @@ img {
   }
 }
 
+.ps-home-news--header {
+  border-bottom: 2px solid #dee2e6;
+}
+.ps-home-news--tags {
+  font-size: 12px;
+}
+.ps-home-news--tags a {
+  padding-right: 0;
+  color: #adb5bd;
+}
+.ps-home-news--tags a:hover {
+  color: #212529;
+}
+.ps-home-news--list a:not(:first-child) {
+  border-top: 1px solid #dee2e6;
+}
+.ps-home-news--list a:first-child {
+  padding-top: 0;
+}
+
 .ps-videos-home {
   position: relative;
   z-index: 9;
