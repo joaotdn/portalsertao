@@ -98,8 +98,8 @@
                 </div>
             </div>
             <div class="col-12 col-md-4">
-                <div class="w-100 bg-light p-3">
-                    <div class="w-100 border-bottom border-2 my-3 rounded-3">
+                <div class="w-100 bg-light p-3 rounded-3">
+                    <div class="w-100 border-bottom border-2 my-3">
                         <h5 class="font-title text-danger"><i class="fa-solid fa-ranking-star"></i> Mais lidas</h5>
                     </div>
                     <nav class="nav ps-home-news--list">
@@ -119,6 +119,16 @@
                         </a>
                     </nav>
                 </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="w-100 border-bottom border-2 my-3">
+                    <h5 class="font-title text-danger"><i class="fa-solid fa-square-poll-horizontal"></i> Enquete</h5>
+                </div>
+                <?php if (function_exists('vote_poll') && !in_pollarchive()) : ?>
+
+                    <?php get_poll(); ?>
+
+                <?php endif; ?>
             </div>
         </div>
     </div>
