@@ -1,6 +1,6 @@
 <?php
 
-define('EPG_VERSION', '1.0.4');
+define('EPG_VERSION', '1.0.6');
 
 function esptheme_scripts() {
     // Styles
@@ -10,6 +10,8 @@ function esptheme_scripts() {
     
     // Scripts
     wp_enqueue_script('jquery');
+
+    wp_enqueue_script( 'bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js', array('jquery'), EPG_VERSION, true);
     
     wp_enqueue_script( 'geolocation', 'https://cdn.jsdelivr.net/gh/bigdatacloudapi/js-reverse-geocode-client@latest/bigdatacloud_reverse_geocode.min.js', array('jquery'), EPG_VERSION, true);
     
