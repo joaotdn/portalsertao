@@ -50,6 +50,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-12 col-md-4">
                 <div class="row">
                     <div class="col-12 ps-home-news--authors">
@@ -97,79 +98,115 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-4">
-                <div class="w-100 bg-light p-3 rounded-3">
-                    <div class="w-100 border-bottom border-2 my-3">
-                        <h5 class="font-title text-danger"><i class="fa-solid fa-ranking-star"></i> Mais lidas</h5>
+
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12 col-md-4">
+                        <div class="w-100 bg-light p-3 rounded-3">
+                            <div class="w-100 border-bottom border-2 my-3">
+                                <h5 class="font-title text-danger"><i class="fa-solid fa-ranking-star"></i> Mais lidas</h5>
+                            </div>
+                            <nav class="nav ps-home-news--list">
+                                <a href="#" class="nav-link px-0 d-block" title="">
+                                    <p class="font-tag">Uirauna</p>
+                                    <h6 class="font-title">Todo mundo diz que UTI Aérea é coisa de rico. Pois na PB é diferente', avalia Nonato Bandeira sobre mais uma UTI e 40 ambulâncias</h6>
+                                </a>
+
+                                <a href="#" class="nav-link px-0 d-block" title="">
+                                    <p class="font-tag">São João</p>
+                                    <h6 class="font-title">Em Brasília: prefeito Zé Aldemir tenta liberar recursos de obras conveniadas com o governo federal</h6>
+                                </a>
+
+                                <a href="#" class="nav-link px-0 d-block" title="">
+                                    <p class="font-tag">São José de Piranhas</p>
+                                    <h6 class="font-title">Assembleia aprova pedido de Doutora Paula ao TJPB para elevação do Município de Cajazeiras a terceira entrância</h6>
+                                </a>
+                            </nav>
+                        </div>
                     </div>
-                    <nav class="nav ps-home-news--list">
-                        <a href="#" class="nav-link px-0 d-block" title="">
-                            <p class="font-tag">Uirauna</p>
-                            <h6 class="font-title">Todo mundo diz que UTI Aérea é coisa de rico. Pois na PB é diferente', avalia Nonato Bandeira sobre mais uma UTI e 40 ambulâncias</h6>
-                        </a>
+                    
+                    <div class="col-12 col-md-4">
+                        <div class="w-100 bg-danger px-3 pt-2 border-top border-4 border-dark mb-3">
+                            <div class="w-100 my-2 mb-3">
+                                <h5 class="font-title text-dark"><i class="fa-solid fa-camera"></i> Galerias</h5>
+                            </div>
+                            <nav class="nav flex-column ps-home-news--gallery">
+                                <div class="row mb-3">
+                                    <div class="col-auto">
+                                        <div class="pe-3 thumb-gallery bg-cover d-inline-block" data-thumb-post="<?php echo get_template_directory_uri(); ?>/assets/img/g1.jpg"></div>
+                                    </div>
+                                    <div class="col">
+                                        <a href="#" title="" class="text-white">
+                                            <h6 class="font-title">Assembleia aprova pedido de Doutora Paula ao TJPB para elevação do Município de Cajazeiras a terceira entrância</h6>
+                                        </a>
+                                    </div>
+                                </div>
+    
+                                <div class="row mb-3">
+                                    <div class="col-auto">
+                                        <div class="pe-3 thumb-gallery bg-cover d-inline-block" data-thumb-post="<?php echo get_template_directory_uri(); ?>/assets/img/g2.jpg"></div>
+                                    </div>
+                                    <div class="col">
+                                        <a href="#" title="" class="text-white">
+                                            <h6 class="font-title">Em Brasília: prefeito Zé Aldemir tenta liberar recursos de obras conveniadas com o governo federal</h6>
+                                        </a>
+                                    </div>
+                                </div>
+    
+                                <div class="row mb-3">
+                                    <div class="col-auto">
+                                        <div class="pe-3 thumb-gallery bg-cover d-inline-block" data-thumb-post="<?php echo get_template_directory_uri(); ?>/assets/img/g3.jpg"></div>
+                                    </div>
+                                    <div class="col">
+                                        <a href="#" title="" class="text-white">
+                                            <h6 class="font-title">Todo mundo diz que UTI Aérea é coisa de rico. Pois na PB é diferente', avalia Nonato Bandeira sobre mais uma UTI e 40 ambulâncias</h6>
+                                        </a>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 col-md-4">
+                        <div class="bg-light w-100 p-3 rounded rounded-3">
+                            <div class="w-100 border-bottom border-2 my-3">
+                                <h5 class="font-title text-danger"><i class="fa-solid fa-square-poll-horizontal"></i> Enquete</h5>
+                            </div>
+                            <?php if (function_exists('vote_poll') && !in_pollarchive()) : ?>
 
-                        <a href="#" class="nav-link px-0 d-block" title="">
-                            <p class="font-tag">São João</p>
-                            <h6 class="font-title">Em Brasília: prefeito Zé Aldemir tenta liberar recursos de obras conveniadas com o governo federal</h6>
-                        </a>
+                                <?php get_poll(); ?>
 
-                        <a href="#" class="nav-link px-0 d-block" title="">
-                            <p class="font-tag">São José de Piranhas</p>
-                            <h6 class="font-title">Assembleia aprova pedido de Doutora Paula ao TJPB para elevação do Município de Cajazeiras a terceira entrância</h6>
-                        </a>
-                    </nav>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
+
             <div class="col-12 col-md-4">
-                <div class="w-100 border-bottom border-2 my-3">
-                    <h5 class="font-title text-danger"><i class="fa-solid fa-square-poll-horizontal"></i> Enquete</h5>
-                </div>
-                <?php if (function_exists('vote_poll') && !in_pollarchive()) : ?>
-
-                    <?php get_poll(); ?>
-
-                <?php endif; ?>
+                <a href="#" title="" class="w-100 ps-media-news my-2 bg-cover d-inline-block" data-thumb-post="<?php echo get_template_directory_uri(); ?>/assets/img/g1.jpg">
+                    <span class="ps-media-news--tag d-inline-block p-2 bg-danger text-light text-uppercase">Economia</span>
+                    <h5 class="font-title ps-media-news--title d-inline-block text-light p-2 w-100">Assembleia aprova pedido de Doutora Paula ao TJPB para elevação do Município de Cajazeiras a terceira entrância</h5>
+                    <span class="ps-media-news--mask d-block"></span>
+                </a>
             </div>
 
             <div class="col-12 col-md-4">
-                <div class="w-100 border-bottom border-2 my-3">
-                    <h5 class="font-title text-danger"><i class="fa-solid fa-camera"></i> Galerias</h5>
-                </div>
-                <nav class="nav flex-column ps-home-news--gallery">
-                    <div class="row mb-3">
-                        <div class="col-auto">
-                            <div class="pe-3 thumb-gallery bg-cover d-inline-block" data-thumb-post="<?php echo get_template_directory_uri(); ?>/assets/img/g1.jpg"></div>
-                        </div>
-                        <div class="col">
-                            <a href="#" title="">
-                                <h6 class="font-title">Assembleia aprova pedido de Doutora Paula ao TJPB para elevação do Município de Cajazeiras a terceira entrância</h6>
-                            </a>
-                        </div>
-                    </div>
+                <a href="#" title="" class="w-100 ps-media-news my-2 bg-cover d-inline-block" data-thumb-post="<?php echo get_template_directory_uri(); ?>/assets/img/g2.jpg">
+                    <span class="ps-media-news--tag d-inline-block p-2 bg-danger text-light text-uppercase">Entretenimento</span>
+                    <h5 class="font-title ps-media-news--title d-inline-block text-light p-2 w-100">
+                        Em Brasília: prefeito Zé Aldemir tenta liberar recursos de obras conveniadas com o governo federal</h5>
+                    <span class="ps-media-news--mask d-block"></span>
+                </a>
+            </div>
 
-                    <div class="row mb-3">
-                        <div class="col-auto">
-                            <div class="pe-3 thumb-gallery bg-cover d-inline-block" data-thumb-post="<?php echo get_template_directory_uri(); ?>/assets/img/g2.jpg"></div>
-                        </div>
-                        <div class="col">
-                            <a href="#" title="">
-                                <h6 class="font-title">Em Brasília: prefeito Zé Aldemir tenta liberar recursos de obras conveniadas com o governo federal</h6>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="row mb-3">
-                        <div class="col-auto">
-                            <div class="pe-3 thumb-gallery bg-cover d-inline-block" data-thumb-post="<?php echo get_template_directory_uri(); ?>/assets/img/g3.jpg"></div>
-                        </div>
-                        <div class="col">
-                            <a href="#" title="">
-                                <h6 class="font-title">Todo mundo diz que UTI Aérea é coisa de rico. Pois na PB é diferente', avalia Nonato Bandeira sobre mais uma UTI e 40 ambulâncias</h6>
-                            </a>
-                        </div>
-                    </div>
-                </nav>
+            <div class="col-12 col-md-4">
+                <a href="#" title="" class="w-100 ps-media-news my-2 bg-cover d-inline-block" data-thumb-post="<?php echo get_template_directory_uri(); ?>/assets/img/g3.jpg">
+                    <span class="ps-media-news--tag d-inline-block p-2 bg-danger text-light text-uppercase">Policial</span>
+                    <h5 class="font-title ps-media-news--title d-inline-block text-light p-2 w-100">Todo mundo diz que UTI Aérea é coisa de rico. Pois na PB é diferente', avalia Nonato Bandeira sobre mais uma UTI e 40 ambulâncias</h5>
+                    <span class="ps-media-news--mask d-block"></span>
+                </a>
             </div>
         </div>
     </div>
