@@ -1,8 +1,21 @@
-#epb-footer {
-    ul {
+.ps-footer {
+    border-top: 3px solid $black;
+    &--nav {
         a {
-            color: $white;
+            font-size: 12px;
+            color: $gray-500;
+            padding-left: 0;
+            &:hover, &:active {color: $gray-200;}
+            &:not(:last-child) {
+                padding-bottom: 0;
+            }
         }
-        @extend %menu-item-hover;
+    }
+    &--credits {
+        border-top: 1px solid $gray-800;
+        p {
+            font-size: 12px;
+            color: $gray-400;
+        }
     }
 }
