@@ -1,11 +1,11 @@
 <?php
 
-function epb_register_nav_menus() {
+function ps_register_nav_menus() {
 	register_nav_menus( array(
 		'primary_menu' => __( 'Menu Principal', 'text_domain' ),
 	) );
 }
-add_action( 'after_setup_theme', 'epb_register_nav_menus', 0 );
+add_action( 'after_setup_theme', 'ps_register_nav_menus', 0 );
 
 function add_additional_class_on_li($classes, $item, $args) {
     if(isset($args->add_li_class)) {

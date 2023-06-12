@@ -48,7 +48,9 @@
             </div>
 
             <div class="col-12 col-lg-4 ps-videos-home--tv active">
-                <iframe style="width:100%; height:300px;" src="https://playerv.jnbhost.com.br/video/tvsertao/2/true/true/c3Rtdi5qbmJob3N0LmNvbS5icisx/16:9/aHR0cHM6Ly9wb3J0YWxzZXJ0YW8uY29tL2Vudmlvcy8yMDIzLzAzLzI5LzQ5ZjViNGUyMzIyN2M0N2FlNTU0NzU4NjBjNzhlYjZhZTgzOWQwNGQuanBnKzE=" scrolling="no" frameborder="0" allowfullscreen></iframe>
+                <?php $tv_sertao  = get_field('ps_tv_sertao', 'option'); if($tv_sertao): ?>
+                <iframe style="width:100%; height:300px;" src="<?php echo $tv_sertao; ?>" scrolling="no" frameborder="0" allowfullscreen></iframe>
+                <?php endif; ?>
             </div>
 
             <div class="col-12 col-lg-4 ps-videos-home--tv active">
