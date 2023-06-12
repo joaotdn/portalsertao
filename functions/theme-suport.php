@@ -1,6 +1,6 @@
 <?php
 
-function epb_theme_support() {
+function ps_theme_support() {
 
 	// Add WP Thumbnail Support
 	add_theme_support( 'post-thumbnails' );
@@ -9,10 +9,10 @@ function epb_theme_support() {
 	set_post_thumbnail_size( 125, 125, true );
 
 	// Custom sizes
-	add_image_size( 'ebp-thumb-medium', 306, 173, true );
-	add_image_size( 'ebp-thumb-large', 660, 420, true );
-	add_image_size( 'ebp-thumb-small', 138, 92, true );
-	add_image_size( 'ebp-thumb-horizontally', 416, 166, true );
+	add_image_size( 'ps-thumb-medium', 354, 142, true );
+	add_image_size( 'ps-thumb-large', 356, 400, true );
+	add_image_size( 'ps-thumb-small', 100, 100, true );
+	add_image_size( 'ps-thumb-horizontally', 416, 166, true );
 
 	// Add RSS Support
 	add_theme_support( 'automatic-feed-links' );
@@ -45,11 +45,11 @@ function epb_theme_support() {
 	);
 
 	// Set the maximum allowed width for any content in the theme, like oEmbeds and images added to posts.
-	$GLOBALS['content_width'] = apply_filters( 'epb_theme_support', 1200 );
+	$GLOBALS['content_width'] = apply_filters( 'ps_theme_support', 1200 );
 
 	// Hide admin bar
 	show_admin_bar( false );
 
 }
 
-add_action( 'after_setup_theme', 'epb_theme_support' );
+add_action( 'after_setup_theme', 'ps_theme_support' );
