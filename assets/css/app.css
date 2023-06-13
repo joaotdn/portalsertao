@@ -10411,8 +10411,8 @@ readers do not read off random characters that represent icons */
   content: "\f63f";
 }
 
-.epb-scroll-menu ul a:hover,
-.epb-scroll-menu ul li.current_page_item > a {
+.ps-scroll-menu ul a:hover,
+.ps-scroll-menu ul li.current_page_item > a {
   color: #0dcaf0;
   text-decoration: none;
 }
@@ -18757,15 +18757,26 @@ img {
   }
 }
 
-.epb-scroll-menu {
-  background-color: rgba(255, 255, 255, 0.9);
+.ps-scroll-menu {
+  background-color: rgba(33, 37, 41, 0.9);
   z-index: 9999;
+  top: 0;
+  left: 0;
   transition: transform 0.3s linear;
   transform: translateY(-100%);
 }
-.epb-scroll-menu.active, .epb-category__pagination ul.page-numbers span.epb-scroll-menu.current {
+.ps-scroll-menu.active, .epb-category__pagination ul.page-numbers span.ps-scroll-menu.current {
   transform: translateY(0);
 }
+.ps-scroll-menu ul a {
+  color: #adb5bd;
+  margin-left: 0;
+  font-size: 12px;
+}
+.ps-scroll-menu ul a:hover {
+  color: #e9ecef;
+}
+
 .ps-offcanvas-menu {
   position: fixed;
   left: 0;

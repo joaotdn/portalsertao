@@ -1,11 +1,19 @@
-.epb-scroll-menu {
-    background-color: rgba($white, 0.9);
+.ps-scroll-menu {
+    background-color: rgba($dark, 0.9);
     z-index: 9999;
+    top: 0; 
+    left: 0;
     transition: transform 0.3s linear;
     transform: translateY(-100%);
     &.active {transform: translateY(0);}
 
     ul {
         @extend %menu-item-hover;
+        a {
+            color: $gray-500;
+            margin-left: 0;
+            font-size: 12px;
+            &:hover {color: $gray-200;}
+        }
     }
 }

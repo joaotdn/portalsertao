@@ -17,4 +17,5 @@
     get_template_part('parts/header');
     get_template_part('parts/main-menu');
     get_template_part('parts/offcanvas');
+    get_template_part('parts/scroll-menu');
     ?>

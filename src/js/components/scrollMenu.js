@@ -3,11 +3,11 @@
     $(window).on('scroll', function () {
         let st = $(this).scrollTop();
         if (st > lastScrollTop) {
-            $('.epb-scroll-menu').removeClass('active');
+            $('.ps-scroll-menu').removeClass('active');
         } else if (st <= 200) {
-            $('.epb-scroll-menu').removeClass('active');
+            $('.ps-scroll-menu').removeClass('active');
         } else {
-            $('.epb-scroll-menu').addClass('active');
+            $('.ps-scroll-menu').addClass('active');
         }
         lastScrollTop = st;
     });
