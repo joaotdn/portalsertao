@@ -100,19 +100,17 @@
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/img/adsp.png" alt="">
             </div>
             
-            <?php $radio_sertao  = get_field('ps_radio_sertao', 'option'); if($radio_sertao): ?>
-            <div class="col-auto ps-top-controls">
-                <div class="ps-top-radio position-relative">
-                    <a href="#" title="Tocar rádio">
-                        <i class="fa-solid fa-circle-play"></i>
-                    </a>
-                    <div class="py-1 px-1 mt-2 text-light rounded-1 overflow-hidden ps-top-playlist">
-                        <span></span>
+            <div class="col-auto">
+                <div class="d-flex ps-clock text-white p-3 align-items-center">
+                    <div class="pe-3">
+                        <i class="fa-regular fa-clock"></i>
+                    </div>
+                    <div class="text-center">
+                        <p class="current-date m-0"></p>
+                        <h4 class="text-white m-0 current-hour"></h4>
                     </div>
                 </div>
-                <audio src="https://player.jnbhost.com.br/proxy/7126/stream" id="ps-top-player"></audio>
             </div>
-            <?php endif; ?>
         </div>
     </div>
 </header>

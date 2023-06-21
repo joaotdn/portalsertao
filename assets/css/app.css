@@ -19040,6 +19040,49 @@ img {
   height: 100px;
 }
 
+.ps-clock {
+  border: 2px solid #495057;
+  border-radius: 6px;
+  color: #adb5bd;
+}
+.ps-clock p {
+  font-size: 14px;
+}
+.ps-clock i {
+  font-size: 2rem;
+  opacity: 0.6;
+}
+
+.ps-home-play--header {
+  border-bottom: 3px solid #921925;
+}
+.ps-home-play--header h4, .ps-home-play--header .h4 {
+  line-height: 60px;
+}
+.ps-home-play--list a {
+  height: 250px;
+}
+.ps-home-play--list a:hover .mask {
+  box-shadow: inset 0px -93px 86px -55px rgba(0, 0, 0, 0.75);
+}
+.ps-home-play--list h6, .ps-home-play--list .h6 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  line-height: 1;
+  z-index: 2;
+}
+.ps-home-play--list .mask {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s linear;
+  box-shadow: inset 0px -159px 86px -55px rgba(0, 0, 0, 0.75);
+}
+
 .ps-videos-home {
   position: relative;
   z-index: 9;

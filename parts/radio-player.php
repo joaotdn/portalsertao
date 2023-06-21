@@ -1,19 +1,11 @@
-<div class="epb-radio-player position-fixed bg-primary text-white px-2 py-2">
-    <div class="d-flex align-items-center">
-        <div class="flex-shrink-1 me-2">
-            <i class="fa-solid fa-tower-cell"></i>
-        </div>
-        <div class="flex-fill">
-            <span class="epb-radio-player__name fs-6"><small></small></span>
-        </div>
-        <div class="flex-shrink-1 ms-2">
-            <a href="#" class="text-white epb-radio-player__close">
-                <i class="fa-solid fa-xmark"></i>
-            </a>
-        </div>
-
-        <audio id="radio-audio">
-            <p>Seu navegador não possui suporte para essa funcionalidade. Atualize-o!</p>
-        </audio>
+<?php $radio_sertao  = get_field('ps_radio_sertao', 'option'); if($radio_sertao): ?>
+<div class="ps-top-radio position-relative">
+    <a href="#" title="Tocar rádio">
+        <i class="fa-solid fa-circle-play"></i>
+    </a>
+    <div class="py-1 px-1 mt-2 text-light rounded-1 overflow-hidden ps-top-playlist">
+        <span></span>
     </div>
 </div>
+<audio src="https://player.jnbhost.com.br/proxy/7126/stream" id="ps-top-player"></audio>
+<?php endif; ?>
