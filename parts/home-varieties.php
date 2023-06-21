@@ -51,50 +51,54 @@
                 </div>
             </div>
 
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-4 mb-3">
                 <div class="row">
                     <div class="col-12 ps-home-news--authors">
-                        <div class="w-100 border-bottom border-2 mb-4">
-                            <h5 class="font-title">Colunas</h5>
+                        <div class="w-100 border-bottom border-2 bg-dark text-white p-3">
+                            <h5 class="font-title m-0"><i class="fa-solid fa-quote-left"></i> Colunas</h5>
                         </div>
-
-                        <nav class="nav flex-column">
-                            <div class="row mb-3">
-                                <div class="col-auto">
-                                    <div class="pe-3 author-th bg-cover d-inline-block" data-thumb-post="<?php echo get_template_directory_uri(); ?>/assets/img/c1.jpg"></div>
+                        <div class="w-100 ps-home-news--authors-list px-3">
+                            <nav class="nav flex-column">
+                                <div class="row py-2 ps-home-news--authors-item">
+                                    <div class="col-auto">
+                                        <div class="pe-3 author-th bg-cover d-inline-block" data-thumb-post="<?php echo get_template_directory_uri(); ?>/assets/img/c1.jpg"></div>
+                                    </div>
+                                    <div class="col">
+                                        <a href="#" title="" class="font-tag">Margarida Araújo</a>
+                                        <a href="#" title="">
+                                            <h6 class="font-title">Os lobos de cada um</h6>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="col">
-                                    <a href="#" title="" class="font-tag">Margarida Araújo</a>
-                                    <a href="#" title="">
-                                        <h6 class="font-title">Os lobos de cada um</h6>
-                                    </a>
+    
+                                <div class="row py-2 ps-home-news--authors-item">
+                                    <div class="col-auto">
+                                        <div class="pe-3 author-th bg-cover d-inline-block" data-thumb-post="<?php echo get_template_directory_uri(); ?>/assets/img/c2.jpg"></div>
+                                    </div>
+                                    <div class="col">
+                                        <a href="#" title="" class="font-tag">Wgleyson de Souza</a>
+                                        <a href="#" title="">
+                                            <h6 class="font-title">Susto</h6>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <div class="col-auto">
-                                    <div class="pe-3 author-th bg-cover d-inline-block" data-thumb-post="<?php echo get_template_directory_uri(); ?>/assets/img/c2.jpg"></div>
+    
+                                <div class="row py-2 ps-home-news--authors-item">
+                                    <div class="col-auto">
+                                        <div class="pe-3 author-th bg-cover d-inline-block" data-thumb-post="<?php echo get_template_directory_uri(); ?>/assets/img/c3.jpg"></div>
+                                    </div>
+                                    <div class="col">
+                                        <a href="#" title="" class="font-tag">José Antonio de Albuquerque</a>
+                                        <a href="#" title="">
+                                            <h6 class="font-title">Resultado preliminar do concurso da Câmara de Cajazeiras é divulgado; confira!</h6>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="col">
-                                    <a href="#" title="" class="font-tag">Wgleyson de Souza</a>
-                                    <a href="#" title="">
-                                        <h6 class="font-title">Susto</h6>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <div class="col-auto">
-                                    <div class="pe-3 author-th bg-cover d-inline-block" data-thumb-post="<?php echo get_template_directory_uri(); ?>/assets/img/c3.jpg"></div>
-                                </div>
-                                <div class="col">
-                                    <a href="#" title="" class="font-tag">José Antonio de Albuquerque</a>
-                                    <a href="#" title="">
-                                        <h6 class="font-title">Resultado preliminar do concurso da Câmara de Cajazeiras é divulgado; confira!</h6>
-                                    </a>
-                                </div>
-                            </div>
-                        </nav>
+                            </nav>
+                        </div>
+                        <div class="w-100 d-grid">
+                            <a href="#" class="btn btn-danger rounded-0 btn-sm" title="Ver mais colunas"><i class="fa-solid fa-list"></i> Ver mais</a>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -204,6 +204,19 @@
         }
     }
 
+    &--authors-list {
+        background-color: $gray-200;
+    }
+
+    &--authors-item {
+        &:not(:last-child) {
+            border-bottom: 1px solid $white;
+        }
+        &:not(:first-child) {
+            border-top: 1px solid $gray-400;
+        }
+    }
+
     &--gallery {
         .thumb-gallery {
             width: 100px;

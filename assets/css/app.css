@@ -19035,6 +19035,15 @@ img {
   height: 80px;
   border-radius: 50%;
 }
+.ps-home-news--authors-list {
+  background-color: #e9ecef;
+}
+.ps-home-news--authors-item:not(:last-child) {
+  border-bottom: 1px solid #fff;
+}
+.ps-home-news--authors-item:not(:first-child) {
+  border-top: 1px solid #ced4da;
+}
 .ps-home-news--gallery .thumb-gallery {
   width: 100px;
   height: 100px;
