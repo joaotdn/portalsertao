@@ -7,5 +7,4 @@
         <span></span>
     </div>
 </div>
-<audio src="https://player.jnbhost.com.br/proxy/7126/stream" id="ps-top-player"></audio>
 <?php endif; ?>

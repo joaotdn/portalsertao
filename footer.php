@@ -113,6 +113,7 @@
         <p class="m-0">&copy; 2023 - <a href="#" title="" class="text-white">Portal Sertão</a>. Todos os direitos reservados</p>
     </div>
 </footer>
+<audio src="https://player.jnbhost.com.br/proxy/7126/stream" id="ps-top-player"></audio>
 <?php
 wp_footer();
 ?>

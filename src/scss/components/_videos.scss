@@ -94,4 +94,17 @@
             strong {color: $yellow-500;}
         }
     }
+
+    &--radios {
+        h5 {
+            color: $yellow-500;
+        }
+    }
+    &--ronline {
+        background-color: $yellow-500;
+        color: $dark;
+        border-bottom: 4px solid $yellow-700;
+        h5 {color: $dark;}
+        i {color: $yellow-900;}
+    }
 }

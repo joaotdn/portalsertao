@@ -19172,6 +19172,20 @@ img {
 .ps-videos-home--tv span strong {
   color: #ffc107;
 }
+.ps-videos-home--radios h5, .ps-videos-home--radios .h5 {
+  color: #ffc107;
+}
+.ps-videos-home--ronline {
+  background-color: #ffc107;
+  color: #212529;
+  border-bottom: 4px solid #997404;
+}
+.ps-videos-home--ronline h5, .ps-videos-home--ronline .h5 {
+  color: #212529;
+}
+.ps-videos-home--ronline i {
+  color: #332701;
+}
 
 .ps-top-radio {
   width: 150px;

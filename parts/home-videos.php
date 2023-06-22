@@ -77,13 +77,44 @@
                 </nav>
             </div>
 
-            <div class="col-12 col-lg-4 text-center">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ads2.jpg" alt="">
+            <div class="col-12 col-lg-4 text-center ps-videos-home--radios">
+                <div class="w-100 text-center">
+                    <h5 class="m-0"><i class="fa-solid fa-tower-cell"></i> <strong>Rádio</strong> <span class="font-title text-white">Sertão</span></h5>
+                </div>
+                <div class="w-100 p-3 ps-videos-home--radio-play">
+                    <div class="w-100 d-flex justify-content-center">
+                        <?php get_template_part('parts/radio-player'); ?>
+                    </div>
+                </div>
+                <div class="w-100 my-3 ps-videos-home--ronline p-3 rounded">
+                    <h5 class="d-inline-block w-100 text-center fw-bold font-title text-dark">
+                        <i class="fa-solid fa-radio"></i> Rádios Online
+                    </h5>
+                    <select name="radios-online" id="radios-online" class="form-select">
+                        <option value="" selected>Selecione uma rádio</option>
+                        <option value="">Alto Piranhas AM </option>
+                        <option value="">Arapuan FM </option>
+                        <option value="">Capivara FM </option>
+                        <option value="">Cidade FM </option>
+                        <option value="">Conceição FM </option>
+                        <option value="">Correio AM </option>
+                        <option value="">Difusora AM </option>
+                        <option value="">Espinharas FM </option>
+                        <option value="">Itatiunga FM </option>
+                        <option value="">Liberdade FM </option>
+                        <option value="">Líder FM </option>
+                        <option value="">Mais FM </option>
+                        <option value="">Mariana FM </option>
+                        <option value="">Max Correio Nativa FM</option>
+                        <option value="">Oeste AM </option>
+                        <option value="">Patamuté FM</option>
+                    </select>
+                </div>
             </div>
         </div>
     </div>
 </section>
-<div class="modal fade" id="videoHomeModal" tabindex="-1" aria-labelledby="videoHomeModalLabel" aria-hidden="true">
+<div class="modal fade" id="videoHomeModal" tabindex="<option value="">1" aria-labelledby="videoHomeModalLabel" aria-hidden="true"></option>
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body">
