@@ -244,6 +244,55 @@
                 </div>
             </div>
 
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12 mb-3">
+                        <h5 class="font-title m-0 d-inline-block w-100 border-bottom border-danger border-4">
+                            <a href="#" title="" class="text-danger">Informe Legislativo</a>
+                        </h5>
+                    </div>
+                    <div class="col-12 col-md-3 ps-home-news--politic mb-3">
+                        <a href="#" title="" class="d-block position-relative mb-3">
+                            <span>Cajazeiras</span>
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/f1.webp" alt="">
+                        </a>
+                        <h6 class="font-title">
+                            <a href="#" title="">Coordenador do Bolsa família de Cajazeiras explica motivos dos bloqueios e como evitá-los</a>
+                        </h6>
+                    </div>
+
+                    <div class="col-12 col-md-3 ps-home-news--politic mb-3">
+                        <a href="#" title="" class="d-block position-relative mb-3">
+                            <span>Futuro</span>
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/f3.webp" alt="">
+                        </a>
+                        <h6 class="font-title">
+                            <a href="#" title="">Marcos Antônio, fala sobre as obras que estão sendo feitas e projetos futuros para Carrapateira</a>
+                        </h6>
+                    </div>
+
+                    <div class="col-12 col-md-3 ps-home-news--politic mb-3">
+                        <a href="#" title="" class="d-block position-relative mb-3">
+                            <span>Projetos</span>
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/f4.webp" alt="">
+                        </a>
+                        <h6 class="font-title">
+                            <a href="#" title="">Daiane Valêncio conta as novidades e fala sobre os projetos para o meio empreendedor de Cajazeiras</a>
+                        </h6>
+                    </div>
+
+                    <div class="col-12 col-md-3 ps-home-news--politic mb-3">
+                        <a href="#" title="" class="d-block position-relative mb-3">
+                            <span>UTI Móvel</span>
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/F2.webp" alt="">
+                        </a>
+                        <h6 class="font-title">
+                            <a href="#" title="">Todo mundo diz que UTI Aérea é coisa de rico. Pois na PB é diferente', avalia Nonato Bandeira sobre mais uma UTI e 40 ambulâncias</a>
+                        </h6>
+                    </div>
+                </div>
+            </div>
+
             <div class="col-12 col-md-4">
                 <a href="#" title="" class="w-100 ps-media-news my-2 bg-cover d-inline-block" data-thumb-post="<?php echo get_template_directory_uri(); ?>/assets/img/g1.jpg">
                     <span class="ps-media-news--tag d-inline-block p-2 bg-dark text-light text-uppercase"><i class="fa-regular fa-folder"></i> Política</span>

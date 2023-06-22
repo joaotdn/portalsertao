@@ -19048,6 +19048,22 @@ img {
   width: 100px;
   height: 100px;
 }
+.ps-home-news--politic img {
+  border-bottom: 2px solid #dc3545;
+  width: 100%;
+}
+.ps-home-news--politic span {
+  position: absolute;
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #dc3545;
+  color: #fff;
+  bottom: 0;
+  left: 0;
+  font-weight: 300;
+  font-size: 10px;
+  text-transform: uppercase;
+}
 
 .ps-clock {
   border: 2px solid #495057;
