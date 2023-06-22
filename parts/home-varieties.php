@@ -70,7 +70,7 @@
                                         </a>
                                     </div>
                                 </div>
-    
+
                                 <div class="row py-2 ps-home-news--authors-item">
                                     <div class="col-auto">
                                         <div class="pe-3 author-th bg-cover d-inline-block" data-thumb-post="<?php echo get_template_directory_uri(); ?>/assets/img/c2.jpg"></div>
@@ -82,7 +82,7 @@
                                         </a>
                                     </div>
                                 </div>
-    
+
                                 <div class="row py-2 ps-home-news--authors-item">
                                     <div class="col-auto">
                                         <div class="pe-3 author-th bg-cover d-inline-block" data-thumb-post="<?php echo get_template_directory_uri(); ?>/assets/img/c3.jpg"></div>
@@ -128,7 +128,7 @@
                             </nav>
                         </div>
                     </div>
-                    
+
                     <div class="col-12 col-md-4">
                         <div class="w-100 bg-danger px-3 pt-3 border-top border-4 border-dark mb-3">
                             <div class="w-100 my-2 mb-3">
@@ -146,7 +146,7 @@
                                         </a>
                                     </div>
                                 </div>
-    
+
                                 <div class="row mb-3">
                                     <div class="col-auto">
                                         <div class="pe-3 thumb-gallery bg-cover d-inline-block" data-thumb-post="<?php echo get_template_directory_uri(); ?>/assets/img/g2.jpg"></div>
@@ -158,7 +158,7 @@
                                         </a>
                                     </div>
                                 </div>
-    
+
                                 <div class="row mb-3">
                                     <div class="col-auto">
                                         <div class="pe-3 thumb-gallery bg-cover d-inline-block" data-thumb-post="<?php echo get_template_directory_uri(); ?>/assets/img/g3.jpg"></div>
@@ -173,7 +173,7 @@
                             </nav>
                         </div>
                     </div>
-                    
+
                     <div class="col-12 col-md-4">
                         <div class="bg-light w-100 p-3 rounded rounded-3">
                             <div class="w-100 border-bottom border-2 my-3">
@@ -223,11 +223,22 @@
                                     <p class="font-tag">UTI Móvel</p>
                                     <a href="#" title="">
                                         <h6 class="font-title">
-                                        Todo mundo diz que UTI Aérea é coisa de rico. Pois na PB é diferente', avalia Nonato Bandeira sobre mais uma UTI e 40 ambulâncias
+                                            Todo mundo diz que UTI Aérea é coisa de rico. Pois na PB é diferente', avalia Nonato Bandeira sobre mais uma UTI e 40 ambulâncias
                                         </h6>
                                     </a>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-4 text-center">
+                        <div class="w-100 p-3 bg-light border">
+                            <div class="w-100 mb-3 text-center">
+                                <h6 class="fw-light text-uppercase"><small>Anúncio</small></h6>
+                            </div>
+                            <a href="#" title="" class="d-inline-block">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/adsp2.png" alt="">
+                            </a>
                         </div>
                     </div>
                 </div>
