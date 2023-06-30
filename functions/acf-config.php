@@ -30,9 +30,9 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 		'capability' => 'edit_posts',
 		'redirect'   => false
 	) );
-	// acf_add_options_sub_page( array(
-	// 	'page_title'  => 'Informações de contato',
-	// 	'menu_title'  => 'Editar informações',
-	// 	'parent_slug' => 'opcoes-gerais',
-	// ) );
+	acf_add_options_sub_page( array(
+		'page_title'  => 'Anúncios',
+		'menu_title'  => 'Anúncios',
+		'parent_slug' => 'opcoes-gerais',
+	) );
 }

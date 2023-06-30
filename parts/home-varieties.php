@@ -103,6 +103,10 @@
                 </div>
             </div>
 
+            <?php
+            get_template_part('parts/home-cities');
+            ?>
+
             <div class="col-12">
                 <div class="row">
                     <div class="col-12 col-md-4">

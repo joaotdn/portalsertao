@@ -97,7 +97,20 @@
             </div>
 
             <div class="col-lg-auto col-md-8 col-sm-12">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/adsp.png" alt="">
+                <?php
+                    // ps_ads_topo
+                    $ads_top  = get_field('ps_ads_topo', 'option');
+                    if ($ads_top):
+                        shuffle($ads_top);
+                        $ads_top = $ads_top[0];
+                        if($ads_top['ps_ads_topo_link']) {
+                ?>
+                <a href="<?php echo $ads_top['ps_ads_topo_link']; ?>">
+                    <img src="<?php echo $ads_top['ps_ads_topo_conteudo']; ?>" alt="">
+                </a>
+                <?php } else { ?>
+                    <img src="<?php echo $ads_top['ps_ads_topo_conteudo']; ?>" alt="">
+                <?php } endif; ?>
             </div>
             
             <div class="col-auto">

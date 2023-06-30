@@ -1,4 +1,4 @@
-<section class="container ps-home-cities my-5">
+<section class="container ps-home-cities mb-5">
     <div class="row">
         <div class="col-12">
             <div class="row">
