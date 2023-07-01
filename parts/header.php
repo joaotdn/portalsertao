@@ -105,7 +105,7 @@
                         $ads_top = $ads_top[0];
                         if($ads_top['ps_ads_topo_link']) {
                 ?>
-                <a href="<?php echo $ads_top['ps_ads_topo_link']; ?>">
+                <a href="<?php echo $ads_top['ps_ads_topo_link']; ?>" target="_blank">
                     <img src="<?php echo $ads_top['ps_ads_topo_conteudo']; ?>" alt="">
                 </a>
                 <?php } else { ?>

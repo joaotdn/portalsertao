@@ -28,127 +28,114 @@ $destaque5 = get_posts(array(
     'meta_key'       => 'ps_top_manchete',
     'meta_value'     => 'destaque5'
 ));
+
+$sliders = get_posts(array(
+    'posts_per_page' => 5,
+    'meta_key'       => 'ps_home_slide'
+));
 ?>
 <section class="ps-home-features container mt-3 mt-md-5">
     <div class="row p-0">
         <div class="col-12 col-md-8">
             <div class="row">
-                <?php if (isset($destaque1[0])): ?>
-                <div class="col-12">
-                    <p class="font-tag"><?php echo get_the_tags($destaque1[0]->ID)[0]->name; ?></p>
-                    <h2 class="font-title">
-                        <a href="<?php echo get_the_permalink($destaque1[0]->ID) ?>" title="<?php echo get_the_title($destaque1[0]->ID); ?>">
-                            <?php echo get_the_title($destaque1[0]->ID); ?>
-                        </a>
-                    </h2>
-                    <p class="text-excerpt"><?php echo get_the_excerpt($destaque1[0]->ID); ?></p>
-                </div>
+                <?php if (isset($destaque1[0])) : ?>
+                    <div class="col-12">
+                        <p class="font-tag"><?php echo get_the_tags($destaque1[0]->ID)[0]->name; ?></p>
+                        <h2 class="font-title">
+                            <a href="<?php echo get_the_permalink($destaque1[0]->ID) ?>" title="<?php echo get_the_title($destaque1[0]->ID); ?>">
+                                <?php echo get_the_title($destaque1[0]->ID); ?>
+                            </a>
+                        </h2>
+                        <p class="text-excerpt"><?php echo get_the_excerpt($destaque1[0]->ID); ?></p>
+                    </div>
                 <?php endif; ?>
 
                 <div class="col-12">
                     <div class="row">
-                        <?php if (isset($destaque2[0])): ?>
-                        <div class="col-12 col-md-6 mb-md-3">
-                            <p class="font-tag"><?php echo get_the_tags($destaque2[0]->ID)[0]->name; ?></p>
-                            <h5 class="font-title">
-                                <a href="<?php echo get_the_permalink($destaque2[0]->ID) ?>" title="<?php echo get_the_title($destaque2[0]->ID); ?>">
-                                    <?php echo get_the_title($destaque2[0]->ID); ?>
+                        <?php if (isset($destaque2[0])) : ?>
+                            <div class="col-12 col-md-6 mb-md-3">
+                                <p class="font-tag"><?php echo get_the_tags($destaque2[0]->ID)[0]->name; ?></p>
+                                <h5 class="font-title">
+                                    <a href="<?php echo get_the_permalink($destaque2[0]->ID) ?>" title="<?php echo get_the_title($destaque2[0]->ID); ?>">
+                                        <?php echo get_the_title($destaque2[0]->ID); ?>
+                                    </a>
+                                </h5>
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if (isset($destaque3[0])) : ?>
+                            <div class="col-12 col-md-6 mb-md-3">
+                                <p class="font-tag"><?php echo get_the_tags($destaque3[0]->ID)[0]->name; ?></p>
+                                <h5 class="font-title">
+                                    <a href="<?php echo get_the_permalink($destaque3[0]->ID) ?>" title="<?php echo get_the_title($destaque3[0]->ID); ?>">
+                                        <?php echo get_the_title($destaque3[0]->ID); ?>
+                                    </a>
+                                </h5>
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if (isset($destaque4[0])) : ?>
+                            <div class="col-12 col-md-6 mb-3">
+                                <a href="<?php echo get_the_permalink($destaque4[0]->ID) ?>" title="<?php echo get_the_title($destaque4[0]->ID); ?>" class="w-100 ps-media-news bg-cover d-inline-block" data-thumb-post="<?php echo get_the_post_thumbnail_url($destaque4[0]->ID, 'ps-thumb-large'); ?>">
+                                    <span class="ps-media-news--tag d-inline-block p-2 bg-danger text-light text-uppercase"><?php echo get_the_tags($destaque4[0]->ID)[0]->name; ?></span>
+                                    <h5 class="font-title ps-media-news--title d-inline-block text-light p-2 w-100"><?php echo get_the_title($destaque4[0]->ID); ?></h5>
+                                    <span class="ps-media-news--mask d-block"></span>
                                 </a>
-                            </h5>
-                        </div>
+                            </div>
                         <?php endif; ?>
 
-                        <?php if (isset($destaque3[0])): ?>
-                        <div class="col-12 col-md-6 mb-md-3">
-                            <p class="font-tag"><?php echo get_the_tags($destaque3[0]->ID)[0]->name; ?></p>
-                            <h5 class="font-title">
-                                <a href="<?php echo get_the_permalink($destaque3[0]->ID) ?>" title="<?php echo get_the_title($destaque3[0]->ID); ?>">
-                                    <?php echo get_the_title($destaque3[0]->ID); ?>
+                        <?php if (isset($destaque5[0])) : ?>
+                            <div class="col-12 col-md-6 mb-3">
+                                <a href="<?php echo get_the_permalink($destaque5[0]->ID) ?>" title="<?php echo get_the_title($destaque5[0]->ID); ?>" class="w-100 ps-media-news bg-cover d-inline-block" data-thumb-post="<?php echo get_the_post_thumbnail_url($destaque5[0]->ID, 'ps-thumb-large'); ?>">
+                                    <span class="ps-media-news--tag d-inline-block p-2 bg-danger text-light text-uppercase"><?php echo get_the_tags($destaque5[0]->ID)[0]->name; ?></span>
+                                    <h5 class="font-title ps-media-news--title d-inline-block text-light p-2 w-100"><?php echo get_the_title($destaque5[0]->ID); ?></h5>
+                                    <span class="ps-media-news--mask d-block"></span>
                                 </a>
-                            </h5>
-                        </div>
-                        <?php endif; ?>
-
-                        <?php if (isset($destaque4[0])): ?>
-                        <div class="col-12 col-md-6 mb-3">
-                            <a href="<?php echo get_the_permalink($destaque4[0]->ID) ?>" title="<?php echo get_the_title($destaque4[0]->ID); ?>" class="w-100 ps-media-news bg-cover d-inline-block" data-thumb-post="<?php echo get_the_post_thumbnail_url($destaque4[0]->ID, 'ps-thumb-large'); ?>">
-                                <span class="ps-media-news--tag d-inline-block p-2 bg-danger text-light text-uppercase"><?php echo get_the_tags($destaque4[0]->ID)[0]->name; ?></span>
-                                <h5 class="font-title ps-media-news--title d-inline-block text-light p-2 w-100"><?php echo get_the_title($destaque4[0]->ID); ?></h5>
-                                <span class="ps-media-news--mask d-block"></span>
-                            </a>
-                        </div>
-                        <?php endif; ?>
-
-                        <?php if (isset($destaque5[0])): ?>
-                        <div class="col-12 col-md-6 mb-3">
-                            <a href="<?php echo get_the_permalink($destaque5[0]->ID) ?>" title="<?php echo get_the_title($destaque5[0]->ID); ?>" class="w-100 ps-media-news bg-cover d-inline-block" data-thumb-post="<?php echo get_the_post_thumbnail_url($destaque5[0]->ID, 'ps-thumb-large'); ?>">
-                                <span class="ps-media-news--tag d-inline-block p-2 bg-danger text-light text-uppercase"><?php echo get_the_tags($destaque5[0]->ID)[0]->name; ?></span>
-                                <h5 class="font-title ps-media-news--title d-inline-block text-light p-2 w-100"><?php echo get_the_title($destaque5[0]->ID); ?></h5>
-                                <span class="ps-media-news--mask d-block"></span>
-                            </a>
-                        </div>
+                            </div>
                         <?php endif; ?>
                     </div>
                 </div>
 
-                <div class="col-12">
-                    <div class="w-100 bg-light p-2 border text-center mb-3 ads-features justify-content-center">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/adsp.png" alt="">
+                <?php if (get_field('ps_ads_destaques', 'option')) : ?>
+                    <div class="col-12">
+                        <div class="w-100 bg-light p-2 border text-center mb-3 ads-features justify-content-center">
+                            <?php
+                            // ps_ads_topo
+                            $ads_feat  = get_field('ps_ads_destaques', 'option');
+                            shuffle($ads_feat);
+                            $ads_feat = $ads_feat[0];
+                            if ($ads_feat['ps_ads_destaques_link']) {
+                            ?>
+                                <a href="<?php echo $ads_feat['ps_ads_destaques_link']; ?>" target="_blank">
+                                    <img src="<?php echo $ads_feat['ps_ads_destaques_conteudo']; ?>" alt="">
+                                </a>
+                            <?php } else { ?>
+                                <img src="<?php echo $ads_feat['ps_ads_destaques_conteudo']; ?>" alt="">
+                            <?php } ?>
+                        </div>
                     </div>
-                </div>
+                <?php endif; ?>
             </div>
         </div>
         <div class="col-12 col-md-4">
             <div class="row">
                 <div class="col-12 position-relative">
                     <div class="ps-slide-features" data-cycle-fx="fade" data-cycle-timeout="5000" data-cycle-slides="> .card" data-cycle-prev=".nav-features--prev" data-cycle-next=".nav-features--next" data-cycle-pager=".features-pager" data-cycle-pager-template="<span></span>" data-cycle-swipe=true>
+                        <?php
+                        foreach($sliders as $slide):
+                        ?>
                         <div class="card mb-3">
-                            <a href="#" title="" class="card-img-top">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/v1.jpg" class="" alt="...">
+                            <a href="<?php echo get_the_permalink($slide->ID) ?>" title="<?php echo get_the_title($slide->ID); ?>" class="card-img-top">
+                                <img src="<?php echo get_the_post_thumbnail_url($slide->ID, 'ps-thumb-horizontally'); ?>" class="" alt="<?php echo get_the_title($slide->ID); ?>">
                             </a>
                             <div class="card-body">
-                                <p class="font-tag">Sucesso</p>
-                                <a href="#" title="">
-                                    <h5 class="card-title font-title">VÍDEO: JP Ponto 13 é sucesso em São João do Rio do Peixe com variedade de roupas, acessórios e preço mais acessível do mercado </h5>
+                                <p class="font-tag"><?php echo get_the_tags($slide->ID)[0]->name; ?></p>
+                                <a href="<?php echo get_the_permalink($slide->ID) ?>" title="<?php echo get_the_title($slide->ID); ?>">
+                                    <h5 class="card-title font-title"><?php echo get_the_title($slide->ID); ?></h5>
                                 </a>
                             </div>
                         </div>
-
-                        <div class="card mb-3">
-                            <a href="#" title="" class="card-img-top">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/v2.jpg" class="" alt="...">
-                            </a>
-                            <div class="card-body">
-                                <p class="font-tag">Acabamento</p>
-                                <a href="#" title="">
-                                    <h5 class="card-title font-title">Do alicerce ao acabamento: Madeireira Piranhense se destaca em São José de Piranhas com 27 anos de credibilidade e entrega gratuita de materiais</h5>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="card mb-3">
-                            <a href="#" title="" class="card-img-top">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/v3.jpg" class="" alt="...">
-                            </a>
-                            <div class="card-body">
-                                <p class="font-tag">Cajazeiras</p>
-                                <a href="#" title="">
-                                    <h5 class="card-title font-title">Secretária de Desenvolvimento Humano de Cajazeiras tira dúvidas sobre programa Prato Cheio e explica funcionalidades"</h5>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="card mb-3">
-                            <a href="#" title="" class="card-img-top">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/v4.jpg" class="" alt="...">
-                            </a>
-                            <div class="card-body">
-                                <p class="font-tag">Democracia</p>
-                                <a href="#" title="">
-                                    <h5 class="card-title font-title">"Denise vem pra equilibrar a democracia", diz Polyana Dutra sobre parceria com prefeita de Bom Jesus; secretária destaca importância das mulheres na política </h5>
-                                </a>
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
                     <a href="#" class="nav-features--prev nav-features-control" title="Notícia anterio">
                         <i class="fa-solid fa-circle-chevron-left"></i>
