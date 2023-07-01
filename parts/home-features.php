@@ -1,51 +1,93 @@
+<?php
+$destaque1 = get_posts(array(
+    'posts_per_page' => 1,
+    'meta_key'       => 'ps_top_manchete',
+    'meta_value'     => 'destaque1'
+));
+
+$destaque2 = get_posts(array(
+    'posts_per_page' => 1,
+    'meta_key'       => 'ps_top_manchete',
+    'meta_value'     => 'destaque2'
+));
+
+$destaque3 = get_posts(array(
+    'posts_per_page' => 1,
+    'meta_key'       => 'ps_top_manchete',
+    'meta_value'     => 'destaque3'
+));
+
+$destaque4 = get_posts(array(
+    'posts_per_page' => 1,
+    'meta_key'       => 'ps_top_manchete',
+    'meta_value'     => 'destaque4'
+));
+
+$destaque5 = get_posts(array(
+    'posts_per_page' => 1,
+    'meta_key'       => 'ps_top_manchete',
+    'meta_value'     => 'destaque5'
+));
+?>
 <section class="ps-home-features container mt-3 mt-md-5">
     <div class="row p-0">
         <div class="col-12 col-md-8">
             <div class="row">
+                <?php if (isset($destaque1[0])): ?>
                 <div class="col-12">
-                    <p class="font-tag">Sousa</p>
+                    <p class="font-tag"><?php echo get_the_tags($destaque1[0]->ID)[0]->name; ?></p>
                     <h2 class="font-title">
-                        <a href="#" title="">
-                            VÍDEO: Ortopedista técnico destaca serviços, confecções de próteses e órteses e benefícios oferecidos pela Moriah Ortopedia, na cidade de Sousa
+                        <a href="<?php echo get_the_permalink($destaque1[0]->ID) ?>" title="<?php echo get_the_title($destaque1[0]->ID); ?>">
+                            <?php echo get_the_title($destaque1[0]->ID); ?>
                         </a>
                     </h2>
-                    <p class="text-excerpt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, praesentium voluptas nobis consequatur.</p>
+                    <p class="text-excerpt"><?php echo get_the_excerpt($destaque1[0]->ID); ?></p>
                 </div>
+                <?php endif; ?>
 
                 <div class="col-12">
                     <div class="row">
+                        <?php if (isset($destaque2[0])): ?>
                         <div class="col-12 col-md-6 mb-md-3">
-                            <p class="font-tag">Preliminares</p>
+                            <p class="font-tag"><?php echo get_the_tags($destaque2[0]->ID)[0]->name; ?></p>
                             <h5 class="font-title">
-                                <a href="#" title="">
-                                    Resultado preliminar do concurso da Câmara de Cajazeiras é divulgado; confira!
+                                <a href="<?php echo get_the_permalink($destaque2[0]->ID) ?>" title="<?php echo get_the_title($destaque2[0]->ID); ?>">
+                                    <?php echo get_the_title($destaque2[0]->ID); ?>
                                 </a>
                             </h5>
                         </div>
+                        <?php endif; ?>
+
+                        <?php if (isset($destaque3[0])): ?>
                         <div class="col-12 col-md-6 mb-md-3">
-                            <p class="font-tag">Paraíba</p>
+                            <p class="font-tag"><?php echo get_the_tags($destaque3[0]->ID)[0]->name; ?></p>
                             <h5 class="font-title">
-                                <a href="#" title="">
-                                    Todo mundo diz que UTI Aérea é coisa de rico. Pois na PB é diferente', avalia Nonato Bandeira sobre mais uma UTI e 40 ambulâncias
+                                <a href="<?php echo get_the_permalink($destaque3[0]->ID) ?>" title="<?php echo get_the_title($destaque3[0]->ID); ?>">
+                                    <?php echo get_the_title($destaque3[0]->ID); ?>
                                 </a>
                             </h5>
                         </div>
+                        <?php endif; ?>
 
+                        <?php if (isset($destaque4[0])): ?>
                         <div class="col-12 col-md-6 mb-3">
-                            <a href="#" title="" class="w-100 ps-media-news bg-cover d-inline-block" data-thumb-post="<?php echo get_template_directory_uri(); ?>/assets/img/p1.jpg">
-                                <span class="ps-media-news--tag d-inline-block p-2 bg-danger text-light text-uppercase">Câmara dos Vereadores</span>
-                                <h5 class="font-title ps-media-news--title d-inline-block text-light p-2 w-100">Assembleia aprova pedido de Doutora Paula ao TJPB para elevação do Município de Cajazeiras a terceira entrância</h5>
+                            <a href="<?php echo get_the_permalink($destaque4[0]->ID) ?>" title="<?php echo get_the_title($destaque4[0]->ID); ?>" class="w-100 ps-media-news bg-cover d-inline-block" data-thumb-post="<?php echo get_the_post_thumbnail_url($destaque4[0]->ID, 'ps-thumb-large'); ?>">
+                                <span class="ps-media-news--tag d-inline-block p-2 bg-danger text-light text-uppercase"><?php echo get_the_tags($destaque4[0]->ID)[0]->name; ?></span>
+                                <h5 class="font-title ps-media-news--title d-inline-block text-light p-2 w-100"><?php echo get_the_title($destaque4[0]->ID); ?></h5>
                                 <span class="ps-media-news--mask d-block"></span>
                             </a>
                         </div>
+                        <?php endif; ?>
 
+                        <?php if (isset($destaque5[0])): ?>
                         <div class="col-12 col-md-6 mb-3">
-                            <a href="#" title="" class="w-100 ps-media-news bg-cover d-inline-block" data-thumb-post="<?php echo get_template_directory_uri(); ?>/assets/img/p2.jpg">
-                                <span class="ps-media-news--tag d-inline-block p-2 bg-danger text-light text-uppercase">Cajazeiras</span>
-                                <h5 class="font-title ps-media-news--title d-inline-block text-light p-2 w-100">Em Brasília: prefeito Zé Aldemir tenta liberar recursos de obras conveniadas com o governo federal</h5>
+                            <a href="<?php echo get_the_permalink($destaque5[0]->ID) ?>" title="<?php echo get_the_title($destaque5[0]->ID); ?>" class="w-100 ps-media-news bg-cover d-inline-block" data-thumb-post="<?php echo get_the_post_thumbnail_url($destaque5[0]->ID, 'ps-thumb-large'); ?>">
+                                <span class="ps-media-news--tag d-inline-block p-2 bg-danger text-light text-uppercase"><?php echo get_the_tags($destaque5[0]->ID)[0]->name; ?></span>
+                                <h5 class="font-title ps-media-news--title d-inline-block text-light p-2 w-100"><?php echo get_the_title($destaque5[0]->ID); ?></h5>
                                 <span class="ps-media-news--mask d-block"></span>
                             </a>
                         </div>
+                        <?php endif; ?>
                     </div>
                 </div>
 
