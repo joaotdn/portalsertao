@@ -1,3 +1,9 @@
+<?php
+$videos = get_posts(array(
+    'posts_per_page' => 3,
+    'meta_key'       => 'ps_youtube_cod'
+));
+?>
 <section class="ps-videos-home container-fluid my-3 py-4 bg-dark">
     <div class="container">
         <div class="row">
@@ -18,34 +24,33 @@
                     </div>
                 </div>
             </div>
-
+            
+            <?php 
+            if(!empty($videos)):
+                $cod = get_field('ps_youtube_cod', $videos[0]->ID);
+            ?>
             <div class="col-12 col-lg-4 position-relative ps-videos-home--content">
-                <a href="#" title="" class="w-100 ps-videos-home--thumb bg-cover align-items-center justify-content-center" data-thumb-post="https://img.youtube.com/vi/wagid3poUAg/hqdefault.jpg" data-youtube-code="wagid3poUAg" data-bs-toggle="modal" data-bs-target="#videoHomeModal">
+                <a href="#" title="<?php echo get_the_title($videos[0]->ID); ?>" class="w-100 ps-videos-home--thumb bg-cover align-items-center justify-content-center" data-thumb-post="https://img.youtube.com/vi/<?php echo $cod; ?>/hqdefault.jpg" data-youtube-code="<?php echo $cod; ?>" data-bs-toggle="modal" data-bs-target="#videoHomeModal">
                     <span class="play-video-icon">
                         <i class="fa-regular fa-circle-play"></i>
                     </span>
                 </a>
-                <a href="#" title="" class="btn btn-danger ps-videos-home--read">
+                <a href="<?php echo get_the_permalink($videos[0]->ID); ?>" title="<?php echo get_the_title($videos[0]->ID); ?>" class="btn btn-danger btn-sm ps-videos-home--read">
                     <i class="fa-regular fa-newspaper"></i> Continuar lendo
                 </a>
             </div>
 
             <div class="col-12 col-lg-4 ps-videos-home--content">
                 <nav class="nav flex-column ps-videos-home--nav">
-                    <a class="nav-link py-4 active" href="#" data-youtube-code="wagid3poUAg">
+                    <?php $i = 0; foreach($videos as $video): ?>
+                    <a class="nav-link py-4 <?php if ($i == 0) echo 'active'; ?>" title="<?php echo get_the_title($video->ID); ?>" href="#" data-youtube-code="<?php echo get_field('ps_youtube_cod', $video->ID); ?>">
                         <span class="me-2"><i class="fa-solid fa-video"></i></span>
-                        <span>Coordenador do Bolsa família de Cajazeiras explica motivos dos bloqueios e como evitá-los</span>
+                        <span><?php echo get_the_title($video->ID); ?></span>
                     </a>
-                    <a class="nav-link py-4" href="#" data-youtube-code="Z5Jt1MUXEDA">
-                        <span class="me-2"><i class="fa-solid fa-video"></i></span>
-                        <span>Marcos Antônio, fala sobre as obras que estão sendo feitas e projetos futuros para Carrapateira</span>
-                    </a>
-                    <a class="nav-link py-4" href="#" data-youtube-code="co6DjCsVK1M">
-                        <span class="me-2"><i class="fa-solid fa-video"></i></span>
-                        <span>Daiane Valêncio conta as novidades e fala sobre os projetos para o meio empreendedor de Cajazeiras</span>
-                    </a>
+                    <?php $i++; endforeach; ?>
                 </nav>
             </div>
+            <?php endif; ?>
 
             <div class="col-12 col-lg-4 ps-videos-home--tv active">
                 <?php $tv_sertao  = get_field('ps_tv_sertao', 'option'); if($tv_sertao): ?>
@@ -53,29 +58,23 @@
                 <?php endif; ?>
             </div>
 
+            <?php
+                $list_programs = get_field('ps_tv_programacao', 'option');
+                if (!empty($list_programs)):
+            ?>
             <div class="col-12 col-lg-4 ps-videos-home--tv active">
                 <p class="text-white pb-2">Programação</p>
                 <nav class="w-100">
+                    <?php
+                        foreach($list_programs as $program):
+                    ?>
                     <span class="d-inline-block w-100 my-2">
-                        <strong>13:00</strong> - Programa de notícia e debate
+                        <strong><?php echo $program['ps_tv_programacao_horario']; ?></strong> - <?php echo $program['ps_tv_programacao_nome']; ?>
                     </span>
-                    <span class="d-inline-block w-100 my-2">
-                        <strong>13:00</strong> - Programa de notícia e debate
-                    </span>
-                    <span class="d-inline-block w-100 my-2">
-                        <strong>13:00</strong> - Programa de notícia e debate
-                    </span>
-                    <span class="d-inline-block w-100 my-2">
-                        <strong>13:00</strong> - Programa de notícia e debate
-                    </span>
-                    <span class="d-inline-block w-100 my-2">
-                        <strong>13:00</strong> - Programa de notícia e debate
-                    </span>
-                    <span class="d-inline-block w-100 my-2">
-                        <strong>13:00</strong> - Programa de notícia e debate
-                    </span>
+                    <?php endforeach; ?>
                 </nav>
             </div>
+            <?php endif; ?>
 
             <div class="col-12 col-lg-4 text-center ps-videos-home--radios">
                 <div class="w-100 text-center">

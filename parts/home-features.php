@@ -137,7 +137,7 @@ $sliders = get_posts(array(
                         </div>
                         <?php endforeach; ?>
                     </div>
-                    <a href="#" class="nav-features--prev nav-features-control" title="Notícia anterio">
+                    <a href="#" class="nav-features--prev nav-features-control" title="Notícia anterior">
                         <i class="fa-solid fa-circle-chevron-left"></i>
                     </a>
                     <a href="#" class="nav-features--next nav-features-control" title="Próxima notícia">

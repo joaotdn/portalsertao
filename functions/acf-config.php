@@ -35,4 +35,9 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 		'menu_title'  => 'Anúncios',
 		'parent_slug' => 'opcoes-gerais',
 	) );
+	acf_add_options_sub_page( array(
+		'page_title'  => 'TV Sertão',
+		'menu_title'  => 'TV Sertão',
+		'parent_slug' => 'opcoes-gerais',
+	) );
 }
