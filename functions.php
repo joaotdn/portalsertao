@@ -31,3 +31,9 @@ require_once( get_template_directory() . '/functions/acf-config.php' );
 
 // Get tags from specific categories
 require_once( get_template_directory() . '/functions/get-all-tags-cat.php' );
+
+// CPT: Colunistas
+require_once( get_template_directory() . '/functions/cpt-blog.php' );
+
+// CPT: TV Sertão
+require_once( get_template_directory() . '/functions/cpt-tv-sertao.php' );

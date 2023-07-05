@@ -40,4 +40,9 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 		'menu_title'  => 'TV Sertão',
 		'parent_slug' => 'opcoes-gerais',
 	) );
+	acf_add_options_sub_page( array(
+		'page_title'  => 'Rádios',
+		'menu_title'  => 'Rádios',
+		'parent_slug' => 'opcoes-gerais',
+	) );
 }

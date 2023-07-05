@@ -85,35 +85,28 @@ $videos = get_posts(array(
                         <?php get_template_part('parts/radio-player'); ?>
                     </div>
                 </div>
+                <?php
+                $radios = get_field('ps_radios_select', 'option');
+                if (!empty($radios)):
+                    sort($radios);
+                ?>
                 <div class="w-100 my-3 ps-videos-home--ronline p-3 rounded">
                     <h5 class="d-inline-block w-100 text-center fw-bold font-title text-dark">
                         <i class="fa-solid fa-radio"></i> Rádios Online
                     </h5>
                     <select name="radios-online" id="radios-online" class="form-select">
                         <option value="" selected>Selecione uma rádio</option>
-                        <option value="">Alto Piranhas AM </option>
-                        <option value="">Arapuan FM </option>
-                        <option value="">Capivara FM </option>
-                        <option value="">Cidade FM </option>
-                        <option value="">Conceição FM </option>
-                        <option value="">Correio AM </option>
-                        <option value="">Difusora AM </option>
-                        <option value="">Espinharas FM </option>
-                        <option value="">Itatiunga FM </option>
-                        <option value="">Liberdade FM </option>
-                        <option value="">Líder FM </option>
-                        <option value="">Mais FM </option>
-                        <option value="">Mariana FM </option>
-                        <option value="">Max Correio Nativa FM</option>
-                        <option value="">Oeste AM </option>
-                        <option value="">Patamuté FM</option>
+                        <?php foreach($radios as $radio): ?>
+                        <option value="<?php echo $radio['ps_radios_select_stream']; ?>"><?php echo $radio['ps_radios_select_nome']; ?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
+                <?php endif; ?>
             </div>
         </div>
     </div>
 </section>
-<div class="modal fade" id="videoHomeModal" tabindex="<option value="">1" aria-labelledby="videoHomeModalLabel" aria-hidden="true"></option>
+<div class="modal fade" id="videoHomeModal" tabindex="1">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body">
