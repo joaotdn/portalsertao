@@ -51,7 +51,7 @@ function tv_sertao_init() {
       );
   
     register_taxonomy("programas", array("tvsertao"), array(
-      "hierarchical"      => true, 
+      "hierarchical"      => false, 
       "labels"            => $labels, 
       "singular_label"    => "Programa", 
       "rewrite"           => true,

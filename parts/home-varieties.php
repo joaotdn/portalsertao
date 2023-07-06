@@ -1,3 +1,9 @@
+<?php
+$news = get_posts(array(
+    'posts_per_page' => 4,
+    'meta_key'       => 'ps_youtube_cod'
+));
+?>
 <section class="ps-home-news container-fluid my-4">
     <div class="container">
         <div class="row">
@@ -8,46 +14,63 @@
                             <a href="#" title="Ver todas as notícias em Municípios" class="text-danger">
                                 <h5 class="font-title">Municípios</h5>
                             </a>
-                            <nav class="ps-home-news--tags nav d-none d-lg-flex">
-                                <a href="#" title="" class="nav-link">Cajazeiras</a>
-                                <a href="#" title="" class="nav-link">Sousa</a>
-                                <a href="#" title="" class="nav-link">Campina Grande</a>
-                                <a href="#" title="" class="nav-link">Pombal</a>
-                                <a href="#" title="" class="nav-link">Cachoeira dos Índios</a>
-                            </nav>
+                            <?php
+                            $cities = get_terms(array(
+                                'taxonomy'   => 'cities',
+                                'hide_empty' => false,
+                                'number' => 5
+                            ));
+                            if (!empty($cities)) :
+                                shuffle($cities);
+                            ?>
+                                <nav class="ps-home-news--tags nav d-none d-lg-flex">
+                                    <?php foreach ($cities as $citie) : ?>
+                                        <a href="<?php echo get_term_link($citie->term_id, 'cities'); ?>" title="<?php echo $citie->name; ?>" class="nav-link"><?php echo $citie->name; ?></a>
+                                    <?php endforeach; ?>
+                                </nav>
+                            <?php endif; ?>
                         </div>
                     </div>
 
-                    <div class="col-12 col-md-6">
-                        <a href="#" class="d-inline-block border-bottom border-2 border-danger mb-2" title="">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/v1.jpg" alt="">
-                        </a>
-                        <p class="font-tag"><i class="fa-solid fa-location-dot"></i> Sousa</p>
-                        <a href="#" title="">
-                            <h5 class="font-title">
-                                Definida programação de Corpus Christi que será celebrada pela Igreja Católica em Cajazeiras
-                            </h5>
-                        </a>
-                    </div>
-
-                    <div class="col-12 col-md-6">
-                        <nav class="nav ps-home-news--list">
-                            <a href="#" class="nav-link px-0 d-block" title="">
-                                <p class="font-tag"><i class="fa-solid fa-location-dot"></i> Uirauna</p>
-                                <h6 class="font-title">Todo mundo diz que UTI Aérea é coisa de rico. Pois na PB é diferente', avalia Nonato Bandeira sobre mais uma UTI e 40 ambulâncias</h6>
+                    <?php
+                    $cities = get_posts(array(
+                        'posts_per_page' => 4,
+                        'taxonomy' => 'cities'
+                    ));
+                    if (!empty($cities)) :
+                        $location = get_the_terms($cities[0]->ID, 'cities');
+                    ?>
+                        <div class="col-12 col-md-6">
+                            <a href="<?php echo get_the_permalink($cities[0]->ID); ?>" class="d-inline-block border-bottom border-2 border-danger mb-2" title="<?php echo get_the_title($cities[0]->ID); ?>">
+                                <img src="<?php echo get_the_post_thumbnail_url($cities[0]->ID, 'ps-thumb-horizontally'); ?>" alt="">
                             </a>
-
-                            <a href="#" class="nav-link px-0 d-block" title="">
-                                <p class="font-tag"><i class="fa-solid fa-location-dot"></i> São João</p>
-                                <h6 class="font-title">Em Brasília: prefeito Zé Aldemir tenta liberar recursos de obras conveniadas com o governo federal</h6>
+                            <p class="font-tag"><i class="fa-solid fa-location-dot"></i> <?php echo $location[0]->name; ?></p>
+                            <a href="<?php echo get_the_permalink($cities[0]->ID); ?>" title="<?php echo get_the_title($cities[0]->ID); ?>">
+                                <h5 class="font-title">
+                                <?php echo get_the_title($cities[0]->ID); ?>
+                                </h5>
                             </a>
-
-                            <a href="#" class="nav-link px-0 d-block" title="">
-                                <p class="font-tag"><i class="fa-solid fa-location-dot"></i> São José de Piranhas</p>
-                                <h6 class="font-title">Assembleia aprova pedido de Doutora Paula ao TJPB para elevação do Município de Cajazeiras a terceira entrância</h6>
-                            </a>
-                        </nav>
-                    </div>
+                        </div>
+                        <?php
+                            array_shift($cities);
+                            if (!empty($cities)) :
+                        ?>
+                        <div class="col-12 col-md-6">
+                            <nav class="nav ps-home-news--list">
+                                <?php
+                                foreach($cities as $city):
+                                    $location = get_the_terms($city->ID, 'cities');
+                                ?>
+                                <a href="<?php echo get_the_permalink($city->ID); ?>" class="nav-link px-0 d-block" title="<?php echo get_the_title($city->ID); ?>">
+                                    <p class="font-tag"><i class="fa-solid fa-location-dot"></i> <?php echo $location[0]->name; ?></p>
+                                    <h6 class="font-title"><?php echo get_the_title($city->ID); ?></h6>
+                                </a>
+                                <?php endforeach; ?>
+                            </nav>
+                        </div>
+                        <?php endif; ?>
+                    <?php
+                    endif; ?>
                 </div>
             </div>
 
