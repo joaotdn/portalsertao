@@ -45,4 +45,9 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 		'menu_title'  => 'Rádios',
 		'parent_slug' => 'opcoes-gerais',
 	) );
+	acf_add_options_sub_page( array(
+		'page_title'  => 'Prefeituras',
+		'menu_title'  => 'Prefeituras',
+		'parent_slug' => 'opcoes-gerais',
+	) );
 }

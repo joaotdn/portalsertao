@@ -1,9 +1,3 @@
-<?php
-$news = get_posts(array(
-    'posts_per_page' => 4,
-    'meta_key'       => 'ps_youtube_cod'
-));
-?>
 <section class="ps-home-news container-fluid my-4">
     <div class="container">
         <div class="row">
@@ -47,30 +41,29 @@ $news = get_posts(array(
                             <p class="font-tag"><i class="fa-solid fa-location-dot"></i> <?php echo $location[0]->name; ?></p>
                             <a href="<?php echo get_the_permalink($cities[0]->ID); ?>" title="<?php echo get_the_title($cities[0]->ID); ?>">
                                 <h5 class="font-title">
-                                <?php echo get_the_title($cities[0]->ID); ?>
+                                    <?php echo get_the_title($cities[0]->ID); ?>
                                 </h5>
                             </a>
                         </div>
-                        <?php
-                            array_shift($cities);
-                            if (!empty($cities)) :
-                        ?>
+                    <?php
+                    endif;
+                    array_shift($cities);
+                    if (!empty($cities)) :
+                    ?>
                         <div class="col-12 col-md-6">
                             <nav class="nav ps-home-news--list">
                                 <?php
-                                foreach($cities as $city):
+                                foreach ($cities as $city) :
                                     $location = get_the_terms($city->ID, 'cities');
                                 ?>
-                                <a href="<?php echo get_the_permalink($city->ID); ?>" class="nav-link px-0 d-block" title="<?php echo get_the_title($city->ID); ?>">
-                                    <p class="font-tag"><i class="fa-solid fa-location-dot"></i> <?php echo $location[0]->name; ?></p>
-                                    <h6 class="font-title"><?php echo get_the_title($city->ID); ?></h6>
-                                </a>
+                                    <a href="<?php echo get_the_permalink($city->ID); ?>" class="nav-link px-0 d-block" title="<?php echo get_the_title($city->ID); ?>">
+                                        <p class="font-tag"><i class="fa-solid fa-location-dot"></i> <?php echo $location[0]->name; ?></p>
+                                        <h6 class="font-title"><?php echo get_the_title($city->ID); ?></h6>
+                                    </a>
                                 <?php endforeach; ?>
                             </nav>
                         </div>
-                        <?php endif; ?>
-                    <?php
-                    endif; ?>
+                    <?php endif; ?>
                 </div>
             </div>
 
@@ -81,46 +74,38 @@ $news = get_posts(array(
                             <h5 class="font-title m-0"><i class="fa-solid fa-quote-left"></i> Colunas</h5>
                         </div>
                         <div class="w-100 ps-home-news--authors-list px-3">
+                            <?php
+                            $args = array(
+                                'numberposts' => 3,
+                                'post_type'   => 'blog'
+                            );
+                            $writers = get_posts($args);
+                            $repeat = array();
+                            if (!empty($writers)):
+                            ?>
                             <nav class="nav flex-column">
+                                <?php
+                                foreach($writers as $writer):
+                                    $writer_info = get_the_terms($writer->ID, 'colunistas')[0];
+                                    $img = get_field('ps_colunistas_foto', $writer_info->taxonomy . '_' . $writer_info->term_id);
+                                ?>
                                 <div class="row py-2 ps-home-news--authors-item">
                                     <div class="col-auto">
-                                        <div class="pe-3 author-th bg-cover d-inline-block" data-thumb-post="<?php echo get_template_directory_uri(); ?>/assets/img/c1.jpg"></div>
+                                        <div class="pe-3 author-th bg-cover d-inline-block" data-thumb-post="<?php echo $img; ?>"></div>
                                     </div>
                                     <div class="col">
-                                        <a href="#" title="" class="font-tag">Margarida Araújo</a>
-                                        <a href="#" title="">
-                                            <h6 class="font-title">Os lobos de cada um</h6>
+                                        <a href="<?php echo get_term_link($writer_info->term_id, 'colunistas'); ?>" title="Todas as colunas de <?php echo $writer_info->name; ?>" class="font-tag"><?php echo $writer_info->name; ?></a>
+                                        <a href="<?php echo get_the_permalink($writer->ID); ?>" title="<?php echo get_the_title($writer->ID); ?>">
+                                            <h6 class="font-title"><?php echo get_the_title($writer->ID); ?></h6>
                                         </a>
                                     </div>
                                 </div>
-
-                                <div class="row py-2 ps-home-news--authors-item">
-                                    <div class="col-auto">
-                                        <div class="pe-3 author-th bg-cover d-inline-block" data-thumb-post="<?php echo get_template_directory_uri(); ?>/assets/img/c2.jpg"></div>
-                                    </div>
-                                    <div class="col">
-                                        <a href="#" title="" class="font-tag">Wgleyson de Souza</a>
-                                        <a href="#" title="">
-                                            <h6 class="font-title">Susto</h6>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div class="row py-2 ps-home-news--authors-item">
-                                    <div class="col-auto">
-                                        <div class="pe-3 author-th bg-cover d-inline-block" data-thumb-post="<?php echo get_template_directory_uri(); ?>/assets/img/c3.jpg"></div>
-                                    </div>
-                                    <div class="col">
-                                        <a href="#" title="" class="font-tag">José Antonio de Albuquerque</a>
-                                        <a href="#" title="">
-                                            <h6 class="font-title">Resultado preliminar do concurso da Câmara de Cajazeiras é divulgado; confira!</h6>
-                                        </a>
-                                    </div>
-                                </div>
+                                <?php endforeach; ?>
                             </nav>
+                            <?php endif; ?>
                         </div>
                         <div class="w-100 d-grid">
-                            <a href="#" class="btn btn-danger rounded-0 btn-sm" title="Ver mais colunas"><i class="fa-solid fa-list"></i> Ver mais</a>
+                            <a href="<?php echo get_post_type_archive_link('blog'); ?>" class="btn btn-danger rounded-0 btn-sm" title="Ver mais colunas"><i class="fa-solid fa-list"></i> Ver mais</a>
                         </div>
                     </div>
                 </div>
