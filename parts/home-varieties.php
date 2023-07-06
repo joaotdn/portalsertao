@@ -81,27 +81,27 @@
                             );
                             $writers = get_posts($args);
                             $repeat = array();
-                            if (!empty($writers)):
+                            if (!empty($writers)) :
                             ?>
-                            <nav class="nav flex-column">
-                                <?php
-                                foreach($writers as $writer):
-                                    $writer_info = get_the_terms($writer->ID, 'colunistas')[0];
-                                    $img = get_field('ps_colunistas_foto', $writer_info->taxonomy . '_' . $writer_info->term_id);
-                                ?>
-                                <div class="row py-2 ps-home-news--authors-item">
-                                    <div class="col-auto">
-                                        <div class="pe-3 author-th bg-cover d-inline-block" data-thumb-post="<?php echo $img; ?>"></div>
-                                    </div>
-                                    <div class="col">
-                                        <a href="<?php echo get_term_link($writer_info->term_id, 'colunistas'); ?>" title="Todas as colunas de <?php echo $writer_info->name; ?>" class="font-tag"><?php echo $writer_info->name; ?></a>
-                                        <a href="<?php echo get_the_permalink($writer->ID); ?>" title="<?php echo get_the_title($writer->ID); ?>">
-                                            <h6 class="font-title"><?php echo get_the_title($writer->ID); ?></h6>
-                                        </a>
-                                    </div>
-                                </div>
-                                <?php endforeach; ?>
-                            </nav>
+                                <nav class="nav flex-column">
+                                    <?php
+                                    foreach ($writers as $writer) :
+                                        $writer_info = get_the_terms($writer->ID, 'colunistas')[0];
+                                        $img = get_field('ps_colunistas_foto', $writer_info->taxonomy . '_' . $writer_info->term_id);
+                                    ?>
+                                        <div class="row py-2 ps-home-news--authors-item">
+                                            <div class="col-auto">
+                                                <div class="pe-3 author-th bg-cover d-inline-block" data-thumb-post="<?php echo $img; ?>"></div>
+                                            </div>
+                                            <div class="col">
+                                                <a href="<?php echo get_term_link($writer_info->term_id, 'colunistas'); ?>" title="Todas as colunas de <?php echo $writer_info->name; ?>" class="font-tag"><?php echo $writer_info->name; ?></a>
+                                                <a href="<?php echo get_the_permalink($writer->ID); ?>" title="<?php echo get_the_title($writer->ID); ?>">
+                                                    <h6 class="font-title"><?php echo get_the_title($writer->ID); ?></h6>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
+                                </nav>
                             <?php endif; ?>
                         </div>
                         <div class="w-100 d-grid">
@@ -117,29 +117,32 @@
 
             <div class="col-12">
                 <div class="row">
-                    <div class="col-12 col-md-4">
-                        <div class="w-100 bg-light p-3 rounded-3">
-                            <div class="w-100 border-bottom border-2 my-3">
-                                <h5 class="font-title text-danger"><i class="fa-solid fa-ranking-star"></i> Mais lidas</h5>
+                    <?php
+                    $args = array('posts_per_page' => 3, 'meta_key' => 'wpb_post_views_count', 'orderby' => 'meta_value_num', 'order' => 'DESC');
+                    $populars = get_posts($args);
+                    if (!empty($populars)) :
+                    ?>
+                        <div class="col-12 col-md-4">
+                            <div class="w-100 bg-light p-3 rounded-3">
+                                <div class="w-100 border-bottom border-2 my-3">
+                                    <h5 class="font-title text-danger"><i class="fa-solid fa-ranking-star"></i> Mais lidas</h5>
+                                </div>
+                                <nav class="nav ps-home-news--list">
+                                    <?php foreach ($populars as $pop) : $tag = get_the_tags($pop->ID); ?>
+                                        <a href="<?php echo get_the_permalink($pop->ID); ?>" class="nav-link px-0 d-block" title="<?php echo get_the_title($pop->ID); ?>">
+                                            <?php
+                                            if (!empty($tag)) {
+                                            ?><p class="font-tag"><?php echo $tag[0]->name; ?></p>
+                                            <?php
+                                            }
+                                            ?>
+                                            <h6 class="font-title"><?php echo get_the_title($pop->ID); ?></h6>
+                                        </a>
+                                    <?php endforeach; ?>
+                                </nav>
                             </div>
-                            <nav class="nav ps-home-news--list">
-                                <a href="#" class="nav-link px-0 d-block" title="">
-                                    <p class="font-tag">Uirauna</p>
-                                    <h6 class="font-title">Todo mundo diz que UTI Aérea é coisa de rico. Pois na PB é diferente', avalia Nonato Bandeira sobre mais uma UTI e 40 ambulâncias</h6>
-                                </a>
-
-                                <a href="#" class="nav-link px-0 d-block" title="">
-                                    <p class="font-tag">São João</p>
-                                    <h6 class="font-title">Em Brasília: prefeito Zé Aldemir tenta liberar recursos de obras conveniadas com o governo federal</h6>
-                                </a>
-
-                                <a href="#" class="nav-link px-0 d-block" title="">
-                                    <p class="font-tag">São José de Piranhas</p>
-                                    <h6 class="font-title">Assembleia aprova pedido de Doutora Paula ao TJPB para elevação do Município de Cajazeiras a terceira entrância</h6>
-                                </a>
-                            </nav>
                         </div>
-                    </div>
+                    <?php endif; ?>
 
                     <div class="col-12 col-md-4">
                         <div class="w-100 bg-danger px-3 pt-3 border-top border-4 border-dark mb-3">

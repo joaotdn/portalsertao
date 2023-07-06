@@ -14,6 +14,7 @@ function ps_theme_support() {
 	add_image_size( 'ps-thumb-small', 100, 100, true );
 	add_image_size( 'ps-thumb-small-h', 306, 173, true );
 	add_image_size( 'ps-thumb-horizontally', 416, 166, true );
+	add_image_size( 'ps-thumb-medium-h', 269, 153, true );
 
 	// Add RSS Support
 	add_theme_support( 'automatic-feed-links' );

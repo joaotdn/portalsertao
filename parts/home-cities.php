@@ -9,12 +9,11 @@ if (!empty($prefeituras)) :
                     <div class="col-12 mb-3 pb-3">
                         <h5 class="font-title m-0 border-bottom d-inline-block w-100"><i class="fa-solid fa-city"></i> Prefeituras</h5>
                     </div>
-
                     <?php
                     foreach ($prefeituras as $prefeitura) :
                     ?>
                         <div class="col-6 col-md-2">
-                            <a href="<?php echo $prefeitura['ps_prefeituras_link']; ?>" class="nav-link" title="<?php echo $prefeitura['ps_prefeituras_nome']; ?>">
+                            <a href="<?php echo $prefeitura['ps_prefeituras_link']; ?>" class="nav-link" title="<?php echo $prefeitura['ps_prefeituras_nome']; ?>" target="_blank">
                                 <img src="<?php echo $prefeitura['ps_prefeituras_logo']; ?>" alt="<?php echo $prefeitura['ps_prefeituras_nome']; ?>">
                             </a>
                         </div>

@@ -26,6 +26,9 @@ require_once( get_template_directory() . '/functions/theme-suport.php' );
 // Register nav menus
 require_once( get_template_directory() . '/functions/nav-menus.php' );
 
+// Register post count by view
+require_once( get_template_directory() . '/functions/list-popular.php' );
+
 // Config ACF
 require_once( get_template_directory() . '/functions/acf-config.php' );
 
