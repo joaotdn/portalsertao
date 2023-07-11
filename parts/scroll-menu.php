@@ -18,7 +18,7 @@
                         'container'  => '',
                         'depth'         => 1,
                         'fallback_cb'   => false,
-                        'add_li_class'  => 'nav-link fw-semibold'
+                        'add_li_class'  => 'nav-link fw-semibold pe-0'
                     ));
                     ?>
                 </ul>

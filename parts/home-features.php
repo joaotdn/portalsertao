@@ -31,7 +31,8 @@ $destaque5 = get_posts(array(
 
 $sliders = get_posts(array(
     'posts_per_page' => 5,
-    'meta_key'       => 'ps_home_slide'
+    'meta_key'       => 'ps_home_slide',
+    'meta_value'     => true
 ));
 ?>
 <section class="ps-home-features container mt-3 mt-md-5">
