@@ -154,30 +154,30 @@
                                 'posts_per_page' => 3,
                                 'meta_key'       => 'ps_galeria_de_fotos'
                             ));
-                            if(!empty($galerias)):
+                            if (!empty($galerias)) :
                             ?>
-                            <nav class="nav flex-column ps-home-news--gallery">
-                                <?php
-                                foreach($galerias as $item):
-                                ?>
-                                <div class="row mb-3">
-                                    <div class="col-auto">
-                                        <div class="pe-3 thumb-gallery bg-cover d-inline-block" data-thumb-post="<?php echo get_the_post_thumbnail_url($item->ID, 'ps-thumb-small'); ?>"></div>
-                                    </div>
-                                    <div class="col">
-                                        <?php
-                                        $tag = get_the_tags($item->ID);
-                                        if (!empty($tag)):
-                                        ?>
-                                        <p class="m-0"><small><?php echo $tag[0]->name; ?></small></p>
-                                        <?php endif; ?>
-                                        <a href="<?php echo get_the_permalink($item->ID); ?>" title="<?php echo get_the_title($item->ID); ?>" class="text-white">
-                                            <h6 class="font-title"><?php echo get_the_title($item->ID); ?></h6>
-                                        </a>
-                                    </div>
-                                </div>
-                                <?php endforeach; ?>
-                            </nav>
+                                <nav class="nav flex-column ps-home-news--gallery">
+                                    <?php
+                                    foreach ($galerias as $item) :
+                                    ?>
+                                        <div class="row mb-3">
+                                            <div class="col-auto">
+                                                <div class="pe-3 thumb-gallery bg-cover d-inline-block" data-thumb-post="<?php echo get_the_post_thumbnail_url($item->ID, 'ps-thumb-small'); ?>"></div>
+                                            </div>
+                                            <div class="col">
+                                                <?php
+                                                $tag = get_the_tags($item->ID);
+                                                if (!empty($tag)) :
+                                                ?>
+                                                    <p class="m-0"><small><?php echo $tag[0]->name; ?></small></p>
+                                                <?php endif; ?>
+                                                <a href="<?php echo get_the_permalink($item->ID); ?>" title="<?php echo get_the_title($item->ID); ?>" class="text-white">
+                                                    <h6 class="font-title"><?php echo get_the_title($item->ID); ?></h6>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
+                                </nav>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -200,53 +200,77 @@
 
             <div class="col-12">
                 <div class="row">
-                    <div class="col-12 col-md-8">
-                        <div class="row">
-                            <div class="col-12 mb-3">
-                                <h4 class="m-0 border-bottom border-4 border-dark d-inline-block w-100"><i class="fa-solid fa-user-secret"></i> <span class="fw-bold">Sertão</span><span class="font-title text-danger">Investiga</span></h4>
-                            </div>
-
-                            <div class="col-12 col-md-4 mb-4">
-                                <a href="#" title="" class="d-block">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/F2.webp" alt="">
-                                </a>
-                                <div class="w-100 bg-dark p-3">
-                                    <p class="font-tag">Preliminares</p>
-                                    <a href="#" title="" class="text-white">
-                                        <h6 class="font-title">Em Cajazeiras, será feriado de Corpus Christi quinta (08) e sexta (09) terá ponto facultativo nas repartições municipais</h6>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="col-12 col-md-8">
-                                <div class="w-100">
-                                    <p class="font-tag">Eleições 2022</p>
-                                    <a href="#" class="" title="">
-                                        <h5 class="font-title"> VÍDEO: Ortopedista técnico destaca serviços, confecções de próteses e órteses e benefícios oferecidos pela Moriah Ortopedia, na cidade de Sousa</h5>
-                                    </a>
-                                    <p class="text-excerpt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, praesentium voluptas nobis consequatur.</p>
+                    <?php
+                    $category_id = get_cat_ID('Sertao Investiga');
+                    $posts = get_posts(array(
+                        'cat' => $category_id,
+                        'numberposts' => 3
+                    ));
+                    if (!empty($posts)) :
+                    ?>
+                        <div class="col-12 col-md-8">
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <h4 class="m-0 border-bottom border-4 border-dark d-inline-block w-100"><i class="fa-solid fa-user-secret"></i> <span class="fw-bold">Sertão</span><span class="font-title text-danger">Investiga</span></h4>
                                 </div>
 
-                                <div class="w-100 my-3 pt-3 border-top">
-                                    <p class="font-tag">UTI Móvel</p>
-                                    <a href="#" title="">
-                                        <h6 class="font-title">
-                                            Todo mundo diz que UTI Aérea é coisa de rico. Pois na PB é diferente', avalia Nonato Bandeira sobre mais uma UTI e 40 ambulâncias
-                                        </h6>
+                                <div class="col-12 col-md-4 mb-4">
+                                    <a href="<?php echo get_the_permalink($posts[0]->ID); ?>" title="<?php echo get_the_title($posts[0]->ID); ?>" class="d-block">
+                                        <img src="<?php echo get_the_post_thumbnail_url($posts[0]->ID, 'ps-thumb-small-h'); ?>" alt="<?php echo get_the_title($posts[0]->ID); ?>">
                                     </a>
+                                    <div class="w-100 bg-dark p-3">
+                                        <p class="font-tag"><?php echo get_the_tags($posts[0]->ID)[0]->name; ?></p>
+                                        <a href="<?php echo get_the_permalink($posts[0]->ID); ?>" title="<?php echo get_the_title($posts[0]->ID); ?>" class="text-white">
+                                            <h6 class="font-title"><?php echo get_the_title($posts[0]->ID); ?></h6>
+                                        </a>
+                                    </div>
                                 </div>
+                                <?php
+                                array_shift($posts);
+                                if (!empty($posts)) :
+                                ?>
+                                    <div class="col-12 col-md-8">
+                                        <div class="w-100">
+                                            <p class="font-tag"><?php echo get_the_tags($posts[0]->ID)[0]->name; ?></p>
+                                            <a href="<?php echo get_the_permalink($posts[0]->ID); ?>" class="" title="<?php echo get_the_title($posts[0]->ID); ?>">
+                                                <h5 class="font-title"><?php echo get_the_title($posts[0]->ID); ?></h5>
+                                            </a>
+                                            <p class="text-excerpt"><?php echo get_the_excerpt($posts[0]->ID); ?></p>
+                                        </div>
+                                        <?php if (isset($posts[1])) : ?>
+                                            <div class="w-100 my-3 pt-3 border-top">
+                                                <p class="font-tag"><?php echo get_the_tags($posts[1]->ID)[0]->name; ?></p>
+                                                <a href="<?php echo get_the_permalink($posts[1]->ID); ?>" title="<?php echo get_the_title($posts[1]->ID); ?>">
+                                                    <h6 class="font-title"><?php echo get_the_title($posts[1]->ID); ?></h6>
+                                                </a>
+                                            </div>
+                                        <?php endif; ?>
+                                    </div>
+                                <?php endif; ?>
                             </div>
                         </div>
-                    </div>
+                    <?php endif; ?>
 
                     <div class="col-12 col-md-4 text-center">
                         <div class="w-100 p-3 bg-light border">
                             <div class="w-100 mb-3 text-center">
                                 <h6 class="fw-light text-uppercase"><small>Anúncio</small></h6>
                             </div>
-                            <a href="#" title="" class="d-inline-block">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/adsp2.png" alt="">
-                            </a>
+                            <?php
+                            // ps_ads_topo
+                            $ads_inv  = get_field('ps_ads_investiga', 'option');
+                            if ($ads_inv) :
+                                shuffle($ads_inv);
+                                $ads_inv = $ads_inv[0];
+                                if ($ads_inv['ps_ads_investiga_link']) {
+                            ?>
+                                    <a href="<?php echo $ads_inv['ps_ads_investiga_link']; ?>" target="_blank" title="">
+                                        <img src="<?php echo $ads_inv['ps_ads_investiga_conteudo']; ?>" alt="Anúncio">
+                                    </a>
+                                <?php } else { ?>
+                                    <img src="<?php echo $ads_inv['ps_ads_investiga_conteudo']; ?>" alt="Anúncio">
+                            <?php }
+                            endif; ?>
                         </div>
                     </div>
                 </div>
