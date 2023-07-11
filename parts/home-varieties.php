@@ -149,43 +149,36 @@
                             <div class="w-100 my-2 mb-3">
                                 <h5 class="font-title text-dark"><i class="fa-solid fa-camera"></i> Galerias</h5>
                             </div>
+                            <?php
+                            $galerias = get_posts(array(
+                                'posts_per_page' => 3,
+                                'meta_key'       => 'ps_galeria_de_fotos'
+                            ));
+                            if(!empty($galerias)):
+                            ?>
                             <nav class="nav flex-column ps-home-news--gallery">
+                                <?php
+                                foreach($galerias as $item):
+                                ?>
                                 <div class="row mb-3">
                                     <div class="col-auto">
-                                        <div class="pe-3 thumb-gallery bg-cover d-inline-block" data-thumb-post="<?php echo get_template_directory_uri(); ?>/assets/img/g1.jpg"></div>
+                                        <div class="pe-3 thumb-gallery bg-cover d-inline-block" data-thumb-post="<?php echo get_the_post_thumbnail_url($item->ID, 'ps-thumb-small'); ?>"></div>
                                     </div>
                                     <div class="col">
-                                        <p class="m-0"><small>Cajazeiras</small></p>
-                                        <a href="#" title="" class="text-white">
-                                            <h6 class="font-title">Assembleia aprova pedido de Doutora Paula ao TJPB para elevação do Município de Cajazeiras a terceira entrância</h6>
+                                        <?php
+                                        $tag = get_the_tags($item->ID);
+                                        if (!empty($tag)):
+                                        ?>
+                                        <p class="m-0"><small><?php echo $tag[0]->name; ?></small></p>
+                                        <?php endif; ?>
+                                        <a href="<?php echo get_the_permalink($item->ID); ?>" title="<?php echo get_the_title($item->ID); ?>" class="text-white">
+                                            <h6 class="font-title"><?php echo get_the_title($item->ID); ?></h6>
                                         </a>
                                     </div>
                                 </div>
-
-                                <div class="row mb-3">
-                                    <div class="col-auto">
-                                        <div class="pe-3 thumb-gallery bg-cover d-inline-block" data-thumb-post="<?php echo get_template_directory_uri(); ?>/assets/img/g2.jpg"></div>
-                                    </div>
-                                    <div class="col">
-                                        <p class="m-0"><small>Brasília</small></p>
-                                        <a href="#" title="" class="text-white">
-                                            <h6 class="font-title">Em Brasília: prefeito Zé Aldemir tenta liberar recursos de obras conveniadas com o governo federal</h6>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-3">
-                                    <div class="col-auto">
-                                        <div class="pe-3 thumb-gallery bg-cover d-inline-block" data-thumb-post="<?php echo get_template_directory_uri(); ?>/assets/img/g3.jpg"></div>
-                                    </div>
-                                    <div class="col">
-                                        <p class="m-0"><small>UTI Aérea</small></p>
-                                        <a href="#" title="" class="text-white">
-                                            <h6 class="font-title">Todo mundo diz que UTI Aérea é coisa de rico. Pois na PB é diferente', avalia Nonato Bandeira sobre mais uma UTI e 40 ambulâncias</h6>
-                                        </a>
-                                    </div>
-                                </div>
+                                <?php endforeach; ?>
                             </nav>
+                            <?php endif; ?>
                         </div>
                     </div>
 
