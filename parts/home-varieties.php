@@ -152,7 +152,9 @@
                             <?php
                             $galerias = get_posts(array(
                                 'posts_per_page' => 3,
-                                'meta_key'       => 'ps_galeria_de_fotos'
+                                'meta_key'       => 'ps_galeria_de_fotos',
+                                'meta_value' => array(''),
+                                'meta_compare' => '!='
                             ));
                             if (!empty($galerias)) :
                             ?>
