@@ -1,7 +1,9 @@
 <?php
 $videos = get_posts(array(
     'posts_per_page' => 3,
-    'meta_key'       => 'ps_youtube_cod'
+    'meta_key'       => 'ps_youtube_cod',
+    'meta_value' => false,
+    'meta_compare' => '!='
 ));
 ?>
 <section class="ps-videos-home container-fluid my-3 py-4 bg-dark">

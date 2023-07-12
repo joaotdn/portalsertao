@@ -51,57 +51,68 @@
                 </ul>
             </div>
             <div class="col-12 col-md-8">
-                <div class="row">
-                    <div class="col-12 col-md-4 mb-3 mb-md-0">
+                <div class="row d-flex justify-content-end">
+                    <div class="col-12 col-md-auto mb-3 mb-md-0">
                         <div class="w-100 d-flex justify-content-md-end">
                             <nav class="nav flex-column ps-footer--nav">
                                 <h6 class="text-white font-title"><i class="fa-solid fa-align-left"></i> Editoriais</h6>
-                                <a class="nav-link" href="#">Entretenimento</a>
-                                <a class="nav-link" href="#">Política</a>
-                                <a class="nav-link" href="#">Paraíba</a>
-                                <a class="nav-link" href="#">Manchetes</a>
-                                <a class="nav-link" href="#">Polícia</a>
-                                <a class="nav-link" href="#">Economia</a>
-                                <a class="nav-link" href="#">Esportes</a>
-                                <a class="nav-link" href="#">Saúde</a>
-                                <a class="nav-link" href="#">Tecnologia</a>
-                                <a class="nav-link" href="#">Educação</a>
-                                <a class="nav-link" href="#">Brasil</a>
+                                <?php
+                                $categories = get_categories();
+                                foreach($categories as $cat):
+                                ?>
+                                <a class="nav-link" href="<?php echo get_category_link($cat->term_id); ?>" title="Ver notícias em <?php echo $cat->name; ?>"><?php echo $cat->name; ?></a>
+                                <?php endforeach; ?>
                             </nav>
                         </div>
                     </div>
 
-                    <div class="col-12 col-md-4 mb-3 mb-md-0">
+                    <div class="col-12 col-md-auto mb-3 mb-md-0">
                         <div class="w-100 d-flex justify-content-md-end">
                             <nav class="nav flex-column ps-footer--nav">
                                 <h6 class="text-white font-title"><i class="fa-solid fa-location-arrow"></i> Municípios</h6>
-                                <a class="nav-link" href="#">Água Branca - PB</a>
-                                <a class="nav-link" href="#">Aguiar - PB</a>
-                                <a class="nav-link" href="#">Alagoa Grande - PB</a>
-                                <a class="nav-link" href="#">Alagoa Nova - PB</a>
-                                <a class="nav-link" href="#">Alagoinha - PB</a>
-                                <a class="nav-link" href="#">Alcantil - PB</a>
-                                <a class="nav-link" href="#">Algodão de Jandaíra - PB</a>
-                                <a class="nav-link" href="#">Alhandra - PB</a>
-                                <a class="nav-link" href="#">Amparo - PB</a>
-                                <a class="nav-link" href="#">Cajazeiras - PB</a>
-                                <a class="nav-link" href="#"><strong>ver todas</strong></a>
+                                <?php
+                                $categories = get_categories(array(
+                                    'taxonomy' => 'cities',
+                                    'hide_empty' => false
+                                ));
+                                foreach($categories as $cat):
+                                ?>
+                                <a class="nav-link" href="<?php echo get_term_link($cat->term_id, 'cities') ?>" title="Ver notícias em <?php echo $cat->name; ?>"><?php echo $cat->name; ?></a>
+                                <?php endforeach; ?>
                             </nav>
                         </div>
                     </div>
 
-                    <div class="col-12 col-md-4 mb-3 mb-md-0">
+                    <div class="col-12 col-md-auto mb-3 mb-md-0">
                         <div class="w-100 d-flex justify-content-md-end">
                             <nav class="nav flex-column ps-footer--nav">
                                 <h6 class="text-white font-title"><i class="fa-solid fa-quote-left"></i> Colunas</h6>
-                                <a class="nav-link" href="#">Alexandre Costa</a>
-                                <a class="nav-link" href="#">CALDEIRÃO POLÍTICO</a>
-                                <a class="nav-link" href="#">Jornal Gazeta do Alto Piranhas</a>
-                                <a class="nav-link" href="#">José Antônio de Albuquerque</a>
-                                <a class="nav-link" href="#">Margarida Araújo</a>
-                                <a class="nav-link" href="#">Rui Leitão</a>
-                                <a class="nav-link" href="#">WGLEYSON DE SOUZA</a>
-                                <a class="nav-link" href="#"><strong>ver todas</strong></a>
+                                <?php
+                                $categories = get_categories(array(
+                                    'taxonomy' => 'colunistas',
+                                    'hide_empty' => false
+                                ));
+                                foreach($categories as $cat):
+                                ?>
+                                <a class="nav-link" href="<?php echo get_term_link($cat->term_id, 'colunistas') ?>" title="Ver colunas de <?php echo $cat->name; ?>"><?php echo $cat->name; ?></a>
+                                <?php endforeach; ?>
+                            </nav>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-auto mb-3 mb-md-0">
+                        <div class="w-100 d-flex justify-content-md-end">
+                            <nav class="nav flex-column ps-footer--nav">
+                                <h6 class="text-white font-title"><i class="fa-solid fa-tv"></i> TV Sertão</h6>
+                                <?php
+                                $categories = get_categories(array(
+                                    'taxonomy' => 'programas',
+                                    'hide_empty' => false
+                                ));
+                                foreach($categories as $cat):
+                                ?>
+                                <a class="nav-link" href="<?php echo get_term_link($cat->term_id, 'programas'); ?>" title="Ver videos em <?php echo $cat->name; ?>"><?php echo $cat->name; ?></a>
+                                <?php endforeach; ?>
                             </nav>
                         </div>
                     </div>

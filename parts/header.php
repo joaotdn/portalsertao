@@ -113,7 +113,7 @@
                 <?php } endif; ?>
             </div>
             
-            <div class="col-auto">
+            <div class="col-auto d-none d-lg-block">
                 <div class="d-flex ps-clock text-white p-3 align-items-center">
                     <div class="pe-3">
                         <i class="fa-regular fa-clock"></i>
