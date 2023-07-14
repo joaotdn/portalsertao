@@ -13,3 +13,4 @@ import "./components/fontSize";
 import "./components/searchForm";
 import "./components/bgCover";
 import "./components/loteria";
+import "./components/fotorama";

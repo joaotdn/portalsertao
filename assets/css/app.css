@@ -18677,11 +18677,11 @@ img {
   }
 }
 
-.ps-toggle-menu {
+.ps-toggle-menu:not(.is-single) {
   display: none;
 }
 @media screen and (max-width: 991px) {
-  .ps-toggle-menu {
+  .ps-toggle-menu:not(.is-single) {
     display: inline-block;
   }
 }
@@ -19266,8 +19266,9 @@ img {
   transform: translateY(0);
 }
 
-.epb-single__header--info {
-  font-size: 12px;
+.ps-post-bar, .ps-accessibility-opt {
+  font-size: 13px;
+  color: #6c757d;
 }
 
 .epb-category__list img {

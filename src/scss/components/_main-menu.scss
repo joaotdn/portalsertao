@@ -29,10 +29,10 @@
 .ps-toggle-search {
     cursor: pointer;
     display: none;
-
     @media screen and (min-width: 992px) {
         display: flex;
     }
+
 }
 
 .ps-search-content {
@@ -45,6 +45,7 @@
 
 .ps-form-search-mo {
     display: none;
+
     @media screen and (max-width: 991px) {
         display: flex;
     }

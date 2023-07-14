@@ -1,7 +1,4 @@
-.epb-single {
-    &__header {
-        &--info {
-            font-size: 12px;
-        }
-    }
+.ps-post-bar, .ps-accessibility-opt {
+    font-size: 13px;
+    color: $gray-600;
 }
