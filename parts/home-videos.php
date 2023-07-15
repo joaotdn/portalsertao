@@ -45,7 +45,7 @@ $videos = get_posts(array(
             <div class="col-12 col-lg-4 ps-videos-home--content">
                 <nav class="nav flex-column ps-videos-home--nav">
                     <?php $i = 0; foreach($videos as $video): ?>
-                    <a class="nav-link py-4 <?php if ($i == 0) echo 'active'; ?>" title="<?php echo get_the_title($video->ID); ?>" href="#" data-youtube-code="<?php echo get_field('ps_youtube_cod', $video->ID); ?>">
+                    <a class="nav-link py-4 <?php if ($i == 0) echo 'active'; ?>" title="<?php echo get_the_title($video->ID); ?>" href="<?php echo get_the_permalink($video->ID); ?>" data-youtube-code="<?php echo get_field('ps_youtube_cod', $video->ID); ?>">
                         <span class="me-2"><i class="fa-solid fa-video"></i></span>
                         <span><?php echo get_the_title($video->ID); ?></span>
                     </a>
