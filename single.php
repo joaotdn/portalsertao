@@ -80,7 +80,9 @@ $tags = get_the_tags();
                         </div>
                     <?php
                     endif;
+                    echo "<div class=\"w-100 ps-post-content--text\">";
                     the_content();
+                    echo "</div>";
                     ?>
                 </div>
 
@@ -112,9 +114,9 @@ $tags = get_the_tags();
                 endif;
                 ?>
 
-                <div class="w-100 my-4">
-                    <div class="fb-comments" data-href="<?php echo get_the_permalink($post->ID); ?>" data-width="100%" data-numposts="5"></div>
-                </div>
+            </div>
+            <div class="w-100 my-4">
+                <div class="fb-comments" data-href="<?php echo get_the_permalink($post->ID); ?>" data-width="100%" data-numposts="5"></div>
             </div>
         </div>
         <div class="col-12 col-md-4 mt-3">

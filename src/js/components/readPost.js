@@ -9,7 +9,7 @@
         $('.single-read-post').on('click', function(e) {
             e.preventDefault();
             const title = $('.ps-post-title--text').text();
-            const content = $('.ps-post-content').text();
+            const content = $('.ps-post-content--text').text();
             const msg = new SpeechSynthesisUtterance(title + ' ' + content);
             msg.lang = 'pt-br';
 
