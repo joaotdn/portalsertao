@@ -13,7 +13,7 @@ if (!empty($categories)) :
     ));
     if (!empty($relateds)) :
 ?>
-        <div class="w-100 ps-widget my-4">
+        <div class="w-100 ps-widget mt-4">
             <h6 class="w-100 border-bottom border-3 pb-2 m-0 ps-widget--title"><i class="fa-regular fa-folder"></i> Notícias relacionadas</h6>
             <nav class="w-100 mt-3">
                 <?php foreach ($relateds as $related) : ?>
@@ -41,7 +41,7 @@ endif;
 $cities = get_the_terms($obj->ID, 'cities');
 if (!empty($cities)) :
     ?>
-    <div class="w-100 p-3 bg-light border">
+    <div class="w-100 p-3 bg-light border mt-4">
         <h5 class="font-title w-100 text-center border-bottom pb-2"><a href="<?php echo get_term_link($cities[0]->term_id, 'cities') ?>" title="Ver notícias em <?php echo $cities[0]->name; ?>"><i class="fa-solid fa-location-dot"></i> <?php echo $cities[0]->name; ?></a></h5>
         <a href="<?php echo get_term_link($cities[0]->term_id, 'cities') ?>" class="w-100 btn btn-primary btn-sm rounded-0 mt-2" title="Ver notícias em <?php echo $cities[0]->name; ?>">Notícias sobre o munícipio</a>
     </div>
