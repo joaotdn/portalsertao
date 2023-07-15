@@ -2,3 +2,9 @@
     font-size: 13px;
     color: $gray-600;
 }
+
+.ps-widget {
+    &--title {
+        color: $gray-600;
+    }
+}

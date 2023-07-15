@@ -19271,6 +19271,10 @@ img {
   color: #6c757d;
 }
 
+.ps-widget--title {
+  color: #6c757d;
+}
+
 .epb-category__list img {
   transition: opacity 0.3s linear;
 }

@@ -16,26 +16,26 @@ $tags = get_the_tags();
     <div class="row">
         <div class="col-12 col-md-8">
             <div class="w-100 border p-2 my-4 bg-light d-flex justify-content-center">
-            <?php
-            // ps_ads_topo
-            $ads_top  = get_field('ps_ads_topo', 'option');
-            if ($ads_top) :
-                shuffle($ads_top);
-                $ads_top = $ads_top[0];
-                if ($ads_top['ps_ads_topo_link']) {
-            ?>
-                    <a href="<?php echo $ads_top['ps_ads_topo_link']; ?>" target="_blank">
+                <?php
+                // ps_ads_topo
+                $ads_top  = get_field('ps_ads_topo', 'option');
+                if ($ads_top) :
+                    shuffle($ads_top);
+                    $ads_top = $ads_top[0];
+                    if ($ads_top['ps_ads_topo_link']) {
+                ?>
+                        <a href="<?php echo $ads_top['ps_ads_topo_link']; ?>" target="_blank">
+                            <img src="<?php echo $ads_top['ps_ads_topo_conteudo']; ?>" alt="">
+                        </a>
+                    <?php } else { ?>
                         <img src="<?php echo $ads_top['ps_ads_topo_conteudo']; ?>" alt="">
-                    </a>
-                <?php } else { ?>
-                    <img src="<?php echo $ads_top['ps_ads_topo_conteudo']; ?>" alt="">
-            <?php }
-            endif; ?>
+                <?php }
+                endif; ?>
             </div>
             <div class="w-100 single-content">
                 <div class="w-100 ps-post-title" target="_blank" class="nav-link pe-0">
                     <p class="font-tag"><?php echo $tags[0]->name; ?></p>
-                    <h1 class="font-title"><?php the_title(); ?></h1>
+                    <h1 class="font-title ps-post-title--text"><?php the_title(); ?></h1>
                     <p class="text-excerpt mb-0"><small><?php echo get_the_excerpt($post->ID); ?></small></p>
                 </div>
 
@@ -43,9 +43,9 @@ $tags = get_the_tags();
                     <div class="row">
                         <div class="col-12 col-md-6">
                             <?php
-                                if ($post_author) {
-                                    echo "<span class=\"ps-post-bar--author\">Por <strong><a href=\"". get_author_posts_url($post->post_author) ."\" title=\"Veja mais matérias de ". $post_author ."\">". $post_author ."</a></strong> - </span>";
-                                }
+                            if ($post_author) {
+                                echo "<span class=\"ps-post-bar--author\">Por <strong><a href=\"" . get_author_posts_url($post->post_author) . "\" title=\"Veja mais matérias de " . $post_author . "\">" . $post_author . "</a></strong> - </span>";
+                            }
                             ?>
                             <span><?php echo get_the_date('d \d\e F \d\e Y \à\s h:i', $post->ID); ?></span>
                         </div>
@@ -65,40 +65,60 @@ $tags = get_the_tags();
                 </div>
 
                 <div class="w-100 ps-accessibility-opt d-flex justify-content-end mt-3">
-                    <a href="#" class="single-fz-plus"><i class="fa-solid fa-font"></i><i class="fa-solid fa-plus"></i></a>
-                    <a href="#" class="single-fz-minor"><i class="fa-solid fa-font d-inline-block ms-2"></i><i class="fa-solid fa-minus"></i></a>
+                    <a href="#" class="single-read-post d-inline-block" title="Ler matéria"><i class="fa-solid fa-volume-off"></i></a>
+                    <a href="#" class="single-fz-plus d-inline-block ms-2" title="Aumentar a fonte"><i class="fa-solid fa-font"></i><i class="fa-solid fa-plus"></i></a>
+                    <a href="#" class="single-fz-minor d-inline-block ms-2" title="Diminuir a fonte"><i class="fa-solid fa-font"></i><i class="fa-solid fa-minus"></i></a>
                 </div>
 
                 <div class="w-100 ps-post-content mt-4">
                     <?php
-                        $video_cod = get_field('ps_youtube_cod');
-                        if($video_cod):
-                        ?>
+                    $video_cod = get_field('ps_youtube_cod');
+                    if ($video_cod) :
+                    ?>
                         <div class="ratio ratio-16x9 mb-4">
                             <iframe src="https://www.youtube.com/embed/<?php echo $video_cod; ?>?rel=0" title="YouTube video" allowfullscreen></iframe>
                         </div>
-                        <?php
-                        endif;
-                        the_content();
+                    <?php
+                    endif;
+                    the_content();
                     ?>
                 </div>
-                <?php
-                
-                ?>
 
                 <?php
-                    $gallery = get_field('ps_galeria_de_fotos');
-                    if(!empty($gallery)):
+                $gallery = get_field('ps_galeria_de_fotos');
+                if (!empty($gallery)) :
                 ?>
-                <div class="w-100 fotorama p-2 bg-dark rounded-3 mt-4 border-bottom border-2">
-                    <?php
-                        foreach($gallery as $pic) {
-                            echo "<img src=\"". $pic['url'] ."\" alt=\"". $pic['name'] ."\">";
+                    <div class="w-100 fotorama p-2 bg-dark rounded-3 mt-4 border-bottom border-2">
+                        <?php
+                        foreach ($gallery as $pic) {
+                            echo "<img src=\"" . $pic['url'] . "\" alt=\"" . $pic['name'] . "\">";
                         }
-                    ?>
-                </div>
+                        ?>
+                    </div>
                 <?php endif; ?>
+
+                <?php
+                if (!empty($tags)) :
+                ?>
+                    <div class="w-100 ps-post-tags bg-light border p-3 my-4">
+                        <h6 class="mb-3">O que sabemos sobre:</h6>
+                        <div class="w-100">
+                            <?php foreach ($tags as $tag) : ?>
+                                <a href="<?php echo get_term_link($tag); ?>" class="pe-3 d-inline-block btn btn-sm btn-outline-primary" title="Todos os posts em <?php echo $tag->name; ?>"><i class="fa-solid fa-hashtag"></i> <?php echo $tag->name; ?></a>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                <?php
+                endif;
+                ?>
+
+                <div class="w-100 my-4">
+                    <div class="fb-comments" data-href="<?php echo get_the_permalink($post->ID); ?>" data-width="100%" data-numposts="5"></div>
+                </div>
             </div>
+        </div>
+        <div class="col-12 col-md-4 mt-3">
+            <?php get_sidebar(); ?>
         </div>
     </div>
 </article>
