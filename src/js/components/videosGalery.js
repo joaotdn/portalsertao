@@ -42,4 +42,21 @@
             })
         }
     });
+
+    if ($('[data-video-code]').length) {
+        $('[data-video-code]').on('click', function(e) {
+            e.preventDefault();
+            $('html, body').scrollTop(0);
+            const link = $(this).attr('href');
+            const code = $(this).data('video-code');
+            const title = $(this).attr('title');
+
+            $('.ps-single-video--iframe').attr('src', 'https://www.youtube.com/embed/' + code);
+            $('a', '.ps-single-video--title').text(title);
+            $('a', '.ps-single-video--title').attr('title', title);
+            $('a', '.ps-single-video--title').attr('href', link);
+            $('.ps-single-video--btn').attr('title', title);
+            $('.ps-single-video--btn').attr('href', link);
+        });
+    }
 })(jQuery);

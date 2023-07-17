@@ -18686,6 +18686,11 @@ img {
   }
 }
 
+img.ads-top-img {
+  width: 100%;
+  max-width: 728px;
+}
+
 .ps-footer {
   border-top: 3px solid #000000;
 }
@@ -19273,4 +19278,13 @@ img {
 
 .ps-widget--title {
   color: #6c757d;
+}
+
+.ps-single-video > .container {
+  height: 250px;
+}
+@media (min-width: 768px) {
+  .ps-single-video > .container {
+    height: 400px;
+  }
 }

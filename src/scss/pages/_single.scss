@@ -8,3 +8,10 @@
         color: $gray-600;
     }
 }
+
+.ps-single-video > .container {
+    height: 250px;
+    @include media-breakpoint-up(md) {
+        height: 400px;
+    }    
+}
