@@ -24,7 +24,16 @@ $obj = get_queried_object();
 
                 <div class="text-center flex-grow-1">
                     <h2 class="font-title m-0 text-white">
-                        <?php echo is_tag() ? "<i class=\"fa-solid fa-tag\"></i>" : "<i class=\"fa-regular fa-folder\"></i>"; ?> <?php echo $obj->name; ?></h2>
+                        <?php
+                            if (is_tag()) {
+                                echo "<i class=\"fa-solid fa-tag\"></i> ";
+                            } elseif (is_tax('cities')) {
+                                echo "<i class=\"fa-solid fa-city\"></i> ";
+                            } else {
+                                echo "<i class=\"fa-regular fa-folder\"></i> ";
+                            }
+                        ?>
+                        <?php echo $obj->name; ?></h2>
                 </div>
 
                 <div>
