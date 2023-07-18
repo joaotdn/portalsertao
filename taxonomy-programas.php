@@ -1,5 +1,5 @@
 <?php
-get_header('category');
+get_header('tvsertao');
 $category = get_queried_object();
 ?>
 <section id="category-<?php echo $category->term_id; ?>" class="container mt-4">
@@ -8,20 +8,20 @@ $category = get_queried_object();
             <div class="w-100 bg-light border p-3 d-flex justify-content-center mb-4">
                 <?php get_template_part('parts/ads-top'); ?>
             </div>
+
             <?php
             if (have_posts()) : while (have_posts()) : the_post();
                     global $post_id;
-                    $meta = get_post_meta($post->ID);
+                    $code = get_field('ps_video_id');
             ?>
                     <div class="w-100 mb-3 pb-3 ps-category-item border-bottom">
                         <div class="row">
                             <div class="col-auto">
                                 <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>">
-                                    <img src="<?php echo get_the_post_thumbnail_url($post->ID, 'ps-thumb-small') ?>" alt="<?php the_title(); ?>">
+                                    <img src="https://img.youtube.com/vi/<?php echo $code; ?>/0.jpg" alt="<?php the_title(); ?>" width="100">
                                 </a>
                             </div>
                             <div class="col">
-                                <p class="font-tag"><?php echo get_the_tags($post->ID)[0]->name; ?></p>
                                 <h5 class="font-title"><a href="<?php the_permalink() ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h5>
                                 <p class="text-excerpt"><small><?php echo get_the_excerpt($post->ID); ?></small></p>
                             </div>
@@ -52,7 +52,7 @@ $category = get_queried_object();
             </div>
         </div>
         <div class="col-12 col-md-4">
-            <?php get_sidebar('category'); ?>
+            <?php get_sidebar('tvsertao'); ?>
         </div>
     </div>
 </section>

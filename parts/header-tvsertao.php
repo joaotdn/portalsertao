@@ -20,7 +20,23 @@
                 </div>
 
                 <div class="text-center flex-grow-1">
-                    <h2 class="m-0 text-white fw-bolder"><i class="fa-solid fa-play"></i> <i>PLAY</i><span class="text-danger font-title">Sertão</span></h2>
+                    <h2 class="m-0 text-white fw-bolder">
+                        <a href="<?php echo get_post_type_archive_link('tvsertao'); ?>" class="text-white text-decoration-none <?php if (is_single() || is_tax('programas')) { echo "border-bottom pb-1"; } ?>" title="Play Sertão">
+                            <i class="fa-solid fa-play"></i> <i>PLAY</i><span class="text-danger font-title">Sertão</span>
+                        </a>
+                    </h2>
+
+                    <?php 
+                        if(is_single()) {
+                            global $post;
+                            $terms = get_the_terms($post->ID, 'programas');
+                            if (!empty($terms)) { echo "<h5 class=\"mb-0 mt-2 fw-bolder\"><a href=\"". get_term_link($terms[0]->term_id, 'programas') ."\" title=\"{$terms[0]->name}\" class=\"text-white text-decoration-none\"><i class=\"fa-solid fa-tv opacity-25\"></i> {$terms[0]->name}</a><h5>"; }
+                        }
+                        if(is_tax('programas')) {
+                            $obj = get_queried_object();
+                            if (isset($obj)) { echo "<h5 class=\"mb-0 mt-2 fw-bolder\"><a href=\"". get_term_link($obj->term_id, 'programas') ."\" title=\"{$obj->name}\" class=\"text-white text-decoration-none\"><i class=\"fa-solid fa-tv opacity-25\"></i> {$obj->name}</a><h5>"; }
+                        }
+                    ?>
                 </div>
 
                 <div>

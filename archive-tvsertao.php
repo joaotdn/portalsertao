@@ -19,7 +19,7 @@ if (!empty($first_post)) :
                     <h2 class="font-title ps-single-video--title">
                         <a href="<?php echo get_the_permalink($first_post[0]->ID); ?>" title="<?php echo get_the_title($first_post[0]->ID); ?>" class="text-white"><?php echo get_the_title($first_post[0]->ID); ?></a>
                     </h2>
-                    <a href="<?php echo get_the_permalink($first_post[0]->ID); ?>" title="<?php echo get_the_title($first_post[0]->ID); ?>" class="ps-single-video--btn d-inline-block btn btn-sm btn-danger"><i class="fa-regular fa-newspaper"></i> Continuar lendo</a>
+                    <a href="<?php echo get_the_permalink($first_post[0]->ID); ?>" title="<?php echo get_the_title($first_post[0]->ID); ?>" class="ps-single-video--btn d-inline-block btn btn-sm btn-danger mt-3"><i class="fa-regular fa-newspaper"></i> Continuar lendo</a>
                 </div>
             </div>
         </div>
@@ -32,9 +32,19 @@ if (!empty($first_post)) :
                     <form action="<?php echo home_url('/'); ?>" role="search" method="get" class="w-100">
                         <div class="input-group input-group-sm">
                             <input type="text" class="form-control" placeholder="Buscar vídeos" aria-label="Buscar vídeos" name="s">
-                            <button class="btn btn-primary" type="submit" id="button-addon2">Button</button>
+                            <button class="btn btn-primary" type="submit" id="button-addon2">Buscar</button>
                         </div>
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="w-100 bg-light border p-3 d-flex justify-content-center">
+                    <?php get_template_part('parts/ads-top'); ?>
                 </div>
             </div>
         </div>
@@ -53,7 +63,7 @@ if (!empty($terms)) :
             foreach ($terms as $term) :
             ?>
                 <div class="col-12 mb-4">
-                    <h6 class="w-100 d-inline-block w-100 ps-video-list--title p-3 bg-danger mb-3"><a href="<?php echo get_term_link($term->term_id, 'programas'); ?>" class="text-white d-flex justify-content-between align-items-center rounded-2" title="Ver mais vídeos em <?php echo $term->name ?>">
+                    <h6 class="w-100 d-inline-block w-100 ps-video-list--title p-3 bg-danger mb-3 rounded-2"><a href="<?php echo get_term_link($term->term_id, 'programas'); ?>" class="text-white d-flex justify-content-between align-items-center" title="Ver mais vídeos em <?php echo $term->name ?>">
                             <span><i class="fa-solid fa-tv"></i> <strong><?php echo $term->name ?></strong></span>
                             <span class="fw-light"><small><i class="fa-solid fa-list"></i> Ver mais</small></span>
                         </a></h6>

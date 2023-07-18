@@ -19281,7 +19281,7 @@ img.ads-top-img {
 }
 
 .ps-single-video > .container {
-  height: 250px;
+  height: auto;
 }
 @media (min-width: 768px) {
   .ps-single-video > .container {

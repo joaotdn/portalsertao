@@ -10,7 +10,7 @@
 }
 
 .ps-single-video > .container {
-    height: 250px;
+    height: auto;
     @include media-breakpoint-up(md) {
         height: 400px;
     }    
