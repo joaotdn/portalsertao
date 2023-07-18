@@ -7,21 +7,7 @@ $obj = get_queried_object();
     <div class="row">
         <div class="col-12 col-md-8">
             <div class="w-100 border p-2 my-4 bg-light d-flex justify-content-center">
-                <?php
-                // ps_ads_topo
-                $ads_top  = get_field('ps_ads_topo', 'option');
-                if ($ads_top) :
-                    shuffle($ads_top);
-                    $ads_top = $ads_top[0];
-                    if ($ads_top['ps_ads_topo_link']) {
-                ?>
-                        <a href="<?php echo $ads_top['ps_ads_topo_link']; ?>" target="_blank">
-                            <img src="<?php echo $ads_top['ps_ads_topo_conteudo']; ?>" alt="">
-                        </a>
-                    <?php } else { ?>
-                        <img src="<?php echo $ads_top['ps_ads_topo_conteudo']; ?>" alt="">
-                <?php }
-                endif; ?>
+                <?php get_template_part('parts/ads-top'); ?>
             </div>
             <div class="w-100 single-content">
                 <div class="w-100 ps-post-title" target="_blank" class="nav-link pe-0">

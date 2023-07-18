@@ -23,7 +23,8 @@ $obj = get_queried_object();
                 </div>
 
                 <div class="text-center flex-grow-1">
-                    <h2 class="font-title m-0 text-white"><i class="fa-regular fa-folder"></i> <?php echo $obj->name; ?></h2>
+                    <h2 class="font-title m-0 text-white">
+                        <?php echo is_tag() ? "<i class=\"fa-solid fa-tag\"></i>" : "<i class=\"fa-regular fa-folder\"></i>"; ?> <?php echo $obj->name; ?></h2>
                 </div>
 
                 <div>
