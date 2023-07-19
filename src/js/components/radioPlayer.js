@@ -1,6 +1,11 @@
 (function ($) {
+    const radioOnline = document.getElementById('ps-radios-online--player');
+    const radioFace = $('.radios-online-player');
+
     $('a', '.ps-top-radio, .ps-top-mobile-radio').on('click', function (e) {
         e.preventDefault();
+        radioOnline.pause();
+        radioFace.removeClass('active');
         let player = document.getElementById('ps-top-player');
         if ($(this).hasClass('active')) {
             $(this).removeClass('active');
