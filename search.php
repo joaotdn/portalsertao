@@ -1,7 +1,7 @@
 <?php
 get_header();
 ?>
-<section class="container search-page">
+<section class="container search-page mt-4">
     <div class="row">
         <div class="col-12 col-md-8">
             <div class="row">
@@ -11,8 +11,10 @@ get_header();
                     </div>
                 </div>
 
-                <div class="col-12 bg-light text-primary py-2 border-start border-4 border-info my-4">
-                    <h4 class="m-0 font-title"><i class="fa-solid fa-magnifying-glass"></i> Busca por "<?php echo get_search_query(); ?>"</h4>
+                <div class="col-12">
+                    <div class="w-100 bg-light text-primary py-2 border-start border-4 border-danger my-4">
+                        <h4 class="m-0 font-title ps-2"><i class="fa-solid fa-magnifying-glass"></i> Busca por "<?php echo get_search_query(); ?>"</h4>
+                    </div>
                 </div>
 
                 <?php
