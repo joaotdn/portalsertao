@@ -96,19 +96,9 @@
                 </a>
             </div>
 
-            <div class="col-lg-auto col-md-8 col-sm-12">
-                <?php get_template_part('parts/ads-top'); ?>
-            </div>
-            
-            <div class="col-auto d-none d-lg-block">
-                <div class="d-flex ps-clock text-white p-3 align-items-center">
-                    <div class="pe-3">
-                        <i class="fa-regular fa-clock"></i>
-                    </div>
-                    <div class="text-center">
-                        <p class="current-date m-0"></p>
-                        <h4 class="text-white m-0 current-hour"></h4>
-                    </div>
+            <div class="col-md-8 col-sm-12">
+                <div class="w-100 d-flex justify-content-md-end">
+                    <?php get_template_part('parts/ads-top'); ?>
                 </div>
             </div>
         </div>

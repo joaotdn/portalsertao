@@ -20,7 +20,7 @@
                 </div>
 
                 <div class="text-center flex-grow-1">
-                    <h2 class="m-0 text-white fw-bolder">
+                    <h2 class="m-0 text-white fw-bolder ps-header-content--title">
                         <a href="<?php echo get_post_type_archive_link('blog'); ?>" class="text-white text-decoration-none <?php if (is_single() || is_tax('colunistas')) { echo "border-bottom pb-1"; } ?>" title="Veja todos os Colunistas">
                         <i class="fa-solid fa-quote-left text-danger"></i>Colunistas<i class="fa-solid fa-quote-right text-danger"></i></span>
                         </a>
@@ -30,11 +30,11 @@
                         if(is_single()) {
                             global $post;
                             $terms = get_the_terms($post->ID, 'colunistas');
-                            if (!empty($terms)) { echo "<h5 class=\"mb-0 mt-2 fw-bolder\"><a href=\"". get_term_link($terms[0]->term_id, 'colunistas') ."\" title=\"{$terms[0]->name}\" class=\"text-white text-decoration-none\"><i class=\"fa-solid fa-tv opacity-25\"></i> {$terms[0]->name}</a><h5>"; }
+                            if (!empty($terms)) { echo "<h5 class=\"mb-0 mt-2 fw-bolder ps-header-content--subtitle\"><a href=\"". get_term_link($terms[0]->term_id, 'colunistas') ."\" title=\"{$terms[0]->name}\" class=\"text-white text-decoration-none\"><i class=\"fa-solid fa-tv opacity-25\"></i> {$terms[0]->name}</a></h5>"; }
                         }
                         if(is_tax('colunistas')) {
                             $obj = get_queried_object();
-                            if (isset($obj)) { echo "<h5 class=\"mb-0 mt-2 fw-bolder\"><a href=\"". get_term_link($obj->term_id, 'colunistas') ."\" title=\"{$obj->name}\" class=\"text-white text-decoration-none\"><i class=\"fa-solid fa-user-pen opacity-25\"></i> {$obj->name}</a><h5>"; }
+                            if (isset($obj)) { echo "<h5 class=\"mb-0 mt-2 fw-bolder ps-header-content--subtitle\"><a href=\"". get_term_link($obj->term_id, 'colunistas') ."\" title=\"{$obj->name}\" class=\"text-white text-decoration-none\"><i class=\"fa-solid fa-user-pen opacity-25\"></i> {$obj->name}</a></h5>"; }
                         }
                     ?>
                 </div>

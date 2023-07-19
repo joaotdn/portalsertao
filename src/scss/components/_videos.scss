@@ -107,4 +107,11 @@
         h5 {color: $dark;}
         i {color: $yellow-900;}
     }
+
+    &--programs {
+        column-count: 2;
+        span {
+            font-size: 12px;
+        }
+    }
 }

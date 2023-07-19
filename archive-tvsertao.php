@@ -12,10 +12,12 @@ if (!empty($first_post)) :
             <div class="row d-flex align-items-stretch h-100">
                 <?php if ($youtube_cod) : ?>
                     <div class="col-12 col-md-8">
-                        <iframe src="https://www.youtube.com/embed/<?php echo $youtube_cod; ?>?rel=0" title="YouTube video" class="w-100 h-100 ps-single-video--iframe" allowfullscreen></iframe>
+                        <div class="ratio ratio-16x9">
+                            <iframe src="https://www.youtube.com/embed/<?php echo $youtube_cod; ?>?rel=0" title="YouTube video" class="w-100 h-100 ps-single-video--iframe" allowfullscreen></iframe>
+                        </div>
                     </div>
                 <?php endif; ?>
-                <div class="col-12 <?php if ($youtube_cod) { echo "col-md-4"; } ?>">
+                <div class="mt-4 mt-md-0 col-12 <?php if ($youtube_cod) { echo "col-md-4"; } ?>">
                     <h2 class="font-title ps-single-video--title">
                         <a href="<?php echo get_the_permalink($first_post[0]->ID); ?>" title="<?php echo get_the_title($first_post[0]->ID); ?>" class="text-white"><?php echo get_the_title($first_post[0]->ID); ?></a>
                     </h2>
@@ -84,7 +86,7 @@ if (!empty($terms)) :
                     ?>
                         <div class="row ps-home-play--list">
                             <?php foreach ($videos as $video) : ?>
-                                <div class="col-12 col-md-3">
+                                <div class="col-12 col-md-3 mb-3 mb-md-0">
                                     <a href="<?php echo get_the_permalink($video->ID); ?>" class="d-block bg-cover position-relative text-white" title="<?php echo get_the_title($video->ID); ?>" data-thumb-post="https://img.youtube.com/vi/<?php echo get_field('ps_video_id', $video->ID); ?>/hqdefault.jpg" data-video-code="<?php echo get_field('ps_video_id', $video->ID); ?>">
                                         <h6 class="font-title d-inline-block p-2"><?php echo get_the_title($video->ID); ?></h6>
                                         <div class="mask"></div>

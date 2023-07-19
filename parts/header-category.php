@@ -23,7 +23,7 @@ $obj = get_queried_object();
                 </div>
 
                 <div class="text-center flex-grow-1">
-                    <h2 class="font-title m-0 text-white">
+                    <h2 class="font-title m-0 text-white ps-header-content--title">
                         <?php
                             if (is_tag()) {
                                 echo "<i class=\"fa-solid fa-tag\"></i> ";

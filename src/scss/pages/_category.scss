@@ -30,3 +30,14 @@
         background-size: cover;
     }
 }
+
+.ps-header-content {
+    &--title, &--subtitle {
+        @include media-breakpoint-only(sm) {
+            font-size: 1rem;
+        }
+        @include media-breakpoint-only(xs) {
+            font-size: 14px;
+        }
+    }
+}

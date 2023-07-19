@@ -24,7 +24,7 @@ $obj = get_queried_object();
 
                 <div class="text-center flex-grow-1">
                     <?php $terms = wp_get_post_terms($obj->ID, 'category'); ?>
-                    <h2 class="font-title m-0"><a href="<?php echo get_term_link($terms[0]->term_id, 'category'); ?>" title="Ver main em <?php echo $terms[0]->name; ?>" class="text-white w-bold"><i class="fa-solid fa-plus"></i> <?php echo $terms[0]->name; ?></a></h2>
+                    <h2 class="font-title m-0 ps-header-content--title"><a href="<?php echo get_term_link($terms[0]->term_id, 'category'); ?>" title="Ver main em <?php echo $terms[0]->name; ?>" class="text-white w-bold"><i class="fa-solid fa-plus"></i> <?php echo $terms[0]->name; ?></a></h2>
                 </div>
 
                 <div>

@@ -66,11 +66,11 @@ $videos = get_posts(array(
             ?>
             <div class="col-12 col-lg-4 ps-videos-home--tv active">
                 <p class="text-white pb-2">Programação</p>
-                <nav class="w-100">
+                <nav class="w-100 ps-videos-home--programs">
                     <?php
                         foreach($list_programs as $program):
                     ?>
-                    <span class="d-inline-block w-100 my-2">
+                    <span class="d-inline-block w-100 my-1">
                         <strong><?php echo $program['ps_tv_programacao_horario']; ?></strong> - <?php echo $program['ps_tv_programacao_nome']; ?>
                     </span>
                     <?php endforeach; ?>

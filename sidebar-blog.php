@@ -32,9 +32,9 @@ if (!empty($term)) :
             </div>
         <?php endif; ?>
             <div class="col">
-                <h6 class="font-title mb-3">
+                <h5 class="font-title mb-3">
                     <a href="<?php echo get_term_link($term->term_id, 'colunistas'); ?>" title="Todas as colunas de <?php echo $term->name; ?>" class="ps-writer--avatar"><?php echo $term->name; ?></a>
-                </h6>
+                </h5>
                 <p class="m-0"><?php echo $term->description; ?></p>
             </div>
         </div>

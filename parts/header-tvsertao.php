@@ -13,14 +13,14 @@
                         <i class="fa-solid fa-bars"></i>
                     </a>
                 </div>
-                <div>
+                <div class="me-3 me-md-0">
                     <a href="<?php echo home_url(); ?>" title="<?php bloginfo('name'); ?>">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ps-logo.png" alt="Marca do Portal Sertão" class="ps-header-logo" width="140">
                     </a>
                 </div>
 
                 <div class="text-center flex-grow-1">
-                    <h2 class="m-0 text-white fw-bolder">
+                    <h2 class="m-0 text-white fw-bolder ps-header-content--title">
                         <a href="<?php echo get_post_type_archive_link('tvsertao'); ?>" class="text-white text-decoration-none <?php if (is_single() || is_tax('programas')) { echo "border-bottom pb-1"; } ?>" title="Play Sertão">
                             <i class="fa-solid fa-play"></i> <i>PLAY</i><span class="text-danger font-title">Sertão</span>
                         </a>
@@ -30,11 +30,11 @@
                         if(is_single()) {
                             global $post;
                             $terms = get_the_terms($post->ID, 'programas');
-                            if (!empty($terms)) { echo "<h5 class=\"mb-0 mt-2 fw-bolder\"><a href=\"". get_term_link($terms[0]->term_id, 'programas') ."\" title=\"{$terms[0]->name}\" class=\"text-white text-decoration-none\"><i class=\"fa-solid fa-tv opacity-25\"></i> {$terms[0]->name}</a><h5>"; }
+                            if (!empty($terms)) { echo "<h5 class=\"mb-0 mt-2 fw-bolder ps-header-content--subtitle\"><a href=\"". get_term_link($terms[0]->term_id, 'programas') ."\" title=\"{$terms[0]->name}\" class=\"text-white text-decoration-none\"><i class=\"fa-solid fa-tv opacity-25\"></i> {$terms[0]->name}</a></h5>"; }
                         }
                         if(is_tax('programas')) {
                             $obj = get_queried_object();
-                            if (isset($obj)) { echo "<h5 class=\"mb-0 mt-2 fw-bolder\"><a href=\"". get_term_link($obj->term_id, 'programas') ."\" title=\"{$obj->name}\" class=\"text-white text-decoration-none\"><i class=\"fa-solid fa-tv opacity-25\"></i> {$obj->name}</a><h5>"; }
+                            if (isset($obj)) { echo "<h5 class=\"mb-0 mt-2 fw-bolder ps-header-content--subtitle\"><a href=\"". get_term_link($obj->term_id, 'programas') ."\" title=\"{$obj->name}\" class=\"text-white text-decoration-none\"><i class=\"fa-solid fa-tv opacity-25\"></i> {$obj->name}</a></h5>"; }
                         }
                     ?>
                 </div>
