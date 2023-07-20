@@ -6,12 +6,6 @@ get_header();
         <div class="col-12 col-md-8">
             <div class="row">
                 <div class="col-12">
-                    <div class="w-100 bg-light border p-3 d-flex justify-content-center mb-4">
-                        <?php get_template_part('parts/ads-top'); ?>
-                    </div>
-                </div>
-
-                <div class="col-12">
                     <div class="w-100 bg-light text-primary py-2 border-start border-4 border-danger my-4">
                         <h4 class="m-0 font-title ps-2"><i class="fa-solid fa-magnifying-glass"></i> Busca por "<?php echo get_search_query(); ?>"</h4>
                     </div>

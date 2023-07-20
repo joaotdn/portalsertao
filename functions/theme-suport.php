@@ -4,6 +4,12 @@ function ps_theme_support() {
 
 	// Add WP Thumbnail Support
 	add_theme_support( 'post-thumbnails' );
+	add_theme_support('post-thumbnails', array(
+		'post',
+		'page',
+		'blog',
+		'tvsertao',
+	));
 
 	// Default thumbnail size
 	set_post_thumbnail_size( 125, 125, true );

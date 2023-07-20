@@ -85,9 +85,16 @@ if (!empty($terms)) :
                     if (!empty($videos)) :
                     ?>
                         <div class="row ps-home-play--list">
-                            <?php foreach ($videos as $video) : ?>
+                            <?php 
+                                foreach ($videos as $video) :
+                                    if (has_post_thumbnail($video->ID)) {
+                                        $th = get_the_post_thumbnail_url($video->ID, 'ps-thumb-small');
+                                    } else {
+                                        $th = "https://img.youtube.com/vi/". get_field('ps_video_id', $video->ID) ."/hqdefault.jpg";
+                                    }
+                            ?>
                                 <div class="col-12 col-md-3 mb-3 mb-md-0">
-                                    <a href="<?php echo get_the_permalink($video->ID); ?>" class="d-block bg-cover position-relative text-white" title="<?php echo get_the_title($video->ID); ?>" data-thumb-post="https://img.youtube.com/vi/<?php echo get_field('ps_video_id', $video->ID); ?>/hqdefault.jpg" data-video-code="<?php echo get_field('ps_video_id', $video->ID); ?>">
+                                    <a href="<?php echo get_the_permalink($video->ID); ?>" class="d-block bg-cover position-relative text-white" title="<?php echo get_the_title($video->ID); ?>" data-thumb-post="<?php echo $th; ?>" data-video-code="<?php echo get_field('ps_video_id', $video->ID); ?>">
                                         <h6 class="font-title d-inline-block p-2"><?php echo get_the_title($video->ID); ?></h6>
                                         <div class="mask"></div>
                                     </a>
