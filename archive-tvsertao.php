@@ -88,7 +88,7 @@ if (!empty($terms)) :
                             <?php 
                                 foreach ($videos as $video) :
                                     if (has_post_thumbnail($video->ID)) {
-                                        $th = get_the_post_thumbnail_url($video->ID, 'ps-thumb-small');
+                                        $th = get_the_post_thumbnail_url($video->ID, 'ps-thumb-small-h');
                                     } else {
                                         $th = "https://img.youtube.com/vi/". get_field('ps_video_id', $video->ID) ."/hqdefault.jpg";
                                     }
