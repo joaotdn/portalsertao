@@ -11,14 +11,17 @@ $category = get_queried_object();
 
             <?php
             if (have_posts()) : while (have_posts()) : the_post();
-                    global $post_id;
-                    $code = get_field('ps_video_id');
+                    if (has_post_thumbnail($post->ID)) {
+                        $th = get_the_post_thumbnail_url($post->ID, 'ps-thumb-small');
+                    } else {
+                        $th = "https://img.youtube.com/vi/" . get_field('ps_video_id', $post->ID) . "/hqdefault.jpg";
+                    }
             ?>
                     <div class="w-100 mb-3 pb-3 ps-category-item border-bottom">
                         <div class="row">
                             <div class="col-auto">
                                 <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>">
-                                    <img src="https://img.youtube.com/vi/<?php echo $code; ?>/0.jpg" alt="<?php the_title(); ?>" width="100">
+                                    <img src="<?php echo $th; ?>" alt="<?php the_title(); ?>" width="100">
                                 </a>
                             </div>
                             <div class="col">
@@ -27,8 +30,7 @@ $category = get_queried_object();
                             </div>
                         </div>
                     </div>
-                <?php endwhile;
-            else : ?>
+                <?php endwhile; else : ?>
                 <div class="col-12">
                     <h3 class="width-100"><?php _e('Sem resultados...'); ?></h3>
                 </div>
