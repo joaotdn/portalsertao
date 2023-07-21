@@ -27,9 +27,25 @@
                     </div>
 
                     <?php
+                    $term_city = get_terms(array(
+                        'taxonomy' => 'cities',
+                        'hide_empty' => true,
+                    ));
+                    $arr_ids = array();
+                    if (!empty($term_city)) {
+                        foreach($term_city as $city) {
+                            array_push($arr_ids, $city->term_id);
+                        }
+                    }
                     $cities = get_posts(array(
                         'posts_per_page' => 4,
-                        'taxonomy' => 'cities'
+                        'tax_query' => array(
+                            array(
+                                'taxonomy'  => 'cities',
+                                'field'     => 'term_id',
+                                'terms'     => $arr_ids,
+                            )
+                        ),
                     ));
                     if (!empty($cities)) :
                         $location = get_the_terms($cities[0]->ID, 'cities');

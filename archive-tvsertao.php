@@ -63,9 +63,10 @@ if (!empty($terms)) :
         <div class="row">
             <?php
             foreach ($terms as $term) :
+                $color = get_field('ps_programas_cor', 'programas_' . $term->term_id);
             ?>
                 <div class="col-12 mb-4">
-                    <h6 class="w-100 d-inline-block w-100 ps-video-list--title p-3 bg-danger mb-3 rounded-2"><a href="<?php echo get_term_link($term->term_id, 'programas'); ?>" class="text-white d-flex justify-content-between align-items-center" title="Ver mais vídeos em <?php echo $term->name ?>">
+                    <h6 class="w-100 d-inline-block w-100 ps-video-list--title p-3 <?php if (is_null($color)) { echo "bg-danger "; } ?>mb-3 rounded-2" <?php if(!is_null($color)) { echo "style=\"background-color:". $color ."\""; } ?>><a href="<?php echo get_term_link($term->term_id, 'programas'); ?>" class="text-white d-flex justify-content-between align-items-center" title="Ver mais vídeos em <?php echo $term->name ?>">
                             <span><i class="fa-solid fa-tv"></i> <strong><?php echo $term->name ?></strong></span>
                             <span class="fw-light"><small><i class="fa-solid fa-list"></i> Ver mais</small></span>
                         </a></h6>
