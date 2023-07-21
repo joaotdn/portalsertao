@@ -1,6 +1,6 @@
 <?php
 
-define('EPG_VERSION', '1.0.6');
+define('EPG_VERSION', '1.0.7');
 
 function esptheme_scripts() {
     // Styles

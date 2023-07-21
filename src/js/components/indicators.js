@@ -1,7 +1,7 @@
 (function ($) {
     if ($('.ps-coins-indicators').length) {
         $.ajax({
-            url: 'http://economia.awesomeapi.com.br/json/last/USD-BRL,EUR-BRL,BTC-BRL,ARS-BRL,GBP-BRL',
+            url: 'https://economia.awesomeapi.com.br/json/last/USD-BRL,EUR-BRL,BTC-BRL,ARS-BRL,GBP-BRL',
             success: function (data) {
                 $('.cur-usd > .cur-min').html(parseFloat(data.USDBRL.low).toFixed(2));
 
