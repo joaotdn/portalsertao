@@ -24,7 +24,12 @@ if (!empty($categories)) :
                             </a>
                         </div>
                         <div class="col">
-                            <p class="font-tag"><?php echo get_the_tags($related->ID)[0]->name; ?></p>
+                            <?php
+                            $post_key = get_field('ps_post_chapeu', $related->ID);
+                            if ($post_key) {
+                                echo "<p class=\"font-tag\">{$post_key}</p>";
+                            }
+                            ?>
                             <h6 class="font-title">
                                 <a href="<?php echo get_the_permalink($related->ID); ?>" title="<?php echo get_the_title($related->ID); ?>"><?php echo get_the_title($related->ID); ?></a>
                             </h6>
@@ -52,17 +57,17 @@ if (!empty($cities)) :
 $ads_int  = get_field('ps_ads_internas', 'option');
 if ($ads_int) :
 ?>
-<div class="w-100 border p-2 bg-light d-flex justify-content-center mt-4">
-<?php
-    shuffle($ads_int);
-    $ads_int = $ads_int[0];
-    if ($ads_int['ps_ads_internas_link']) {
-?>
-        <a href="<?php echo $ads_int['ps_ads_internas_link']; ?>" target="_blank" title="">
+    <div class="w-100 border p-2 bg-light d-flex justify-content-center mt-4">
+        <?php
+        shuffle($ads_int);
+        $ads_int = $ads_int[0];
+        if ($ads_int['ps_ads_internas_link']) {
+        ?>
+            <a href="<?php echo $ads_int['ps_ads_internas_link']; ?>" target="_blank" title="">
+                <img src="<?php echo $ads_int['ps_ads_internas_conteudo']; ?>" alt="Anúncio">
+            </a>
+        <?php } else { ?>
             <img src="<?php echo $ads_int['ps_ads_internas_conteudo']; ?>" alt="Anúncio">
-        </a>
-    <?php } else { ?>
-        <img src="<?php echo $ads_int['ps_ads_internas_conteudo']; ?>" alt="Anúncio">
-<?php }
-echo "</div>";
-endif; ?>
+    <?php }
+        echo "</div>";
+    endif; ?>

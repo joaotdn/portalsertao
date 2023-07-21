@@ -25,12 +25,19 @@ $category = get_queried_object();
                                 </a>
                             </div>
                             <div class="col">
+                                <?php
+                                $post_key = get_field('ps_post_chapeu', $post->ID);
+                                if ($post_key) {
+                                    echo "<p class=\"font-tag\">{$post_key}</p>";
+                                }
+                                ?>
                                 <h5 class="font-title"><a href="<?php the_permalink() ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h5>
                                 <p class="text-excerpt"><small><?php echo get_the_excerpt($post->ID); ?></small></p>
                             </div>
                         </div>
                     </div>
-                <?php endwhile; else : ?>
+                <?php endwhile;
+            else : ?>
                 <div class="col-12">
                     <h3 class="width-100"><?php _e('Sem resultados...'); ?></h3>
                 </div>

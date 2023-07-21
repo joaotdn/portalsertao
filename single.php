@@ -10,7 +10,6 @@ $relateds = get_posts(array(
     'post__not_in' => array($post->ID)
 ));
 $post_author = get_the_author_meta('first_name', $post->post_author) . ' ' . get_the_author_meta('last_name', $post->post_author);
-$tags = get_the_tags();
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class('container'); ?>>
     <div class="row">
@@ -34,7 +33,12 @@ $tags = get_the_tags();
             </div>
             <div class="w-100 single-content">
                 <div class="w-100 ps-post-title" target="_blank" class="nav-link pe-0">
-                    <p class="font-tag"><?php echo $tags[0]->name; ?></p>
+                    <?php
+                    $post_key = get_field('ps_post_chapeu', $post->ID);
+                    if ($post_key) {
+                        echo "<p class=\"font-tag\">{$post_key}</p>";
+                    }
+                    ?>
                     <h1 class="font-title ps-post-title--text"><?php the_title(); ?></h1>
                     <p class="text-excerpt mb-0"><small><?php echo get_the_excerpt($post->ID); ?></small></p>
                 </div>

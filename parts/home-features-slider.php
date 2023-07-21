@@ -13,9 +13,12 @@
                 <?php echo get_the_post_thumbnail($post->ID, 'ebp-thumb-medium'); ?>
             </a>
             <div class="card-body mt-2">
-                <p class="m-0 font-tag">
-                    <?php echo wp_get_post_tags($post->ID)[0]->name; ?>
-                </p>
+                <?php
+                $post_key = get_field('ps_post_chapeu', $post->ID);
+                if ($post_key) {
+                    echo "<p class=\"m-0 font-tag\">{$post_key}</p>";
+                }
+                ?>
                 <h1 class="font-title fs-5">
                     <a href="<?php echo get_the_permalink($post->ID); ?>" title="<?php echo $post->post_title; ?>"><?php echo $post->post_title; ?></a>
                 </h1>

@@ -18,7 +18,12 @@ if (!empty($relateds)) :
                         </a>
                     </div>
                     <div class="col">
-                        <p class="font-tag"><?php echo get_the_tags($related->ID)[0]->name; ?></p>
+                        <?php
+                        $post_key = get_field('ps_post_chapeu', $related->ID);
+                        if ($post_key) {
+                            echo "<p class=\"font-tag\">{$post_key}</p>";
+                        }
+                        ?>
                         <h6 class="font-title">
                             <a href="<?php echo get_the_permalink($related->ID); ?>" title="<?php echo get_the_title($related->ID); ?>"><?php echo get_the_title($related->ID); ?></a>
                         </h6>

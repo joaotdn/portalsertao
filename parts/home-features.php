@@ -41,7 +41,12 @@ $sliders = get_posts(array(
             <div class="row">
                 <?php if (isset($destaque1[0])) : ?>
                     <div class="col-12">
-                        <p class="font-tag"><?php echo get_the_tags($destaque1[0]->ID)[0]->name; ?></p>
+                        <?php
+                        $post_key = get_field('ps_post_chapeu', $destaque1[0]->ID);
+                        if ($post_key) {
+                            echo "<p class=\"font-tag\">{$post_key}</p>";
+                        }
+                        ?>
                         <h2 class="font-title">
                             <a href="<?php echo get_the_permalink($destaque1[0]->ID) ?>" title="<?php echo get_the_title($destaque1[0]->ID); ?>">
                                 <?php echo get_the_title($destaque1[0]->ID); ?>
@@ -55,7 +60,12 @@ $sliders = get_posts(array(
                     <div class="row">
                         <?php if (isset($destaque2[0])) : ?>
                             <div class="col-12 col-md-6 mb-md-3">
-                                <p class="font-tag"><?php echo get_the_tags($destaque2[0]->ID)[0]->name; ?></p>
+                                <?php
+                                $post_key = get_field('ps_post_chapeu', $destaque2[0]->ID);
+                                if ($post_key) {
+                                    echo "<p class=\"font-tag\">{$post_key}</p>";
+                                }
+                                ?>
                                 <h5 class="font-title">
                                     <a href="<?php echo get_the_permalink($destaque2[0]->ID) ?>" title="<?php echo get_the_title($destaque2[0]->ID); ?>">
                                         <?php echo get_the_title($destaque2[0]->ID); ?>
@@ -66,7 +76,12 @@ $sliders = get_posts(array(
 
                         <?php if (isset($destaque3[0])) : ?>
                             <div class="col-12 col-md-6 mb-md-3">
-                                <p class="font-tag"><?php echo get_the_tags($destaque3[0]->ID)[0]->name; ?></p>
+                                <?php
+                                $post_key = get_field('ps_post_chapeu', $destaque3[0]->ID);
+                                if ($post_key) {
+                                    echo "<p class=\"font-tag\">{$post_key}</p>";
+                                }
+                                ?>
                                 <h5 class="font-title">
                                     <a href="<?php echo get_the_permalink($destaque3[0]->ID) ?>" title="<?php echo get_the_title($destaque3[0]->ID); ?>">
                                         <?php echo get_the_title($destaque3[0]->ID); ?>
@@ -78,7 +93,14 @@ $sliders = get_posts(array(
                         <?php if (isset($destaque4[0])) : ?>
                             <div class="col-12 col-md-6 mb-3">
                                 <a href="<?php echo get_the_permalink($destaque4[0]->ID) ?>" title="<?php echo get_the_title($destaque4[0]->ID); ?>" class="w-100 ps-media-news bg-cover d-inline-block" data-thumb-post="<?php echo get_the_post_thumbnail_url($destaque4[0]->ID, 'ps-thumb-large'); ?>">
-                                    <span class="ps-media-news--tag d-inline-block p-2 bg-danger text-light text-uppercase"><?php echo get_the_tags($destaque4[0]->ID)[0]->name; ?></span>
+                                    <span class="ps-media-news--tag d-inline-block p-2 bg-danger text-light text-uppercase">
+                                        <?php
+                                        $post_key = get_field('ps_post_chapeu', $destaque4[0]->ID);
+                                        if ($post_key) {
+                                            echo $post_key;
+                                        }
+                                        ?>
+                                    </span>
                                     <h5 class="font-title ps-media-news--title d-inline-block text-light p-2 w-100"><?php echo get_the_title($destaque4[0]->ID); ?></h5>
                                     <span class="ps-media-news--mask d-block"></span>
                                 </a>
@@ -88,7 +110,14 @@ $sliders = get_posts(array(
                         <?php if (isset($destaque5[0])) : ?>
                             <div class="col-12 col-md-6 mb-3">
                                 <a href="<?php echo get_the_permalink($destaque5[0]->ID) ?>" title="<?php echo get_the_title($destaque5[0]->ID); ?>" class="w-100 ps-media-news bg-cover d-inline-block" data-thumb-post="<?php echo get_the_post_thumbnail_url($destaque5[0]->ID, 'ps-thumb-large'); ?>">
-                                    <span class="ps-media-news--tag d-inline-block p-2 bg-danger text-light text-uppercase"><?php echo get_the_tags($destaque5[0]->ID)[0]->name; ?></span>
+                                    <span class="ps-media-news--tag d-inline-block p-2 bg-danger text-light text-uppercase">
+                                        <?php
+                                        $post_key = get_field('ps_post_chapeu', $destaque5[0]->ID);
+                                        if ($post_key) {
+                                            echo $post_key;
+                                        }
+                                        ?>
+                                    </span>
                                     <h5 class="font-title ps-media-news--title d-inline-block text-light p-2 w-100"><?php echo get_the_title($destaque5[0]->ID); ?></h5>
                                     <span class="ps-media-news--mask d-block"></span>
                                 </a>
@@ -123,19 +152,24 @@ $sliders = get_posts(array(
                 <div class="col-12 position-relative">
                     <div class="ps-slide-features" data-cycle-fx="fade" data-cycle-timeout="5000" data-cycle-slides="> .card" data-cycle-prev=".nav-features--prev" data-cycle-next=".nav-features--next" data-cycle-pager=".features-pager" data-cycle-pager-template="<span></span>" data-cycle-swipe=true>
                         <?php
-                        foreach($sliders as $slide):
+                        foreach ($sliders as $slide) :
                         ?>
-                        <div class="card mb-3">
-                            <a href="<?php echo get_the_permalink($slide->ID) ?>" title="<?php echo get_the_title($slide->ID); ?>" class="card-img-top">
-                                <img src="<?php echo get_the_post_thumbnail_url($slide->ID, 'ps-thumb-horizontally'); ?>" class="" alt="<?php echo get_the_title($slide->ID); ?>">
-                            </a>
-                            <div class="card-body">
-                                <p class="font-tag"><?php echo get_the_tags($slide->ID)[0]->name; ?></p>
-                                <a href="<?php echo get_the_permalink($slide->ID) ?>" title="<?php echo get_the_title($slide->ID); ?>">
-                                    <h5 class="card-title font-title"><?php echo get_the_title($slide->ID); ?></h5>
+                            <div class="card mb-3">
+                                <a href="<?php echo get_the_permalink($slide->ID) ?>" title="<?php echo get_the_title($slide->ID); ?>" class="card-img-top">
+                                    <img src="<?php echo get_the_post_thumbnail_url($slide->ID, 'ps-thumb-horizontally'); ?>" class="" alt="<?php echo get_the_title($slide->ID); ?>">
                                 </a>
+                                <div class="card-body">
+                                    <?php
+                                    $post_key = get_field('ps_post_chapeu', $slide->ID);
+                                    if ($post_key) {
+                                        echo "<p class=\"font-tag\">{$post_key}</p>";
+                                    }
+                                    ?>
+                                    <a href="<?php echo get_the_permalink($slide->ID) ?>" title="<?php echo get_the_title($slide->ID); ?>">
+                                        <h5 class="card-title font-title"><?php echo get_the_title($slide->ID); ?></h5>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
                         <?php endforeach; ?>
                     </div>
                     <a href="#" class="nav-features--prev nav-features-control" title="Notícia anterior">

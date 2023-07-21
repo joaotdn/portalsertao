@@ -24,7 +24,16 @@ $videos = get_posts($args);
                         ?>
                             <div class="col-12 col-md-3">
                                 <a href="<?php echo get_the_permalink($video->ID); ?>" class="d-block bg-cover position-relative text-white" title="<?php echo get_the_title($video->ID); ?>" data-thumb-post="<?php echo $th; ?>">
-                                    <h6 class="font-title d-inline-block p-2"><?php echo get_the_title($video->ID); ?></h6>
+
+                                    <h6 class="font-title d-inline-block p-2 w-100">
+                                        <?php
+                                        $post_key = get_field('ps_post_chapeu', $video->ID);
+                                        if ($post_key) {
+                                            echo "<span class=\"d-inline-block w-100 font-tag\">" . $post_key . "</span>";
+                                        }
+                                        ?>
+                                        <?php echo get_the_title($video->ID); ?>
+                                    </h6>
                                     <div class="mask"></div>
                                 </a>
                             </div>

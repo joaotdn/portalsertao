@@ -26,7 +26,12 @@ get_header('category');
                                         </a>
                                     </div>
                                     <div class="col">
-                                        <p class="font-tag"><?php echo get_the_tags($post->ID)[0]->name; ?></p>
+                                        <?php
+                                        $post_key = get_field('ps_post_chapeu', $post->ID);
+                                        if ($post_key) {
+                                            echo "<p class=\"font-tag\">{$post_key}</p>";
+                                        }
+                                        ?>
                                         <h5 class="font-title"><a href="<?php the_permalink() ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h5>
                                         <p class="text-excerpt"><small><?php echo get_the_excerpt($post->ID); ?></small></p>
                                     </div>

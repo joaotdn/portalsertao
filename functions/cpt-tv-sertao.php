@@ -35,28 +35,28 @@ function tv_sertao_init() {
     );
   
     register_post_type( 'tvsertao', $args );
-  
+
     $labels = array(
       'name'              => __( 'Programas'),
       'singular_name'     => __( 'Programa'),
       'search_items'      =>  __( 'Buscar' ),
       'popular_items'     => __( 'Mais usados' ),
-      'all_items'         => __( 'Todos os programas' ),
+      'all_items'         => __( 'Todos os Programas' ),
       'parent_item'       => null,
       'parent_item_colon' => null,
       'edit_item'         => __( 'Adicionar novo' ),
       'update_item'       => __( 'Atualizar' ),
-      'add_new_item'      => __( 'Adicionar novo programa' ),
-      'new_item_name'     => __( 'Novo' )
+      'add_new_item'      => __( 'Adicionar novo Programa' ),
+      'new_item_name'     => __( 'Nova' )
       );
   
     register_taxonomy("programas", array("tvsertao"), array(
-      "hierarchical"      => false, 
+      "hierarchical"      => true, 
       "labels"            => $labels, 
       "singular_label"    => "Programa", 
       "rewrite"           => true,
-      "add_new_item"      => "Adicionar novo programa",
-      "new_item_name"     => "Novo programa",
+      "add_new_item"      => "Adicionar novo Programa",
+      "new_item_name"     => "Novo Programa",
     ));
   }
   add_action( 'init', 'tv_sertao_init' );

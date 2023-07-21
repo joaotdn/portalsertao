@@ -128,12 +128,12 @@
                                     <h5 class="font-title text-danger"><i class="fa-solid fa-ranking-star"></i> Mais lidas</h5>
                                 </div>
                                 <nav class="nav ps-home-news--list">
-                                    <?php foreach ($populars as $pop) : $tag = get_the_tags($pop->ID); ?>
+                                    <?php foreach ($populars as $pop) : ?>
                                         <a href="<?php echo get_the_permalink($pop->ID); ?>" class="nav-link px-0 d-block" title="<?php echo get_the_title($pop->ID); ?>">
                                             <?php
-                                            if (!empty($tag)) {
-                                            ?><p class="font-tag"><?php echo $tag[0]->name; ?></p>
-                                            <?php
+                                            $post_key = get_field('ps_post_chapeu', $pop->ID);
+                                            if ($post_key) {
+                                                echo "<p class=\"font-tag\">{$post_key}</p>";
                                             }
                                             ?>
                                             <h6 class="font-title"><?php echo get_the_title($pop->ID); ?></h6>
@@ -168,11 +168,11 @@
                                             </div>
                                             <div class="col">
                                                 <?php
-                                                $tag = get_the_tags($item->ID);
-                                                if (!empty($tag)) :
+                                                $post_key = get_field('ps_post_chapeu', $item->ID);
+                                                if ($post_key) {
+                                                    echo "<p class=\"m-0\"><small>{$post_key}</small></p>";
+                                                }
                                                 ?>
-                                                    <p class="m-0"><small><?php echo $tag[0]->name; ?></small></p>
-                                                <?php endif; ?>
                                                 <a href="<?php echo get_the_permalink($item->ID); ?>" title="<?php echo get_the_title($item->ID); ?>" class="text-white">
                                                     <h6 class="font-title"><?php echo get_the_title($item->ID); ?></h6>
                                                 </a>
@@ -221,7 +221,12 @@
                                         <img src="<?php echo get_the_post_thumbnail_url($posts[0]->ID, 'ps-thumb-small-h'); ?>" alt="<?php echo get_the_title($posts[0]->ID); ?>">
                                     </a>
                                     <div class="w-100 bg-dark p-3">
-                                        <p class="font-tag"><?php echo get_the_tags($posts[0]->ID)[0]->name; ?></p>
+                                        <?php
+                                        $post_key = get_field('ps_post_chapeu', $post->ID);
+                                        if ($post_key) {
+                                            echo "<p class=\"font-tag\">{$post_key}</p>";
+                                        }
+                                        ?>
                                         <a href="<?php echo get_the_permalink($posts[0]->ID); ?>" title="<?php echo get_the_title($posts[0]->ID); ?>" class="text-white">
                                             <h6 class="font-title"><?php echo get_the_title($posts[0]->ID); ?></h6>
                                         </a>
@@ -233,7 +238,12 @@
                                 ?>
                                     <div class="col-12 col-md-8">
                                         <div class="w-100">
-                                            <p class="font-tag"><?php echo get_the_tags($posts[0]->ID)[0]->name; ?></p>
+                                            <?php
+                                            $post_key = get_field('ps_post_chapeu', $posts[0]->ID);
+                                            if ($post_key) {
+                                                echo "<p class=\"font-tag\">{$post_key}</p>";
+                                            }
+                                            ?>
                                             <a href="<?php echo get_the_permalink($posts[0]->ID); ?>" class="" title="<?php echo get_the_title($posts[0]->ID); ?>">
                                                 <h5 class="font-title"><?php echo get_the_title($posts[0]->ID); ?></h5>
                                             </a>
@@ -241,7 +251,12 @@
                                         </div>
                                         <?php if (isset($posts[1])) : ?>
                                             <div class="w-100 my-3 pt-3 border-top">
-                                                <p class="font-tag"><?php echo get_the_tags($posts[1]->ID)[0]->name; ?></p>
+                                                <?php
+                                                $post_key = get_field('ps_post_chapeu', $posts[1]->ID);
+                                                if ($post_key) {
+                                                    echo "<p class=\"font-tag\">{$post_key}</p>";
+                                                }
+                                                ?>
                                                 <a href="<?php echo get_the_permalink($posts[1]->ID); ?>" title="<?php echo get_the_title($posts[1]->ID); ?>">
                                                     <h6 class="font-title"><?php echo get_the_title($posts[1]->ID); ?></h6>
                                                 </a>
@@ -288,22 +303,23 @@
                     ));
                     if (!empty($posts)) :
                     ?>
-                    <div class="col-12 mb-3">
-                        <h5 class="font-title m-0 d-inline-block w-100 border-bottom border-danger border-4">
-                            <a href="<?php echo get_category_link($category_id); ?>" title="Ver mais notícias sobre Política" class="text-danger">Informe Legislativo</a>
-                        </h5>
-                    </div>
-                    <?php foreach($posts as $post): ?>
-                    <div class="col-12 col-md-3 ps-home-news--politic mb-3">
-                        <a href="<?php echo get_the_permalink($post->ID); ?>" title="<?php echo get_the_title($post->ID); ?>" class="d-block position-relative mb-3">
-                            <span><?php echo get_the_tags($post->ID)[0]->name; ?></span>
-                            <img src="<?php echo get_the_post_thumbnail_url($post->ID, 'ps-thumb-small-h'); ?>" alt="<?php echo get_the_title($post->ID); ?>">
-                        </a>
-                        <h6 class="font-title">
-                            <a href="<?php echo get_the_permalink($post->ID); ?>" title="<?php echo get_the_title($post->ID); ?>"><?php echo get_the_title($post->ID); ?></a>
-                        </h6>
-                    </div>
-                    <?php endforeach; endif; ?>
+                        <div class="col-12 mb-3">
+                            <h5 class="font-title m-0 d-inline-block w-100 border-bottom border-danger border-4">
+                                <a href="<?php echo get_category_link($category_id); ?>" title="Ver mais notícias sobre Política" class="text-danger">Informe Legislativo</a>
+                            </h5>
+                        </div>
+                        <?php foreach ($posts as $post) : ?>
+                            <div class="col-12 col-md-3 ps-home-news--politic mb-3">
+                                <a href="<?php echo get_the_permalink($post->ID); ?>" title="<?php echo get_the_title($post->ID); ?>" class="d-block position-relative mb-3">
+                                    <span><?php echo get_the_tags($post->ID)[0]->name; ?></span>
+                                    <img src="<?php echo get_the_post_thumbnail_url($post->ID, 'ps-thumb-small-h'); ?>" alt="<?php echo get_the_title($post->ID); ?>">
+                                </a>
+                                <h6 class="font-title">
+                                    <a href="<?php echo get_the_permalink($post->ID); ?>" title="<?php echo get_the_title($post->ID); ?>"><?php echo get_the_title($post->ID); ?></a>
+                                </h6>
+                            </div>
+                    <?php endforeach;
+                    endif; ?>
                 </div>
             </div>
 
@@ -316,16 +332,16 @@
                 ));
                 if (!empty($posts)) :
                 ?>
-                <a href="<?php echo get_the_permalink($posts[0]->ID); ?>" title="<?php echo get_the_title($posts[0]->ID); ?>" class="w-100 ps-media-news my-2 bg-cover d-inline-block" data-thumb-post="<?php echo get_the_post_thumbnail_url($posts[0]->ID, 'ps-thumb-large'); ?>">
-                    <span class="ps-media-news--tag d-inline-block p-2 bg-dark text-light text-uppercase"><i class="fa-regular fa-folder"></i> Esportes</span>
-                    <h5 class="font-title ps-media-news--title d-inline-block text-light p-2 w-100"><?php echo get_the_title($posts[0]->ID); ?></h5>
-                    <span class="ps-media-news--mask d-block"></span>
-                </a>
+                    <a href="<?php echo get_the_permalink($posts[0]->ID); ?>" title="<?php echo get_the_title($posts[0]->ID); ?>" class="w-100 ps-media-news my-2 bg-cover d-inline-block" data-thumb-post="<?php echo get_the_post_thumbnail_url($posts[0]->ID, 'ps-thumb-large'); ?>">
+                        <span class="ps-media-news--tag d-inline-block p-2 bg-dark text-light text-uppercase"><i class="fa-regular fa-folder"></i> Esportes</span>
+                        <h5 class="font-title ps-media-news--title d-inline-block text-light p-2 w-100"><?php echo get_the_title($posts[0]->ID); ?></h5>
+                        <span class="ps-media-news--mask d-block"></span>
+                    </a>
                 <?php endif; ?>
             </div>
 
             <div class="col-12 col-md-4">
-            <?php
+                <?php
                 $category_id = get_cat_ID('Economia');
                 $posts = get_posts(array(
                     'cat' => $category_id,
@@ -333,16 +349,16 @@
                 ));
                 if (!empty($posts)) :
                 ?>
-                <a href="<?php echo get_the_permalink($posts[0]->ID); ?>" title="<?php echo get_the_title($posts[0]->ID); ?>" class="w-100 ps-media-news my-2 bg-cover d-inline-block" data-thumb-post="<?php echo get_the_post_thumbnail_url($posts[0]->ID, 'ps-thumb-large'); ?>">
-                    <span class="ps-media-news--tag d-inline-block p-2 bg-dark text-light text-uppercase"><i class="fa-regular fa-folder"></i> Economia</span>
-                    <h5 class="font-title ps-media-news--title d-inline-block text-light p-2 w-100"><?php echo get_the_title($posts[0]->ID); ?></h5>
-                    <span class="ps-media-news--mask d-block"></span>
-                </a>
+                    <a href="<?php echo get_the_permalink($posts[0]->ID); ?>" title="<?php echo get_the_title($posts[0]->ID); ?>" class="w-100 ps-media-news my-2 bg-cover d-inline-block" data-thumb-post="<?php echo get_the_post_thumbnail_url($posts[0]->ID, 'ps-thumb-large'); ?>">
+                        <span class="ps-media-news--tag d-inline-block p-2 bg-dark text-light text-uppercase"><i class="fa-regular fa-folder"></i> Economia</span>
+                        <h5 class="font-title ps-media-news--title d-inline-block text-light p-2 w-100"><?php echo get_the_title($posts[0]->ID); ?></h5>
+                        <span class="ps-media-news--mask d-block"></span>
+                    </a>
                 <?php endif; ?>
             </div>
 
             <div class="col-12 col-md-4">
-            <?php
+                <?php
                 $category_id = get_cat_ID('Saude');
                 $posts = get_posts(array(
                     'cat' => $category_id,
@@ -350,11 +366,11 @@
                 ));
                 if (!empty($posts)) :
                 ?>
-                <a href="<?php echo get_the_permalink($posts[0]->ID); ?>" title="<?php echo get_the_title($posts[0]->ID); ?>" class="w-100 ps-media-news my-2 bg-cover d-inline-block" data-thumb-post="<?php echo get_the_post_thumbnail_url($posts[0]->ID, 'ps-thumb-large'); ?>">
-                    <span class="ps-media-news--tag d-inline-block p-2 bg-dark text-light text-uppercase"><i class="fa-regular fa-folder"></i> Saúde</span>
-                    <h5 class="font-title ps-media-news--title d-inline-block text-light p-2 w-100"><?php echo get_the_title($posts[0]->ID); ?></h5>
-                    <span class="ps-media-news--mask d-block"></span>
-                </a>
+                    <a href="<?php echo get_the_permalink($posts[0]->ID); ?>" title="<?php echo get_the_title($posts[0]->ID); ?>" class="w-100 ps-media-news my-2 bg-cover d-inline-block" data-thumb-post="<?php echo get_the_post_thumbnail_url($posts[0]->ID, 'ps-thumb-large'); ?>">
+                        <span class="ps-media-news--tag d-inline-block p-2 bg-dark text-light text-uppercase"><i class="fa-regular fa-folder"></i> Saúde</span>
+                        <h5 class="font-title ps-media-news--title d-inline-block text-light p-2 w-100"><?php echo get_the_title($posts[0]->ID); ?></h5>
+                        <span class="ps-media-news--mask d-block"></span>
+                    </a>
                 <?php endif; ?>
             </div>
 
@@ -367,22 +383,22 @@
                 ));
                 if (!empty($posts)) :
                 ?>
-                <div class="row ps-home-news--footer my-3">
-                    <div class="col-auto pe-0">
-                        <i class="fa-regular fa-folder"></i>
+                    <div class="row ps-home-news--footer my-3">
+                        <div class="col-auto pe-0">
+                            <i class="fa-regular fa-folder"></i>
+                        </div>
+                        <div class="col">
+                            <a href="<?php echo get_category_link($category_id); ?>" title="Ver todas as notícias em Educação" class="font-tag">Educação</a>
+                            <a href="<?php echo get_the_permalink($posts[0]->ID); ?>" title="<?php echo get_the_title($posts[0]->ID); ?>">
+                                <h6><?php echo get_the_title($posts[0]->ID); ?></h6>
+                            </a>
+                        </div>
                     </div>
-                    <div class="col">
-                        <a href="<?php echo get_category_link($category_id); ?>" title="Ver todas as notícias em Educação" class="font-tag">Educação</a>
-                        <a href="<?php echo get_the_permalink($posts[0]->ID); ?>" title="<?php echo get_the_title($posts[0]->ID); ?>">
-                            <h6><?php echo get_the_title($posts[0]->ID); ?></h6>
-                        </a>
-                    </div>
-                </div>
                 <?php endif; ?>
             </div>
 
             <div class="col-12 col-md-6 col-lg-3">
-            <?php
+                <?php
                 $category_id = get_cat_ID('Entretenimento');
                 $posts = get_posts(array(
                     'cat' => $category_id,
@@ -390,22 +406,22 @@
                 ));
                 if (!empty($posts)) :
                 ?>
-                <div class="row ps-home-news--footer my-3">
-                    <div class="col-auto pe-0">
-                        <i class="fa-regular fa-folder"></i>
+                    <div class="row ps-home-news--footer my-3">
+                        <div class="col-auto pe-0">
+                            <i class="fa-regular fa-folder"></i>
+                        </div>
+                        <div class="col">
+                            <a href="<?php echo get_category_link($category_id); ?>" title="Ver todas as notícias em Entretenimento" class="font-tag">Entretenimento</a>
+                            <a href="<?php echo get_the_permalink($posts[0]->ID); ?>" title="<?php echo get_the_title($posts[0]->ID); ?>">
+                                <h6><?php echo get_the_title($posts[0]->ID); ?></h6>
+                            </a>
+                        </div>
                     </div>
-                    <div class="col">
-                        <a href="<?php echo get_category_link($category_id); ?>" title="Ver todas as notícias em Entretenimento" class="font-tag">Entretenimento</a>
-                        <a href="<?php echo get_the_permalink($posts[0]->ID); ?>" title="<?php echo get_the_title($posts[0]->ID); ?>">
-                            <h6><?php echo get_the_title($posts[0]->ID); ?></h6>
-                        </a>
-                    </div>
-                </div>
                 <?php endif; ?>
             </div>
 
             <div class="col-12 col-md-6 col-lg-3">
-            <?php
+                <?php
                 $category_id = get_cat_ID('Brasil');
                 $posts = get_posts(array(
                     'cat' => $category_id,
@@ -413,22 +429,22 @@
                 ));
                 if (!empty($posts)) :
                 ?>
-                <div class="row ps-home-news--footer my-3">
-                    <div class="col-auto pe-0">
-                        <i class="fa-regular fa-folder"></i>
+                    <div class="row ps-home-news--footer my-3">
+                        <div class="col-auto pe-0">
+                            <i class="fa-regular fa-folder"></i>
+                        </div>
+                        <div class="col">
+                            <a href="<?php echo get_category_link($category_id); ?>" title="Ver todas as notícias em Brasil" class="font-tag">Brasil</a>
+                            <a href="<?php echo get_the_permalink($posts[0]->ID); ?>" title="<?php echo get_the_title($posts[0]->ID); ?>">
+                                <h6><?php echo get_the_title($posts[0]->ID); ?></h6>
+                            </a>
+                        </div>
                     </div>
-                    <div class="col">
-                        <a href="<?php echo get_category_link($category_id); ?>" title="Ver todas as notícias em Brasil" class="font-tag">Brasil</a>
-                        <a href="<?php echo get_the_permalink($posts[0]->ID); ?>" title="<?php echo get_the_title($posts[0]->ID); ?>">
-                            <h6><?php echo get_the_title($posts[0]->ID); ?></h6>
-                        </a>
-                    </div>
-                </div>
                 <?php endif; ?>
             </div>
 
             <div class="col-12 col-md-6 col-lg-3">
-            <?php
+                <?php
                 $category_id = get_cat_ID('Paraiba');
                 $posts = get_posts(array(
                     'cat' => $category_id,
@@ -436,17 +452,17 @@
                 ));
                 if (!empty($posts)) :
                 ?>
-                <div class="row ps-home-news--footer my-3">
-                    <div class="col-auto pe-0">
-                        <i class="fa-regular fa-folder"></i>
+                    <div class="row ps-home-news--footer my-3">
+                        <div class="col-auto pe-0">
+                            <i class="fa-regular fa-folder"></i>
+                        </div>
+                        <div class="col">
+                            <a href="<?php echo get_category_link($category_id); ?>" title="Ver todas as notícias em Paraíba" class="font-tag">Paraíba</a>
+                            <a href="<?php echo get_the_permalink($posts[0]->ID); ?>" title="<?php echo get_the_title($posts[0]->ID); ?>">
+                                <h6><?php echo get_the_title($posts[0]->ID); ?></h6>
+                            </a>
+                        </div>
                     </div>
-                    <div class="col">
-                        <a href="<?php echo get_category_link($category_id); ?>" title="Ver todas as notícias em Paraíba" class="font-tag">Paraíba</a>
-                        <a href="<?php echo get_the_permalink($posts[0]->ID); ?>" title="<?php echo get_the_title($posts[0]->ID); ?>">
-                            <h6><?php echo get_the_title($posts[0]->ID); ?></h6>
-                        </a>
-                    </div>
-                </div>
                 <?php endif; ?>
             </div>
         </div>

@@ -11,6 +11,12 @@ $obj = get_queried_object();
             </div>
             <div class="w-100 single-content">
                 <div class="w-100 ps-post-title" target="_blank" class="nav-link pe-0">
+                    <?php
+                    $post_key = get_field('ps_post_chapeu', $post->ID);
+                    if ($post_key) {
+                        echo "<p class=\"font-tag\">{$post_key}</p>";
+                    }
+                    ?>
                     <h1 class="font-title ps-post-title--text"><?php the_title(); ?></h1>
                 </div>
 
