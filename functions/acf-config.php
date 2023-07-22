@@ -50,4 +50,14 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 		'menu_title'  => 'Prefeituras',
 		'parent_slug' => 'opcoes-gerais',
 	) );
+	acf_add_options_sub_page( array(
+		'page_title'  => 'Texto destacado',
+		'menu_title'  => 'Texto destacado',
+		'parent_slug' => 'opcoes-gerais',
+	) );
+	acf_add_options_sub_page( array(
+		'page_title'  => 'Anunciar no slider',
+		'menu_title'  => 'Anunciar no slider',
+		'parent_slug' => 'opcoes-gerais',
+	) );
 }

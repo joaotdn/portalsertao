@@ -305,3 +305,17 @@
         }
     }
 }
+
+.ps-big-feature {
+    &--tag {
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: bolder;
+        color: $yellow-500;
+    }
+    &--title {
+        @include media-breakpoint-up(lg) {
+            font-size: 32px;
+        }
+    }
+}
