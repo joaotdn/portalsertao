@@ -59,6 +59,7 @@
                                 <?php
                                 $categories = get_categories();
                                 foreach($categories as $cat):
+                                    if ($cat->name == 'NULL') { continue; }
                                 ?>
                                 <a class="nav-link" href="<?php echo get_category_link($cat->term_id); ?>" title="Ver notícias em <?php echo $cat->name; ?>"><?php echo $cat->name; ?></a>
                                 <?php endforeach; ?>

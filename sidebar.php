@@ -18,11 +18,13 @@ if (!empty($categories)) :
             <nav class="w-100 mt-3">
                 <?php foreach ($relateds as $related) : ?>
                     <div class="row mb-3">
+                        <?php if (has_post_thumbnail($related->ID)) : ?>
                         <div class="col-auto">
                             <a href="<?php echo get_the_permalink($related->ID); ?>" title="<?php echo get_the_title($related->ID); ?>" class="d-block">
                                 <img src="<?php echo get_the_post_thumbnail_url($related->ID, 'ps-thumb-small') ?>" alt="<?php echo get_the_title($related->ID); ?>">
                             </a>
                         </div>
+                        <?php endif; ?>
                         <div class="col">
                             <?php
                             $post_key = get_field('ps_post_chapeu', $related->ID);
@@ -44,7 +46,7 @@ if (!empty($categories)) :
 endif;
 
 $cities = get_the_terms($obj->ID, 'cities');
-if (!empty($cities)) :
+if (!empty($cities) && $cities[0]->name != 'NULL') :
     ?>
     <div class="w-100 p-3 bg-light border mt-4">
         <h5 class="font-title w-100 text-center border-bottom pb-2"><a href="<?php echo get_term_link($cities[0]->term_id, 'cities') ?>" title="Ver notícias em <?php echo $cities[0]->name; ?>"><i class="fa-solid fa-location-dot"></i> <?php echo $cities[0]->name; ?></a></h5>

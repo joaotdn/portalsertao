@@ -12,11 +12,13 @@ if (!empty($relateds)) :
         <nav class="w-100 mt-3 border-bottom">
             <?php foreach ($relateds as $related) : ?>
                 <div class="row mb-3">
+                    <?php if (has_post_thumbnail($related->ID)) : ?>
                     <div class="col-auto">
                         <a href="<?php echo get_the_permalink($related->ID); ?>" title="<?php echo get_the_title($related->ID); ?>" class="d-block">
                             <img src="<?php echo get_the_post_thumbnail_url($related->ID, 'ps-thumb-small') ?>" alt="<?php echo get_the_title($related->ID); ?>">
                         </a>
                     </div>
+                    <?php endif; ?>
                     <div class="col">
                         <?php
                         $post_key = get_field('ps_post_chapeu', $related->ID);

@@ -15,11 +15,13 @@ $category = get_queried_object();
             ?>
                     <div class="w-100 mb-3 pb-3 ps-category-item border-bottom">
                         <div class="row">
+                            <?php if (has_post_thumbnail($post->ID)) : ?>
                             <div class="col-auto">
                                 <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>">
                                     <img src="<?php echo get_the_post_thumbnail_url($post->ID, 'ps-thumb-small') ?>" alt="<?php the_title(); ?>">
                                 </a>
                             </div>
+                            <?php endif; ?>
                             <div class="col">
                                 <?php
                                 $post_key = get_field('ps_post_chapeu', $post->ID);

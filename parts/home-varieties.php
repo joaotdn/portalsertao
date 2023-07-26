@@ -11,32 +11,29 @@
                             <?php
                             $cities = get_terms(array(
                                 'taxonomy'   => 'cities',
-                                'hide_empty' => false,
-                                'number' => 5
+                                'hide_empty' => true
                             ));
                             if (!empty($cities)) :
+                                $arr_ids = array();
+                                foreach ($cities as $city) {
+                                    array_push($arr_ids, $city->term_id);
+                                }
                                 shuffle($cities);
+                                $i = 0;
                             ?>
                                 <nav class="ps-home-news--tags nav d-none d-lg-flex">
-                                    <?php foreach ($cities as $citie) : ?>
+                                    <?php foreach ($cities as $citie) : if ($i == 5) {
+                                            break;
+                                        } ?>
                                         <a href="<?php echo get_term_link($citie->term_id, 'cities'); ?>" title="<?php echo $citie->name; ?>" class="nav-link"><?php echo $citie->name; ?></a>
-                                    <?php endforeach; ?>
+                                    <?php $i++;
+                                    endforeach; ?>
                                 </nav>
                             <?php endif; ?>
                         </div>
                     </div>
 
                     <?php
-                    $term_city = get_terms(array(
-                        'taxonomy' => 'cities',
-                        'hide_empty' => true,
-                    ));
-                    $arr_ids = array();
-                    if (!empty($term_city)) {
-                        foreach($term_city as $city) {
-                            array_push($arr_ids, $city->term_id);
-                        }
-                    }
                     $cities = get_posts(array(
                         'posts_per_page' => 4,
                         'tax_query' => array(
@@ -129,6 +126,13 @@
 
             <?php
             get_template_part('parts/home-cities');
+
+            $galerias = get_posts(array(
+                'posts_per_page' => 3,
+                'meta_key'       => 'ps_galeria_de_fotos',
+                'meta_value' => array(''),
+                'meta_compare' => '!='
+            ));
             ?>
 
             <div class="col-12">
@@ -138,7 +142,7 @@
                     $populars = get_posts($args);
                     if (!empty($populars)) :
                     ?>
-                        <div class="col-12 col-md-4">
+                        <div class="col-12 <?php echo !empty($galerias) ? 'col-md-4' : 'col-md-6'; ?>">
                             <div class="w-100 bg-light p-3 rounded-3">
                                 <div class="w-100 border-bottom border-2 my-3">
                                     <h5 class="font-title text-danger"><i class="fa-solid fa-ranking-star"></i> Mais lidas</h5>
@@ -160,20 +164,15 @@
                         </div>
                     <?php endif; ?>
 
-                    <div class="col-12 col-md-4">
-                        <div class="w-100 bg-danger px-3 pt-3 border-top border-4 border-dark mb-3">
-                            <div class="w-100 my-2 mb-3">
-                                <h5 class="font-title text-dark"><i class="fa-solid fa-camera"></i> Galerias</h5>
-                            </div>
-                            <?php
-                            $galerias = get_posts(array(
-                                'posts_per_page' => 3,
-                                'meta_key'       => 'ps_galeria_de_fotos',
-                                'meta_value' => array(''),
-                                'meta_compare' => '!='
-                            ));
-                            if (!empty($galerias)) :
-                            ?>
+                    <?php
+                    if (!empty($galerias)) :
+                    ?>
+                        <div class="col-12 col-md-4">
+                            <div class="w-100 bg-danger px-3 pt-3 border-top border-4 border-dark mb-3">
+                                <div class="w-100 my-2 mb-3">
+                                    <h5 class="font-title text-dark"><i class="fa-solid fa-camera"></i> Galerias</h5>
+                                </div>
+
                                 <nav class="nav flex-column ps-home-news--gallery">
                                     <?php
                                     foreach ($galerias as $item) :
@@ -196,27 +195,27 @@
                                         </div>
                                     <?php endforeach; ?>
                                 </nav>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-md-4">
-                        <div class="bg-light w-100 p-3 rounded rounded-3">
-                            <div class="w-100 border-bottom border-2 my-3">
-                                <h5 class="font-title text-danger"><i class="fa-solid fa-square-poll-horizontal"></i> Enquete</h5>
                             </div>
-                            <?php if (function_exists('vote_poll') && !in_pollarchive()) : ?>
-
-                                <?php get_poll(); ?>
-
-                            <?php endif; ?>
                         </div>
-                    </div>
+                        <?php endif; ?>
+
+                        <div class="col-12 <?php echo !empty($galerias) ? 'col-md-4' : 'col-md-6'; ?>">
+                            <div class="bg-light w-100 p-3 rounded rounded-3">
+                                <div class="w-100 border-bottom border-2 my-3">
+                                    <h5 class="font-title text-danger"><i class="fa-solid fa-square-poll-horizontal"></i> Enquete</h5>
+                                </div>
+                                <?php if (function_exists('vote_poll') && !in_pollarchive()) : ?>
+
+                                    <?php get_poll(); ?>
+
+                                <?php endif; ?>
+                            </div>
+                        </div>
 
                 </div>
             </div>
 
-            <div class="col-12">
+            <div class="col-12 mt-3">
                 <div class="row">
                     <?php
                     $category_id = get_cat_ID('Sertao Investiga');
@@ -233,9 +232,11 @@
                                 </div>
 
                                 <div class="col-12 col-md-4 mb-4">
+                                    <?php if (has_post_thumbnail($posts[0]->ID)): ?>
                                     <a href="<?php echo get_the_permalink($posts[0]->ID); ?>" title="<?php echo get_the_title($posts[0]->ID); ?>" class="d-block">
                                         <img src="<?php echo get_the_post_thumbnail_url($posts[0]->ID, 'ps-thumb-small-h'); ?>" alt="<?php echo get_the_title($posts[0]->ID); ?>">
                                     </a>
+                                    <?php endif; ?>
                                     <div class="w-100 bg-dark p-3">
                                         <?php
                                         $post_key = get_field('ps_post_chapeu', $post->ID);
@@ -315,7 +316,8 @@
                     $category_id = get_cat_ID('Politica');
                     $posts = get_posts(array(
                         'cat' => $category_id,
-                        'numberposts' => 4
+                        'numberposts' => 4,
+                        'meta_query' => array(array('key' => '_thumbnail_id'))
                     ));
                     if (!empty($posts)) :
                     ?>
@@ -344,7 +346,8 @@
                 $category_id = get_cat_ID('Esportes');
                 $posts = get_posts(array(
                     'cat' => $category_id,
-                    'numberposts' => 1
+                    'numberposts' => 1,
+                    'meta_query' => array(array('key' => '_thumbnail_id'))
                 ));
                 if (!empty($posts)) :
                 ?>
@@ -361,7 +364,8 @@
                 $category_id = get_cat_ID('Economia');
                 $posts = get_posts(array(
                     'cat' => $category_id,
-                    'numberposts' => 1
+                    'numberposts' => 1,
+                    'meta_query' => array(array('key' => '_thumbnail_id'))
                 ));
                 if (!empty($posts)) :
                 ?>
@@ -378,7 +382,8 @@
                 $category_id = get_cat_ID('Saude');
                 $posts = get_posts(array(
                     'cat' => $category_id,
-                    'numberposts' => 1
+                    'numberposts' => 1,
+                    'meta_query' => array(array('key' => '_thumbnail_id'))
                 ));
                 if (!empty($posts)) :
                 ?>

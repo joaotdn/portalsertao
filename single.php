@@ -10,6 +10,7 @@ $relateds = get_posts(array(
     'post__not_in' => array($post->ID)
 ));
 $post_author = get_the_author_meta('first_name', $post->post_author) . ' ' . get_the_author_meta('last_name', $post->post_author);
+$tags = get_the_tags($post->ID);
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class('container'); ?>>
     <div class="row">
@@ -107,10 +108,10 @@ $post_author = get_the_author_meta('first_name', $post->post_author) . ' ' . get
                 if (!empty($tags)) :
                 ?>
                     <div class="w-100 ps-post-tags bg-light border p-3 my-4">
-                        <h6 class="mb-3">O que sabemos sobre:</h6>
+                        <h6 class="mb-2">O que sabemos sobre:</h6>
                         <div class="w-100">
                             <?php foreach ($tags as $tag) : ?>
-                                <a href="<?php echo get_term_link($tag); ?>" class="pe-3 d-inline-block btn btn-sm btn-outline-primary" title="Todos os posts em <?php echo $tag->name; ?>"><i class="fa-solid fa-hashtag"></i> <?php echo $tag->name; ?></a>
+                                <a href="<?php echo get_term_link($tag); ?>" class="me-1 mt-1 d-inline-block btn btn-sm btn-outline-primary" title="Todos os posts em <?php echo $tag->name; ?>"><i class="fa-solid fa-hashtag"></i> <?php echo $tag->name; ?></a>
                             <?php endforeach; ?>
                         </div>
                     </div>
