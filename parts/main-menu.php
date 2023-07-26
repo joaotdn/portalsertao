@@ -36,3 +36,13 @@
         </div>
     </div>
 </div>
+
+<!-- <div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="w-100 d-flex justify-content-center p-2 bd-light border">
+                <?php get_template_part('parts/ads-top'); ?>
+            </div>
+        </div>
+    </div>
+</div> -->

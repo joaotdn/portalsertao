@@ -80,26 +80,14 @@
 
 <header class="container-fluid ps-header bg-black">
     <div class="container">
-        <div class="row ps-header-content py-3 d-flex justify-content-between align-items-center">
+        <div class="row ps-header-content py-3 d-flex justify-content-center align-items-center">
             <div class="col-lg-auto col-md-4 col-9 mb-3 mb-md-0">
                 <a href="#" class="ps-toggle-offcanvas ps-toggle-menu text-light me-3">
                     <i class="fa-solid fa-bars"></i>
                 </a>
                 <a href="<?php echo home_url(); ?>" title="<?php bloginfo('name'); ?>">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ps-logo.png" alt="Marca do Portal Sertão" class="ps-header-logo" width="240">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ps-logo.png" alt="Marca do Portal Sertão" class="ps-header-logo" width="180">
                 </a>
-            </div>
-
-            <div class="col-3 d-flex d-md-none ps-top-mobile-radio justify-content-end">
-                <a href="#" title="Tocar rádio" class="text-danger">
-                    <i class="fa-solid fa-circle-play"></i>
-                </a>
-            </div>
-
-            <div class="col-md-8 col-sm-12">
-                <div class="w-100 d-flex justify-content-md-end">
-                    <?php get_template_part('parts/ads-top'); ?>
-                </div>
             </div>
         </div>
     </div>
