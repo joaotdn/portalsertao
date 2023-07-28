@@ -1,17 +1,17 @@
-<div class="row d-flex justify-content-between">
-    <div class="col-auto text-white-50">
+<div class="row">
+    <div class="col-3 text-white-50">
         <span class="temp-max"></span>
         <span class="temp-min d-inline-block ps-1"></span>
         <span class="current-city d-inline-block ps-2"></span>
         <span class="current-date text-lowercase"></span>
     </div>
 
-    <div class="col-auto ps-top-tags">
+    <div class="col-6 ps-top-tags">
         <ul class="nav justify-content-center py-0">
             <?php
             $tags = get_tags(array(
                 'taxonomy' => 'post_tag',
-                'orderby' => 'name',
+                'orderby' => 'count',
                 'hide_empty' => false,
                 'number' => 5
             ));
@@ -26,7 +26,7 @@
         </ul>
     </div>
 
-    <div class="col-auto ps-top-social">
+    <div class="col-3 ps-top-social">
         <ul class="nav justify-content-end py-0">
             <?php
             $facebook  = get_field('ps_facebook', 'option');

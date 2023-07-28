@@ -74,7 +74,11 @@
                                 <?php
                                 $categories = get_categories(array(
                                     'taxonomy' => 'cities',
-                                    'hide_empty' => false
+                                    'hide_empty' => false,
+                                    'orderby' => 'count',
+                                    'number' => 20,
+                                    'order' => 'DESC',
+                                    'exclude' => array(168)
                                 ));
                                 foreach($categories as $cat):
                                 ?>
