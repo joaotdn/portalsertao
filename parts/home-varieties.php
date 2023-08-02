@@ -11,7 +11,8 @@
                             <?php
                             $cities = get_terms(array(
                                 'taxonomy'   => 'cities',
-                                'hide_empty' => true
+                                'hide_empty' => true,
+                                'exclude' => array(168)
                             ));
                             if (!empty($cities)) :
                                 $arr_ids = array();

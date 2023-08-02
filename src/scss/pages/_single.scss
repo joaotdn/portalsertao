@@ -8,3 +8,17 @@
         color: $gray-600;
     }
 }
+
+.ps-post-content {
+    .alignleft {
+        float: left;
+        margin: 0px 20px 20px 0px;
+    }
+    img {
+        max-width: 100%;
+    }
+    .alignright {
+        float: right;
+        margin: 0px 0px 20px 20px;
+    }
+}

@@ -13,7 +13,8 @@
                 'taxonomy' => 'post_tag',
                 'orderby' => 'count',
                 'hide_empty' => false,
-                'number' => 5
+                'number' => 8,
+                'order' => 'DESC'
             ));
 
             foreach ($tags as $tag) { ?>
