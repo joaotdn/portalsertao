@@ -64,7 +64,7 @@ $videos = get_posts(array(
                 $list_programs = get_field('ps_tv_programacao', 'option');
                 if (!empty($list_programs)):
             ?>
-            <div class="col-12 col-lg-4 ps-videos-home--tv active">
+            <div class="col-12 col-lg-4 ps-videos-home--tv active mb-3">
                 <p class="text-white pb-2">Programação</p>
                 <nav class="w-100 ps-videos-home--programs">
                     <?php

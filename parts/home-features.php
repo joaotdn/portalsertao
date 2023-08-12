@@ -45,7 +45,7 @@ $sliders = get_posts(array(
         <div class="col-12 col-md-8">
             <div class="row">
                 <?php if (isset($destaque1[0])) : ?>
-                    <div class="col-12">
+                    <div class="col-12 mb-3">
                         <?php
                         $post_key = get_field('ps_post_chapeu', $destaque1[0]->ID);
                         if ($post_key) {
@@ -64,7 +64,7 @@ $sliders = get_posts(array(
                 <div class="col-12">
                     <div class="row">
                         <?php if (isset($destaque2[0])) : ?>
-                            <div class="col-12 col-md-6 mb-md-3">
+                            <div class="col-12 col-md-6 mb-3">
                                 <?php
                                 $post_key = get_field('ps_post_chapeu', $destaque2[0]->ID);
                                 if ($post_key) {
@@ -80,7 +80,7 @@ $sliders = get_posts(array(
                         <?php endif; ?>
 
                         <?php if (isset($destaque3[0])) : ?>
-                            <div class="col-12 col-md-6 mb-md-3">
+                            <div class="col-12 col-md-6 mb-3">
                                 <?php
                                 $post_key = get_field('ps_post_chapeu', $destaque3[0]->ID);
                                 if ($post_key) {
@@ -160,11 +160,13 @@ $sliders = get_posts(array(
                         if ($ads_slider && !empty($ads_slider)) : foreach ($ads_slider as $slide) : ?>
                                 <div class="card mb-3">
                                     <?php if ($slide['ps_slider_anuncios_link']) { ?>
-                                    <a href="<?php echo $slide['ps_slider_anuncios_link']; ?>" title="<?php echo $slide['ps_slider_anuncios_titulo']; ?>" class="card-img-top" <?php if($slide['ps_slider_anuncios_target']) { echo "target=\"_blank\""; } ?>>
-                                        <img src="<?php echo $slide['ps_slider_anuncios_imagem']; ?>" class="" alt="<?php echo $slide['ps_slider_anuncios_titulo']; ?>">
-                                    </a>
+                                        <a href="<?php echo $slide['ps_slider_anuncios_link']; ?>" title="<?php echo $slide['ps_slider_anuncios_titulo']; ?>" class="card-img-top" <?php if ($slide['ps_slider_anuncios_target']) {
+                                                                                                                                                                                        echo "target=\"_blank\"";
+                                                                                                                                                                                    } ?>>
+                                            <img src="<?php echo $slide['ps_slider_anuncios_imagem']; ?>" class="" alt="<?php echo $slide['ps_slider_anuncios_titulo']; ?>">
+                                        </a>
                                     <?php } else { ?>
-                                    <img src="<?php echo $slide['ps_slider_anuncios_imagem']; ?>" class="" alt="<?php echo $slide['ps_slider_anuncios_titulo']; ?>" class="card-img-top">
+                                        <img src="<?php echo $slide['ps_slider_anuncios_imagem']; ?>" class="" alt="<?php echo $slide['ps_slider_anuncios_titulo']; ?>" class="card-img-top">
                                     <?php } ?>
                                     <div class="card-body">
                                         <?php
@@ -174,11 +176,13 @@ $sliders = get_posts(array(
                                         }
                                         ?>
                                         <?php if ($slide['ps_slider_anuncios_link']) { ?>
-                                        <a href="<?php echo $slide['ps_slider_anuncios_link']; ?>" title="<?php echo $slide['ps_slider_anuncios_titulo']; ?>" <?php if($slide['ps_slider_anuncios_target']) { echo "target=\"_blank\""; } ?>>
-                                            <h5 class="card-title font-title"><?php echo $slide['ps_slider_anuncios_titulo']; ?></h5>
-                                        </a>
+                                            <a href="<?php echo $slide['ps_slider_anuncios_link']; ?>" title="<?php echo $slide['ps_slider_anuncios_titulo']; ?>" <?php if ($slide['ps_slider_anuncios_target']) {
+                                                                                                                                                                        echo "target=\"_blank\"";
+                                                                                                                                                                    } ?>>
+                                                <h5 class="card-title font-title"><?php echo $slide['ps_slider_anuncios_titulo']; ?></h5>
+                                            </a>
                                         <?php } else { ?>
-                                        <h5 class="card-title font-title"><?php echo $slide['ps_slider_anuncios_titulo']; ?></h5>
+                                            <h5 class="card-title font-title"><?php echo $slide['ps_slider_anuncios_titulo']; ?></h5>
                                         <?php } ?>
                                     </div>
                                 </div>
@@ -320,5 +324,4 @@ $sliders = get_posts(array(
                 </div>
             </div>
         </div>
-    </div>
 </section>

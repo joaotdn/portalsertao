@@ -13,7 +13,7 @@
                 'taxonomy' => 'post_tag',
                 'orderby' => 'count',
                 'hide_empty' => false,
-                'number' => 8,
+                'number' => 6,
                 'order' => 'DESC'
             ));
 

@@ -4,7 +4,7 @@
     </div>
 </div>
 
-<header class="container-fluid ps-header bg-black border-bottom border-3 border-danger">
+<header class="container-fluid ps-header bg-black">
     <div class="container py-3">
         <div class="row ps-header-content d-flex align-items-center">
             <div class="col-auto d-none d-lg-block">
@@ -25,28 +25,6 @@
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
             </div>
-            <div class="col-12 d-block d-lg-none">
-                <form action="<?php echo home_url('/'); ?>" class="ps-form-search-mo w-100 py-2 mt-3" role="search" method="get">
-                    <div class="input-group input-group-sm">
-                        <input type="search" class="form-control" placeholder="Buscar" name="s">
-                        <button class="btn btn-outline-light" type="submit">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </button>
-                    </div>
-                </form>
-            </div>
         </div>
     </div>
 </header>
-
-<div class="container-fluid bg-dark ps-search-content">
-    <div class="container">
-        <div class="row">
-            <div class="col py-3">
-                <form action="<?php echo home_url('/'); ?>" role="search" method="get" class="ps-form-search w-100">
-                    <input type="search" class="w-100 form-control form-control-sm" name="s">
-                </form>
-            </div>
-        </div>
-    </div>
-</div>

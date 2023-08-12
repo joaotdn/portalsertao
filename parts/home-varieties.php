@@ -1,7 +1,7 @@
 <section class="ps-home-news container-fluid my-4">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-8">
+            <div class="col-12 col-md-8 mb-3">
                 <div class="row">
                     <div class="col-12">
                         <div class="w-100 ps-home-news--header d-flex justify-content-between mb-4">
@@ -143,7 +143,7 @@
                     $populars = get_posts($args);
                     if (!empty($populars)) :
                     ?>
-                        <div class="col-12 <?php echo !empty($galerias) ? 'col-md-4' : 'col-md-6'; ?>">
+                        <div class="col-12 <?php echo !empty($galerias) ? 'col-md-4' : 'col-md-6'; ?> mb-3">
                             <div class="w-100 bg-light p-3 rounded-3">
                                 <div class="w-100 border-bottom border-2 my-3">
                                     <h5 class="font-title text-danger"><i class="fa-solid fa-ranking-star"></i> Mais lidas</h5>
@@ -235,7 +235,7 @@
                                 <div class="col-12 col-md-4 mb-4">
                                     <?php if (has_post_thumbnail($posts[0]->ID)): ?>
                                     <a href="<?php echo get_the_permalink($posts[0]->ID); ?>" title="<?php echo get_the_title($posts[0]->ID); ?>" class="d-block">
-                                        <img src="<?php echo get_the_post_thumbnail_url($posts[0]->ID, 'ps-thumb-small-h'); ?>" alt="<?php echo get_the_title($posts[0]->ID); ?>">
+                                        <img src="<?php echo get_the_post_thumbnail_url($posts[0]->ID, 'ps-thumb-small-h'); ?>" alt="<?php echo get_the_title($posts[0]->ID); ?>" class="w-100">
                                     </a>
                                     <?php endif; ?>
                                     <div class="w-100 bg-dark p-3">
@@ -286,7 +286,7 @@
                         </div>
                     <?php endif; ?>
 
-                    <div class="col-12 col-md-4 text-center">
+                    <div class="col-12 col-md-4 text-center mb-3">
                         <div class="w-100 p-3 bg-light border">
                             <div class="w-100 mb-3 text-center">
                                 <h6 class="fw-light text-uppercase"><small>Anúncio</small></h6>

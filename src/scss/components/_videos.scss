@@ -109,9 +109,11 @@
     }
 
     &--programs {
-        column-count: 2;
         span {
             font-size: 12px;
+        }
+        @include media-breakpoint-up(md) {
+            column-count: 2;
         }
     }
 }

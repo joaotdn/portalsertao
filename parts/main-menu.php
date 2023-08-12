@@ -1,27 +1,34 @@
 <section class="ps-main-menu container-fluid bg-danger">
-    <div class="container">
+    <div class="w-100">
         <div class="d-flex align-items-center">
-            <nav class="w-100 nav">
-            <?php
-            $items = wp_get_nav_menu_items('Menu principal');
-            if ($items):
-            foreach($items as $item):
-            ?>
-                <a class="nav-link" href="<?php echo $item->url; ?>" title="Ver postagens em <?php echo $item->title; ?>"><?php echo $item->title; ?></a>
-            <?php endforeach; endif; ?>
-            </nav>
-            <div class="flex-shrink-1 text-white position-relative ps-toggle-search">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </div>
-            <form action="<?php echo home_url('/'); ?>" class="ps-form-search-mo w-100 p-2" role="search" method="get">
-                <div class="input-group input-group-sm">
-                    <input type="search" class="form-control" placeholder="Buscar" name="s">
-                    <button class="btn btn-outline-light" type="submit">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <nav class="w-100 nav">
+                            <?php
+                            $items = wp_get_nav_menu_items('Menu principal');
+                            if ($items) :
+                                foreach ($items as $item) :
+                            ?>
+                                    <a class="nav-link" href="<?php echo $item->url; ?>" title="Ver postagens em <?php echo $item->title; ?>"><?php echo $item->title; ?></a>
+                            <?php endforeach;
+                            endif; ?>
+                        </nav>
+                    </div>
                 </div>
-            </form>
+            </div>
+            <!-- <div class="flex-shrink-1 text-white position-relative ps-toggle-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div> -->
         </div>
+        <form action="<?php echo home_url('/'); ?>" class="ps-form-search-mo w-100 py-2" role="search" method="get">
+            <div class="input-group input-group-sm">
+                <input type="search" class="form-control" placeholder="Buscar" name="s">
+                <button class="btn btn-outline-light" type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+        </form>
     </div>
 </section>
 
