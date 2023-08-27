@@ -2,7 +2,7 @@
 include_once( get_stylesheet_directory() . '/plugins/acf/acf.php' );
 
 define( 'USE_LOCAL_ACF_CONFIGURATION', true ); // apenas conf. local
-define( 'ACF_LITE', false );
+define( 'ACF_LITE', true );
 
 add_filter( 'acf/settings/path', 'plandd_acf_path' );
 function plandd_acf_path( $path ) {
@@ -58,6 +58,11 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 	acf_add_options_sub_page( array(
 		'page_title'  => 'Anunciar no slider',
 		'menu_title'  => 'Anunciar no slider',
+		'parent_slug' => 'opcoes-gerais',
+	) );
+	acf_add_options_sub_page( array(
+		'page_title'  => 'Incorporar enquete',
+		'menu_title'  => 'Incorporar enquete',
 		'parent_slug' => 'opcoes-gerais',
 	) );
 }

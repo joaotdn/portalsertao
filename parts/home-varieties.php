@@ -126,7 +126,11 @@
             </div>
 
             <?php
+            // PREFEITURAS
             get_template_part('parts/home-cities');
+
+            // SERTAO EM 1 MIN / VIDEOS CURTOS
+            get_template_part('parts/home-reels');
 
             $galerias = get_posts(array(
                 'posts_per_page' => 3,
@@ -205,11 +209,16 @@
                                 <div class="w-100 border-bottom border-2 my-3">
                                     <h5 class="font-title text-danger"><i class="fa-solid fa-square-poll-horizontal"></i> Enquete</h5>
                                 </div>
-                                <?php if (function_exists('vote_poll') && !in_pollarchive()) : ?>
-
-                                    <?php get_poll(); ?>
-
-                                <?php endif; ?>
+                                <div class="ps-polls w-100">
+                                    <?php
+                                        $ps_poll = get_field('ps_enquetes', 'option');
+                                        if ($ps_poll) {
+                                            echo do_shortcode( $ps_poll );    
+                                        } else {
+                                            echo "<p>Aguarde novas enquetes no nosso portal!</p>";
+                                        }
+                                    ?>
+                                </div>
                             </div>
                         </div>
 
