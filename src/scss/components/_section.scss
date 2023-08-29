@@ -345,18 +345,21 @@
 
     &--figure {
         position: relative;
+
         img {
             transition: all 0.3s linear;
             filter: grayscale(50%);
             -webkit-filter: grayscale(50%);
             -moz-filter: grayscale(50%);
         }
+
         &:hover {
             img {
                 filter: grayscale(0%);
                 -webkit-filter: grayscale(0%);
                 -moz-filter: grayscale(0%);
             }
+
             i {
                 transform: scale(1.05);
             }
@@ -369,6 +372,7 @@
         left: 0;
         background-color: rgba($gray-900, 0.6);
         display: none;
+
         @media screen and (max-width: 1200px) {
             display: inline-block;
         }
@@ -386,6 +390,7 @@
     &--nav {
         overflow-x: hidden;
         overflow-y: auto;
+
         img {
             transition: all 0.3s linear;
             height: max-content;
@@ -393,9 +398,15 @@
             -webkit-filter: grayscale(72%);
             -moz-filter: grayscale(72%);
         }
-        a {opacity: 0.5;}
-        a:hover, a.active {
+
+        a {
+            opacity: 0.5;
+        }
+
+        a:hover,
+        a.active {
             opacity: 1;
+
             img {
                 filter: grayscale(0%);
                 -webkit-filter: grayscale(0%);
@@ -404,7 +415,9 @@
         }
 
         @media screen and (max-width: 1200px) {
-            h6 {display: none;}
+            h6 {
+                display: none;
+            }
         }
 
         @media screen and (min-width: 768px) {
@@ -433,7 +446,11 @@
             overflow-y: hidden;
             width: 100%;
             white-space: nowrap;
-            img {width: 100px;}
+
+            img {
+                width: 100px;
+            }
+
             a {
                 &:not(:first-child) {
                     margin-left: 20px;
@@ -445,5 +462,39 @@
     &--time {
         font-size: 12px;
         color: $gray-600;
+    }
+}
+
+.ps-home-reels {
+    background-color: $yellow-500;
+    @media screen and (min-width: 1400px) {
+        height: 450px;
+    }
+
+    &--header {
+        border-bottom: 1px solid $yellow-300;
+    }
+
+    &--nav-item {
+        h6 {
+            top: 0;
+            left: 0;
+            background-color: rgba($danger, 0.7);
+        }
+
+        img {
+            transition: all 0.3s linear;
+            filter: grayscale(40%);
+            -webkit-filter: grayscale(40%);
+            -moz-filter: grayscale(40%);
+        }
+
+        &:hover {
+            img {
+                filter: grayscale(0%);
+                -webkit-filter: grayscale(0%);
+                -moz-filter: grayscale(0%);
+            }
+        }
     }
 }
