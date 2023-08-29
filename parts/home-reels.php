@@ -96,7 +96,7 @@ if (!empty($reels_list)) :
                     <i class="fa-solid fa-clock-rotate-left text-danger"></i> <strong>Vídeos curtos</strong>
                 </a>
             </h5>
-            <div class="w-100 ps-home-reels--nav cycle-slideshow" data-cycle-fx="fade" data-cycle-timeout="0" data-cycle-prev=".ps-home-reels--nav-prev" data-cycle-next=".ps-home-reels--nav-next" data-loop="1" data-cycle-slides="> .ps-home-reels--nav-item">
+            <div class="w-100 ps-home-reels--nav cycle-slideshow" data-cycle-fx="fade" data-cycle-timeout="0" data-swipe="true" data-cycle-prev=".ps-home-reels--nav-prev" data-cycle-next=".ps-home-reels--nav-next" data-loop="1" data-cycle-slides="> .ps-home-reels--nav-item">
                 <?php
                 foreach ($reels_list as $rell) :
                     $code = get_field('ps_video_id', $rell->ID);
