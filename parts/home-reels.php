@@ -31,7 +31,7 @@ if (!empty($one_minute_list)) :
                 $code = get_field('ps_video_id', $one_minute_list[0]->ID);
                 if ($code) {
                 ?>
-                    <a href="#" title="Assistir <?php echo $one_minute_list[0]->post_title; ?>" class="d-block ps-one-minute--figure">
+                    <a href="#" title="<?php echo $one_minute_list[0]->post_title; ?>" class="d-block ps-one-minute--figure" data-video-id="<?php echo $code; ?>" data-bs-toggle="modal" data-bs-target="#videoHomeModal">
                         <img src="<?php echo "https://img.youtube.com/vi/{$code}/hqdefault.jpg"; ?>" alt="<?php echo $one_minute_list[0]->post_title; ?>">
                         <span class="ps-one-minute--figure-txt w-100 font-title text-white p-3">
                             <i class="fa-solid fa-circle-play text-danger"></i> <?php echo $one_minute_list[0]->post_title; ?>
@@ -49,10 +49,10 @@ if (!empty($one_minute_list)) :
                             $code = get_field('ps_video_id', $minute->ID);
                             if ($code) {
                         ?>
-                                <a href="#" class="d-md-flex justify-content-md-between<?php echo $i == 0 ? ' active' : ''; ?>" title="Assistir <?php echo $minute->post_title; ?>">
+                                <a href="#" class="ps-one-minute--nav-item d-md-flex justify-content-md-between<?php echo $i == 0 ? ' active' : ''; ?>" title="<?php echo $minute->post_title; ?>" data-video-id="<?php echo $code; ?>">
                                     <img src="<?php echo "https://img.youtube.com/vi/{$code}/3.jpg"; ?>" alt="<?php echo $minute->post_title; ?>">
                                     <h6 class="fs-6 mb-0 ps-3">
-                                        <span class="font-title text-white"><small><?php echo $minute->post_title; ?></small></span>
+                                        <span class="text-white"><small><?php echo $minute->post_title; ?></small></span>
                                         <span class="d-inline-block ps-one-minute--time w-100 mt-2">
                                             <i class="fa-regular fa-clock"></i> <?php echo get_the_date('d \d\e F', $minute->ID); ?>
                                         </span>

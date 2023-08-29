@@ -16,3 +16,4 @@ import "./components/loteria";
 import "./components/fotorama";
 import "./components/readPost";
 import "./components/onlineRadios";
+import "./components/oneMinute";
