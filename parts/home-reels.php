@@ -92,7 +92,7 @@ if (!empty($reels_list)) :
     <div class="col-12 col-md-4 mb-4">
         <div class="w-100 ps-home-reels p-3 border-bottom border-4 border-dark">
             <h5 class="ps-home-reels--header text-uppercase mb-3 pb-3">
-                <a href="#" title="Ver todos os Vídeos curtos">
+                <a href="<?php echo get_term_link($reels->term_id, 'programas'); ?>" title="Ver todos os Vídeos curtos">
                     <i class="fa-solid fa-clock-rotate-left text-danger"></i> <strong>Vídeos curtos</strong>
                 </a>
             </h5>
