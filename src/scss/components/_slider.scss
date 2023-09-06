@@ -1,0 +1,64 @@
+.ps-slide-news {
+    &--item {
+        height: 300px;
+        > a {
+            transition: all 0.3s linear;
+            position: relative;
+            -webkit-box-shadow: inset -2px -154px 83px -38px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: inset -2px -154px 83px -38px rgba(0, 0, 0, 0.75);
+            box-shadow: inset -2px -154px 83px -38px rgba(0, 0, 0, 0.75);
+        }
+        @include media-breakpoint-up(md) {
+            height: 370px;
+        }
+    }
+    &--title {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    &--next, &--prev {
+        position: absolute;
+        top: 45%;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        background-color: $white;
+        transition: all 0.3s linear;
+        opacity: 0.6;
+        z-index: 991;
+        text-align: center;
+        border-radius: 50%;
+        color: $danger;
+        font-size: 20px;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    &--next {
+        right: 10px;
+    }
+    &--prev {
+        left: 10px;
+    }
+    &--pager {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 991;
+        span {
+            width: 10px;
+            height: 10px;
+            background-color: $white;
+            display: inline-block;
+            margin: 0 5px;
+            border-radius: 50%;
+            cursor: pointer;
+            &.cycle-pager-active {
+                background-color: $danger;
+            }
+        }
+    }
+}

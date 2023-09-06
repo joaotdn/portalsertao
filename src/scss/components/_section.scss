@@ -498,3 +498,29 @@
         }
     }
 }
+
+.ps-podcast {
+    &--header {
+        strong, i {
+            color: $red-100;
+        }
+        span {
+            color: $red-700;
+        }
+    }
+    img {
+        transition: all 0.3s linear;
+        filter: grayscale(40%);
+        -webkit-filter: grayscale(40%);
+        -moz-filter: grayscale(40%);
+    }
+    &--figure {
+        &:hover {
+            img {
+                filter: grayscale(0%);
+            -webkit-filter: grayscale(0%);
+            -moz-filter: grayscale(0%);
+            }
+        }
+    }
+}

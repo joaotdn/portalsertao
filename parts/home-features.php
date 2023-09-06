@@ -154,173 +154,88 @@ $sliders = get_posts(array(
         </div>
         <div class="col-12 col-md-4">
             <div class="row">
-                <div class="col-12 position-relative">
-                    <div class="ps-slide-features" data-cycle-fx="fade" data-cycle-timeout="5000" data-cycle-slides="> .card" data-cycle-prev=".nav-features--prev" data-cycle-next=".nav-features--next" data-cycle-pager=".features-pager" data-cycle-pager-template="<span></span>" data-cycle-swipe=true>
+                <div class="col-12">
+                    <div class="w-100 ps-slide-news" data-cycle-fx="fade" data-cycle-timeout="5000" data-cycle-slides="> .ps-slide-news--item" data-cycle-prev=".ps-slide-news--prev" data-cycle-next=".ps-slide-news--next" data-cycle-pager=".ps-slide-news--pager" data-cycle-pager-template="<span></span>" data-cycle-swipe="true">
                         <?php
-                        if ($ads_slider && !empty($ads_slider)) : foreach ($ads_slider as $slide) : ?>
-                                <div class="card mb-3">
-                                    <?php if ($slide['ps_slider_anuncios_link']) { ?>
-                                        <a href="<?php echo $slide['ps_slider_anuncios_link']; ?>" title="<?php echo $slide['ps_slider_anuncios_titulo']; ?>" class="card-img-top" <?php if ($slide['ps_slider_anuncios_target']) {
-                                                                                                                                                                                        echo "target=\"_blank\"";
-                                                                                                                                                                                    } ?>>
-                                            <img src="<?php echo $slide['ps_slider_anuncios_imagem']; ?>" class="" alt="<?php echo $slide['ps_slider_anuncios_titulo']; ?>">
-                                        </a>
-                                    <?php } else { ?>
-                                        <img src="<?php echo $slide['ps_slider_anuncios_imagem']; ?>" class="" alt="<?php echo $slide['ps_slider_anuncios_titulo']; ?>" class="card-img-top">
-                                    <?php } ?>
-                                    <div class="card-body">
-                                        <?php
-                                        $post_key = $slide['ps_slider_anuncios_chapeu'];
-                                        if ($post_key) {
-                                            echo "<p class=\"font-tag\">{$post_key}</p>";
-                                        }
-                                        ?>
-                                        <?php if ($slide['ps_slider_anuncios_link']) { ?>
-                                            <a href="<?php echo $slide['ps_slider_anuncios_link']; ?>" title="<?php echo $slide['ps_slider_anuncios_titulo']; ?>" <?php if ($slide['ps_slider_anuncios_target']) {
-                                                                                                                                                                        echo "target=\"_blank\"";
-                                                                                                                                                                    } ?>>
-                                                <h5 class="card-title font-title"><?php echo $slide['ps_slider_anuncios_titulo']; ?></h5>
-                                            </a>
-                                        <?php } else { ?>
-                                            <h5 class="card-title font-title"><?php echo $slide['ps_slider_anuncios_titulo']; ?></h5>
-                                        <?php } ?>
-                                    </div>
-                                </div>
-                            <?php
-                            endforeach;
-                        endif;
-                        foreach ($sliders as $slide) :
-                            ?>
-                            <div class="card mb-3">
-                                <a href="<?php echo get_the_permalink($slide->ID) ?>" title="<?php echo get_the_title($slide->ID); ?>" class="card-img-top">
-                                    <img src="<?php echo get_the_post_thumbnail_url($slide->ID, 'ps-thumb-horizontally'); ?>" class="" alt="<?php echo get_the_title($slide->ID); ?>">
-                                </a>
-                                <div class="card-body">
-                                    <?php
-                                    $post_key = get_field('ps_post_chapeu', $slide->ID);
-                                    if ($post_key) {
-                                        echo "<p class=\"font-tag\">{$post_key}</p>";
-                                    }
-                                    ?>
-                                    <a href="<?php echo get_the_permalink($slide->ID) ?>" title="<?php echo get_the_title($slide->ID); ?>">
-                                        <h5 class="card-title font-title"><?php echo get_the_title($slide->ID); ?></h5>
+                        if (!empty($sliders)) :
+                            foreach ($sliders as $slide) :
+                        ?>
+                                <div class="ps-slide-news--item w-100">
+                                    <a href="<?php echo get_the_permalink($slide->ID); ?>" title="<?php echo get_the_title($slide->ID); ?>" class="d-block h-100 bg-cover" data-thumb-post="<?php echo get_the_post_thumbnail_url($slide->ID, 'ps-thumb-large'); ?>">
+                                        <h6 class="ps-slide-news--title w-100 d-inline-block p-3 m-0">
+                                            <?php
+                                            $post_key = get_field('ps_post_chapeu', $slide->ID);
+                                            if ($post_key) {
+                                                echo "<span class=\"font-tag\"><small>{$post_key}</small></span><br>";
+                                            }
+                                            ?>
+                                            <span class="text-white font-title">
+                                                <?php echo get_the_title($slide->ID); ?>
+                                            </span>
+                                        </h6>
                                     </a>
                                 </div>
-                            </div>
-                        <?php endforeach; ?>
+                        <?php
+                            endforeach;
+                        endif;
+                        ?>
+                        <a href="#" class="ps-slide-news--prev">
+                            <i class="fa-solid fa-angle-left"></i>
+                        </a>
+                        <a href="#" class="ps-slide-news--next">
+                            <i class="fa-solid fa-angle-right"></i>
+                        </a>
+                        <div class="ps-slide-news--pager w-100 text-center"></div>
                     </div>
-                    <a href="#" class="nav-features--prev nav-features-control" title="Notícia anterior">
-                        <i class="fa-solid fa-circle-chevron-left"></i>
-                    </a>
-                    <a href="#" class="nav-features--next nav-features-control" title="Próxima notícia">
-                        <i class="fa-solid fa-circle-chevron-right"></i>
-                    </a>
-                    <div class="features-pager col-12 justify-content-center d-flex"></div>
                 </div>
 
                 <div class="col-12 my-3 my-md-4">
-                    <div class="w-100 ps-coins-indicators p-3">
-                        <div class="w-100 mb-3 border-bottom border-1 border-light">
-                            <h5 class="text-uppercase"><i class="fa-solid fa-chart-simple"></i> Indicadores Econômicos</h5>
+                    <?php
+                    $podcast = get_term_by('name', 'podcast sertao', 'programas');
+                    $podcast_list = array();
+                    if ($podcast) {
+                        $podcast_list = get_posts(
+                            array(
+                                'posts_per_page' => 6,
+                                'post_type' => 'tvsertao',
+                                'tax_query' => array(
+                                    array(
+                                        'taxonomy' => 'programas',
+                                        'field' => 'term_id',
+                                        'terms' => $podcast->term_id,
+                                    )
+                                )
+                            )
+                        );
+                    ?>
+                        <div class="w-100 ps-podcast bg-danger p-3">
+                            <h5 class="ps-podcast--header d-inline-block w-100 mb-3">
+                                <a href="<?php echo get_term_link($podcast->term_id, 'programas') ?>" title="Ver todos os Podcasts Sertão">
+                                    <i class="fa-solid fa-microphone-lines"></i>
+                                    <strong>PodCast</strong> <span class="font-title fw-bold">Sertão</span>
+                                </a>
+                            </h5>
+
+                            <div class="ps-podcast--content mb-3">
+                                <?php
+                                if (!empty($podcast_list) && get_field('ps_video_id', $podcast_list[0]->ID)) {
+                                    $code = get_field('ps_video_id', $podcast_list[0]->ID);
+                                ?>
+                                    <a href="#" title="<?php echo $podcast_list[0]->post_title; ?>" data-video-id="<?php echo $code; ?>" class="d-block ps-podcast--figure" data-bs-toggle="modal" data-bs-target="#videoHomeModal">
+                                        <img src="<?php echo "https://img.youtube.com/vi/{$code}/hqdefault.jpg"; ?>" alt="<?php echo $podcast_list[0]->post_title; ?>" class="w-100">
+                                        <h6 class="d-inline-block w-100 mt-3 mb-0 fw-bolder text-white">
+                                            <?php echo $podcast_list[0]->post_title; ?>
+                                        </h6>
+                                    </a>
+                                <?php } else { ?>
+                                    <div class="ps-podcast--empty d-flex justify-content-center align-items-center w-100 border border-light opacity-75" style="height: 250px;">
+                                        <h6 class="text-light fw-lighter d-inline-block m-0">Aguarde...</h6>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                            <a href="<?php echo get_term_link($podcast->term_id, 'programas'); ?>" title="Ver todos os Podcasts" class="btn btn-dark w-100 m-0">Ver todos os PodCasts</a>
                         </div>
-                        <ul class="list-group">
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <span class="ps-coin-name">Dólar Americano</span>
-                                <span class="badge bg-primary rounded-pill cur-usd">
-                                    R$ <span class="cur-min"></span>
-                                </span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <span class="ps-coin-name">Euro</span>
-                                <span class="badge bg-primary rounded-pill cur-euro">
-                                    R$ <span class="cur-min"></span>
-                                </span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <span class="ps-coin-name">Bitcoin</span>
-                                <span class="badge bg-primary rounded-pill cur-btc">
-                                    R$ <span class="cur-min"></span>
-                                </span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <span class="ps-coin-name">Peso Argentino</span>
-                                <span class="badge bg-primary rounded-pill cur-ars">
-                                    R$ <span class="cur-min"></span>
-                                </span>
-                            </li>
-                            <!-- <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <span class="ps-coin-name">Libra Esterlina</span>
-                                <span class="badge bg-primary rounded-pill cur-gbp">
-                                    R$ <span class="cur-min"></span>
-                                </span>
-                            </li> -->
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-12">
-                    <div class="w-100 p-3 ps-loterica-results">
-                        <div class="w-100 text-center mb-3">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-caixa.png" alt="Loterias Caixa" width="100">
-                        </div>
-
-                        <div class="accordion accordion-flush" id="accordionFlushExample">
-                            <div class="accordion-item ps-loterica-item ps-loterica-mega-sena" data-loterica="mega-sena">
-                                <h2 class="accordion-header" id="flush-headingOne">
-                                    <button class="accordion-button p-2 text-white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                        Mega-Sena
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body p-2 pt-0"></div>
-                                </div>
-                            </div>
-
-                            <div class="accordion-item ps-loterica-item ps-loterica-quina" data-loterica="quina">
-                                <h2 class="accordion-header" id="flush-headingTwo">
-                                    <button class="accordion-button p-2 text-white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                                        Quina
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body p-2 pt-0"></div>
-                                </div>
-                            </div>
-
-                            <div class="accordion-item ps-loterica-item ps-loterica-lotofacil" data-loterica="lotofacil">
-                                <h2 class="accordion-header" id="flush-headingThree">
-                                    <button class="accordion-button p-2 text-white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                                        Lotofácil
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body p-2 pt-0"></div>
-                                </div>
-                            </div>
-
-                            <div class="accordion-item ps-loterica-item ps-loterica-lotomania" data-loterica="lotomania">
-                                <h2 class="accordion-header" id="flush-headingFour">
-                                    <button class="accordion-button p-2 text-white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
-                                        Lotomania
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body p-2 pt-0"></div>
-                                </div>
-                            </div>
-
-                            <!-- <div class="accordion-item ps-loterica-item ps-loterica-dupla-sena" data-loterica="dupla-sena">
-                                <h2 class="accordion-header" id="flush-headingFive">
-                                    <button class="accordion-button p-2 text-white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
-                                        Dupla-sena
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body p-2 pt-0"></div>
-                                </div>
-                            </div> -->
-                        </div>
-                    </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>
