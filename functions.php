@@ -42,5 +42,8 @@ require_once( get_template_directory() . '/functions/cpt-blog.php' );
 // CPT: TV Sertão
 require_once( get_template_directory() . '/functions/cpt-tv-sertao.php' );
 
+// CPT: Podcasts
+require_once( get_template_directory() . '/functions/cpt-podcast.php' );
+
 // Tax: Municipios
 require_once( get_template_directory() . '/functions/cpt-cities.php' );

@@ -191,51 +191,45 @@ $sliders = get_posts(array(
 
                 <div class="col-12 my-3 my-md-4">
                     <?php
-                    $podcast = get_term_by('name', 'podcast sertao', 'programas');
-                    $podcast_list = array();
-                    if ($podcast) {
-                        $podcast_list = get_posts(
-                            array(
-                                'posts_per_page' => 6,
-                                'post_type' => 'tvsertao',
-                                'tax_query' => array(
-                                    array(
-                                        'taxonomy' => 'programas',
-                                        'field' => 'term_id',
-                                        'terms' => $podcast->term_id,
-                                    )
-                                )
-                            )
-                        );
+                    $podcast_list = get_posts(
+                        array(
+                            'posts_per_page' => 4,
+                            'post_type' => 'podcasts'
+                        )
+                    );
                     ?>
-                        <div class="w-100 ps-podcast bg-danger p-3">
-                            <h5 class="ps-podcast--header d-inline-block w-100 mb-3">
-                                <a href="<?php echo get_term_link($podcast->term_id, 'programas') ?>" title="Ver todos os Podcasts Sertão">
-                                    <i class="fa-solid fa-microphone-lines"></i>
-                                    <strong>PodCast</strong> <span class="font-title fw-bold">Sertão</span>
-                                </a>
+                    <div class="w-100 ps-audios bg-danger p-3">
+                        <a href="<?php echo get_post_type_archive_link('podcasts'); ?>" title="Ver todos os Podcasts" class="d-block w-100 mb-3">
+                            <h5 class="m-0 ps-audios--title">
+                                <i class="fa-solid fa-microphone-lines d-inline-block me-2 text-white"></i>
+                                <span class="fw-bolder text-white">PodCast</span>
+                                <span class="font-title fw-bolder">Sertão</span>
                             </h5>
-
-                            <div class="ps-podcast--content mb-3">
-                                <?php
-                                if (!empty($podcast_list) && get_field('ps_video_id', $podcast_list[0]->ID)) {
-                                    $code = get_field('ps_video_id', $podcast_list[0]->ID);
-                                ?>
-                                    <a href="#" title="<?php echo $podcast_list[0]->post_title; ?>" data-video-id="<?php echo $code; ?>" class="d-block ps-podcast--figure" data-bs-toggle="modal" data-bs-target="#videoHomeModal">
-                                        <img src="<?php echo "https://img.youtube.com/vi/{$code}/hqdefault.jpg"; ?>" alt="<?php echo $podcast_list[0]->post_title; ?>" class="w-100">
-                                        <h6 class="d-inline-block w-100 mt-3 mb-0 fw-bolder text-white">
-                                            <?php echo $podcast_list[0]->post_title; ?>
-                                        </h6>
-                                    </a>
-                                <?php } else { ?>
-                                    <div class="ps-podcast--empty d-flex justify-content-center align-items-center w-100 border border-light opacity-75" style="height: 250px;">
-                                        <h6 class="text-light fw-lighter d-inline-block m-0">Aguarde...</h6>
-                                    </div>
-                                <?php } ?>
-                            </div>
-                            <a href="<?php echo get_term_link($podcast->term_id, 'programas'); ?>" title="Ver todos os Podcasts" class="btn btn-dark w-100 m-0">Ver todos os PodCasts</a>
+                        </a>
+                        <div class="ps-audios--nav w-100">
+                            <?php
+                            if (!empty($podcast_list)) {
+                                foreach ($podcast_list as $audio) :
+                                    $track = get_field('ps_podcast_audio', $audio->ID);
+                                    if ($track) :
+                            ?>
+                                        <a href="#" title="<?php echo get_the_title($audio->ID); ?>" data-audio="<?php echo $track; ?>" class="d-flex align-items-center ps-audios--track w-100 p-2 mb-3">
+                                            <span class="d-block me-3">
+                                                <i class="fa-solid fa-play"></i>
+                                                <i class="fa-solid fa-pause"></i>
+                                            </span>
+                                            <span class="d-block">
+                                                <span class="fw-bolder fs-6"><?php echo get_the_title($audio->ID); ?></span>
+                                            </span>
+                                        </a>
+                            <?php
+                                    endif;
+                                endforeach;
+                            }
+                            ?>
                         </div>
-                    <?php } ?>
+                        <a href="<?php echo get_post_type_archive_link('podcasts'); ?>" class="btn btn-dark w-100" title="Ver todos os Podcasts">Ver todos os Podcasts</a>
+                    </div>
                 </div>
             </div>
         </div>

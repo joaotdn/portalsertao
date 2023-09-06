@@ -49,6 +49,7 @@
     visibility: hidden;
     bottom: 0;
     right: 0;
+    z-index: 9999;
     &.active {
         visibility: visible;
         opacity: 1;

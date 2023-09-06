@@ -499,27 +499,48 @@
     }
 }
 
-.ps-podcast {
-    &--header {
-        strong, i {
-            color: $red-100;
-        }
+// .ps-podcast {
+//     &--header {
+//         strong, i {
+//             color: $red-100;
+//         }
+//         span {
+//             color: $red-700;
+//         }
+//     }
+//     img {
+//         transition: all 0.3s linear;
+//         filter: grayscale(40%);
+//         -webkit-filter: grayscale(40%);
+//         -moz-filter: grayscale(40%);
+//     }
+//     &--figure {
+//         &:hover {
+//             img {
+//                 filter: grayscale(0%);
+//             -webkit-filter: grayscale(0%);
+//             -moz-filter: grayscale(0%);
+//             }
+//         }
+//     }
+// }
+
+.ps-audios {
+    &--title {
         span {
-            color: $red-700;
+            &:last-child {color: $red-800;}
         }
     }
-    img {
-        transition: all 0.3s linear;
-        filter: grayscale(40%);
-        -webkit-filter: grayscale(40%);
-        -moz-filter: grayscale(40%);
-    }
-    &--figure {
-        &:hover {
-            img {
-                filter: grayscale(0%);
-            -webkit-filter: grayscale(0%);
-            -moz-filter: grayscale(0%);
+    &--track {
+        border: 1px solid $red-600;
+        i {
+            font-size: 32px;
+            &.fa-pause {display: none;}
+        }
+        &.active {
+            i {
+                &.fa-pause {display: inline-block;}
+                &.fa-play {display: none;}
             }
         }
     }
