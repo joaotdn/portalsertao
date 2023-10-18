@@ -12,7 +12,7 @@ if ($tv_sertao) : ?>
                     parentId: "#clappr",
                     width: "100%",
                     height: "100%",
-                    autoPlay: 'false',
+                    autoPlay: false,
                     //gaAccount: 'UA-44332211-1',
                     //gaTrackerName: 'MyPlayerInstance'
                 });
