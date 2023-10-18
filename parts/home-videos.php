@@ -26,56 +26,73 @@ $videos = get_posts(array(
                     </div>
                 </div>
             </div>
-            
-            <?php 
-            if(!empty($videos)):
+
+            <?php
+            if (!empty($videos)) :
                 $cod = get_field('ps_youtube_cod', $videos[0]->ID);
             ?>
-            <div class="col-12 col-lg-4 position-relative ps-videos-home--content">
-                <a href="#" title="<?php echo get_the_title($videos[0]->ID); ?>" class="w-100 ps-videos-home--thumb bg-cover align-items-center justify-content-center" data-thumb-post="https://img.youtube.com/vi/<?php echo $cod; ?>/hqdefault.jpg" data-youtube-code="<?php echo $cod; ?>" data-bs-toggle="modal" data-bs-target="#videoHomeModal">
-                    <span class="play-video-icon">
-                        <i class="fa-regular fa-circle-play"></i>
-                    </span>
-                </a>
-                <a href="<?php echo get_the_permalink($videos[0]->ID); ?>" title="<?php echo get_the_title($videos[0]->ID); ?>" class="btn btn-danger btn-sm ps-videos-home--read">
-                    <i class="fa-regular fa-newspaper"></i> Continuar lendo
-                </a>
-            </div>
-
-            <div class="col-12 col-lg-4 ps-videos-home--content">
-                <nav class="nav flex-column ps-videos-home--nav">
-                    <?php $i = 0; foreach($videos as $video): ?>
-                    <a class="nav-link py-4 <?php if ($i == 0) echo 'active'; ?>" title="<?php echo get_the_title($video->ID); ?>" href="<?php echo get_the_permalink($video->ID); ?>" data-youtube-code="<?php echo get_field('ps_youtube_cod', $video->ID); ?>">
-                        <span class="me-2"><i class="fa-solid fa-video"></i></span>
-                        <span><?php echo get_the_title($video->ID); ?></span>
+                <div class="col-12 col-lg-4 position-relative ps-videos-home--content">
+                    <a href="#" title="<?php echo get_the_title($videos[0]->ID); ?>" class="w-100 ps-videos-home--thumb bg-cover align-items-center justify-content-center" data-thumb-post="https://img.youtube.com/vi/<?php echo $cod; ?>/hqdefault.jpg" data-youtube-code="<?php echo $cod; ?>" data-bs-toggle="modal" data-bs-target="#videoHomeModal">
+                        <span class="play-video-icon">
+                            <i class="fa-regular fa-circle-play"></i>
+                        </span>
                     </a>
-                    <?php $i++; endforeach; ?>
-                </nav>
-            </div>
+                    <a href="<?php echo get_the_permalink($videos[0]->ID); ?>" title="<?php echo get_the_title($videos[0]->ID); ?>" class="btn btn-danger btn-sm ps-videos-home--read">
+                        <i class="fa-regular fa-newspaper"></i> Continuar lendo
+                    </a>
+                </div>
+
+                <div class="col-12 col-lg-4 ps-videos-home--content">
+                    <nav class="nav flex-column ps-videos-home--nav">
+                        <?php $i = 0;
+                        foreach ($videos as $video) : ?>
+                            <a class="nav-link py-4 <?php if ($i == 0) echo 'active'; ?>" title="<?php echo get_the_title($video->ID); ?>" href="<?php echo get_the_permalink($video->ID); ?>" data-youtube-code="<?php echo get_field('ps_youtube_cod', $video->ID); ?>">
+                                <span class="me-2"><i class="fa-solid fa-video"></i></span>
+                                <span><?php echo get_the_title($video->ID); ?></span>
+                            </a>
+                        <?php $i++;
+                        endforeach; ?>
+                    </nav>
+                </div>
             <?php endif; ?>
 
             <div class="col-12 col-lg-4 ps-videos-home--tv active">
-                <?php $tv_sertao  = get_field('ps_tv_sertao', 'option'); if($tv_sertao): ?>
-                <iframe style="width:100%; height:300px;" src="<?php echo $tv_sertao; ?>" scrolling="no" frameborder="0" allowfullscreen></iframe>
-                <?php endif; ?>
+                <div align="center">
+                    <div id="clappr"></div>
+                    <script>
+                        var player = new Clappr.Player({
+                            source: "https://5a2b083e9f360.streamlock.net/tvsertao/tvsertao.sdp/playlist.m3u8",
+                            parentId: "#clappr",
+                            width: "100%",
+                            height: "100%",
+                            autoPlay: 'true',
+                            //gaAccount: 'UA-44332211-1',
+                            //gaTrackerName: 'MyPlayerInstance'
+                        });
+                    </script>
+                </div>
+                <!-- <?php //$tv_sertao  = get_field('ps_tv_sertao', 'option');
+                //if ($tv_sertao) : ?>
+                    <iframe style="width:100%; height:300px;" src="<?php //echo $tv_sertao; ?>" scrolling="no" frameborder="0" allowfullscreen></iframe>
+                <?php //endif; ?> -->
             </div>
 
             <?php
-                $list_programs = get_field('ps_tv_programacao', 'option');
-                if (!empty($list_programs)):
+            $list_programs = get_field('ps_tv_programacao', 'option');
+            if (!empty($list_programs)) :
             ?>
-            <div class="col-12 col-lg-4 ps-videos-home--tv active mb-3">
-                <p class="text-white pb-2">Programação</p>
-                <nav class="w-100 ps-videos-home--programs">
-                    <?php
-                        foreach($list_programs as $program):
-                    ?>
-                    <span class="d-inline-block w-100 my-1">
-                        <strong><?php echo $program['ps_tv_programacao_horario']; ?></strong> - <?php echo $program['ps_tv_programacao_nome']; ?>
-                    </span>
-                    <?php endforeach; ?>
-                </nav>
-            </div>
+                <div class="col-12 col-lg-4 ps-videos-home--tv active mb-3">
+                    <p class="text-white pb-2">Programação</p>
+                    <nav class="w-100 ps-videos-home--programs">
+                        <?php
+                        foreach ($list_programs as $program) :
+                        ?>
+                            <span class="d-inline-block w-100 my-1">
+                                <strong><?php echo $program['ps_tv_programacao_horario']; ?></strong> - <?php echo $program['ps_tv_programacao_nome']; ?>
+                            </span>
+                        <?php endforeach; ?>
+                    </nav>
+                </div>
             <?php endif; ?>
 
             <div class="col-12 col-lg-4 text-center ps-videos-home--radios">
@@ -89,20 +106,20 @@ $videos = get_posts(array(
                 </div>
                 <?php
                 $radios = get_field('ps_radios_select', 'option');
-                if (!empty($radios)):
+                if (!empty($radios)) :
                     sort($radios);
                 ?>
-                <div class="w-100 my-3 ps-videos-home--ronline p-3 rounded">
-                    <h5 class="d-inline-block w-100 text-center fw-bold font-title text-dark">
-                        <i class="fa-solid fa-radio"></i> Rádios Online
-                    </h5>
-                    <select name="radios-online" id="radios-online" class="form-select">
-                        <option value="" selected>Selecione uma rádio</option>
-                        <?php foreach($radios as $radio): ?>
-                        <option value="<?php echo $radio['ps_radios_select_stream']; ?>"><?php echo $radio['ps_radios_select_nome']; ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
+                    <div class="w-100 my-3 ps-videos-home--ronline p-3 rounded">
+                        <h5 class="d-inline-block w-100 text-center fw-bold font-title text-dark">
+                            <i class="fa-solid fa-radio"></i> Rádios Online
+                        </h5>
+                        <select name="radios-online" id="radios-online" class="form-select">
+                            <option value="" selected>Selecione uma rádio</option>
+                            <?php foreach ($radios as $radio) : ?>
+                                <option value="<?php echo $radio['ps_radios_select_stream']; ?>"><?php echo $radio['ps_radios_select_nome']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
                 <?php endif; ?>
             </div>
         </div>

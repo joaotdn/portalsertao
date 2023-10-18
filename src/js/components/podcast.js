@@ -28,13 +28,13 @@
             player.pause();
             $('a', '.ps-audios--nav').each(function() {
                 $(this).removeClass('active');
-            })
+            });
         });
 
-        $('.ps-radios-online--close').on('click', function (e) {
-            e.preventDefault();
-            radioFace.removeClass('active');
-            player.pause();
+        $('.ps-radios-online--close').on('click', function () {
+            $('a', '.ps-audios--nav').each(function() {
+                $(this).removeClass('active');
+            });
         });
     }
     // if ($('.ps-podcast').length) {
